@@ -106,22 +106,19 @@
         //45 - 48 are all 3s
         //49 - 52 are all 2s
         
-        for (NSInteger i = 21; i <= 24; i++) {
-            if (rawCardNameValue == i) {
-                myCardValue = 9;
-            }
-        }
-        for (NSInteger i = 25; i <= 28; i++) {
-            if (rawCardNameValue == i) {
-                myCardValue = 8;
-            }
-        }
-        for (NSInteger i = 29; i <= 32; i++) {
-            if (rawCardNameValue == i) {
-                myCardValue = 7;
-            }
-        }
         
+        int n = 9;
+        NSInteger j = 21;
+        while (n > 0) {
+            for (NSInteger i = j; i <= j+3; i++) {
+                if (rawCardNameValue == i) {
+                    myCardValue = n;
+                    break;
+                }
+            }
+            j = j + 4;
+            n = n - 1;
+        }
     }
     
     [yourCardButton setBackgroundImage:[UIImage imageNamed:myCardNumberString] forState:UIControlStateNormal  ];

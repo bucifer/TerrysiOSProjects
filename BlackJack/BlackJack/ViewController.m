@@ -19,9 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.gameLogicManager = [[GameLogicManager alloc]init];
-    self.gameLogicManager.myViewController = self;
-    
     self.playButton.layer.cornerRadius = 10;
     self.hitButton.layer.cornerRadius = 10;
 
@@ -44,7 +41,8 @@
     self.hitButton.hidden = NO;
     self.stayButton.hidden = NO;
     
-
+    self.gameLogicManager = [[GameLogicManager alloc]init];
+    self.gameLogicManager.myViewController = self;
     
     //Dealer Calculations
     [self.gameLogicManager setImageAndCardValue:self.dealerCardOne];

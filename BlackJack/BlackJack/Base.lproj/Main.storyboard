@@ -144,6 +144,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxM-3j-c9g" userLabel="playerCardThree" customClass="CustomCardButton">
+                                <rect key="frame" x="286" y="468" width="64" height="92"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -154,7 +160,9 @@
                         <outlet property="dealerCardTwo" destination="ral-kY-zzx" id="2Cv-dF-j1c"/>
                         <outlet property="dealerScoreLabel" destination="xfz-oP-Hr3" id="GrV-gF-0zr"/>
                         <outlet property="hitButton" destination="rSC-cz-ESy" id="Vij-AC-Hgh"/>
-                        <outlet property="optionalDealercardThree" destination="31v-cJ-aIK" id="ExK-B5-ebZ"/>
+                        <outlet property="optionalDealerCardFour" destination="157-8p-roe" id="Kcy-AS-BZM"/>
+                        <outlet property="optionalDealerCardThree" destination="31v-cJ-aIK" id="AnI-Ah-R6H"/>
+                        <outlet property="optionalPlayerCardFour" destination="fxM-3j-c9g" id="Dfs-Qj-n6u"/>
                         <outlet property="optionalPlayerCardThree" destination="lDG-Ae-Fyq" id="P3O-J6-yc7"/>
                         <outlet property="playAgainButton" destination="0Ax-lk-MyT" id="PQb-jU-1Lq"/>
                         <outlet property="playButton" destination="OIH-5B-jv8" id="J0g-IZ-Dek"/>

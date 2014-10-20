@@ -82,10 +82,24 @@
 
 - (IBAction)hitButtonPressedAction:(id)sender {
     
-    [self setImageAndCardValue:self.optionalPlayerCardThree];
-    self.playerScore += self.optionalPlayerCardThree.cardValue;
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+    if (self.optionalPlayerCardThree.cardValue == 0) {
+        [self setImageAndCardValue:self.optionalPlayerCardThree];
+        self.playerScore += self.optionalPlayerCardThree.cardValue;
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+        [self runPostHitButtonPlayerCalculations];
+    }
     
+    else {
+        [self setImageAndCardValue:self.optionalPlayerCardFour];
+        self.playerScore += self.optionalPlayerCardFour.cardValue;
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+        [self runPostHitButtonPlayerCalculations];
+
+    }
+    
+}
+
+- (void) runPostHitButtonPlayerCalculations {
     if (self.playerScore == 21) {
         NSLog(@"BLACKJACK!");
         [self postPlayerWinScene];
@@ -100,8 +114,9 @@
     else {
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
     }
-    
+
 }
+
 
 - (void) hidePlayerActionButtons {
     self.hitButton.hidden = YES;
@@ -125,8 +140,8 @@
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             // code to be executed on the main queue after delay
-            [self setImageAndCardValue:self.optionalDealercardThree];
-            self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealercardThree.cardValue;
+            [self setImageAndCardValue:self.optionalDealerCardThree];
+            self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue;
             
             if (self.dealerScore <= 21)
                 self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
@@ -191,12 +206,26 @@
     self.dealerScoreLabel.text = nil;
     
     [self.playerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    self.playerCardOne.cardValue = 0;
+    
     [self.playerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    self.playerCardTwo.cardValue = 0;
+
     [self.optionalPlayerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
-    [self.optionalDealercardThree setBackgroundImage:nil forState:UIControlStateNormal];
+    self.optionalPlayerCardThree.cardValue = nil;
+
+    
+
 
     [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    self.dealerCardOne.cardValue = 0;
+
     [self.dealerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    self.dealerCardTwo.cardValue = 0;
+
+    [self.optionalDealerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
+    self.optionalPlayerCardThree.cardValue = nil;
+    
     
     self.playAgainButton.hidden = YES;
     self.resultsAnnounceLabel.text = nil;

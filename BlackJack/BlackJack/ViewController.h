@@ -39,6 +39,15 @@
 - (IBAction)playButtonPressAction:(id)sender;
 
 
+- (IBAction)dealerCardOnePressed:(id)sender;
+
+- (IBAction)dealerCardTwoPressed:(id)sender;
+
+- (IBAction)dealerCardThreePressed:(id)sender;
+
+- (IBAction)dealerCardFourPressed:(id)sender;
+
+
 
 @end
 

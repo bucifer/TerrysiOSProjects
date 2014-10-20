@@ -11,5 +11,6 @@
 @interface CustomCardButton : UIButton
 
 @property NSInteger cardValue;
+@property NSInteger rawCardName;
 
 @end

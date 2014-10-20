@@ -6,6 +6,8 @@
 *.jpg
 *.gif
 
+*.json
+
 SplitAppTests/
 
 TabApp/Images.xcassets/

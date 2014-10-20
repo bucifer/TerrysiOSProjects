@@ -19,7 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.playButton.layer.cornerRadius = 10;
+    self.dealButton.layer.cornerRadius = 10;
+    self.hitButton.layer.cornerRadius = 10;
 
 }
 
@@ -31,32 +32,60 @@
 
 
 
-- (IBAction)playButtonPressAction:(id)sender {
+- (IBAction)dealButtonPressAction:(id)sender {
     
+    //For one-deck-play-no-duplicates checking
     NSMutableArray *myIntegers = [[NSMutableArray array]init];
-    
     for (NSInteger i = 1; i <= 52; i++) {
         [myIntegers addObject:[NSNumber numberWithInteger:i]];
     }
-    
     self.availableCardsInDeck= myIntegers;
     
     //Dealer Calculations
     [self setImageAndCardValue:self.dealerCardOne];
     [self setImageAndCardValue:self.dealerCardTwo];
-    
     self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue;
     self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
     
     //Player Calculations
     [self setImageAndCardValue:self.playerCardOne];
     [self setImageAndCardValue:self.playerCardTwo];
-
     self.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
     
+    [self startTheGame];
     
+
+}
+
+- (void) startTheGame {
     
+    if (self.playerScore == 21) {
+        NSLog(@"BLACKJACK!");
+    }
+    else if (self.playerScore < 21) {
+        NSLog(@"you can hit if you want to");
+    }
+    
+    if (self.dealerScore < 17) {
+        NSLog(@"Dealer has to hit because his score < 17");
+    }
+    
+}
+
+
+
+- (IBAction)hitButtonPressedAction:(id)sender {
+    [self setImageAndCardValue:self.optionalPlayerCardThree];
+    self.playerScore += self.optionalPlayerCardThree.cardValue;
+
+    if (self.playerScore > 21) {
+        NSLog(@"BUST YOU LOSE");
+        self.playerScoreLabel.text = @"BUST";
+    }
+    else {
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+    }
 
 }
 
@@ -94,6 +123,8 @@
     if (rawCardNameValue <= 20 && rawCardNameValue >= 5) {
         myCardValue = 10;
     }
+    else if (rawCardNameValue >= 1 && rawCardNameValue <= 4)
+        myCardValue = 11;
     else {
         //1 - 4 are all Aces (1 or 11)
         //5 to 20 are K, Q, J and Ts.

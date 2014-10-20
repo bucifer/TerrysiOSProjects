@@ -22,6 +22,9 @@
     self.playButton.layer.cornerRadius = 10;
     self.hitButton.layer.cornerRadius = 10;
 
+    self.hitButton.hidden = YES;
+    self.stayButton.hidden = YES;
+    self.playAgainButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +36,10 @@
 
 
 - (IBAction)playGameButtonPressAction:(id)sender {
+    
+    self.playButton.hidden = YES;
+    self.hitButton.hidden = NO;
+    self.stayButton.hidden = NO;
     
     //For one-deck-play-no-duplicates checking
     NSMutableArray *myIntegers = [[NSMutableArray array]init];
@@ -82,6 +89,7 @@
     if (self.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
         self.playerScoreLabel.text = @"BUST";
+        self.playAgainButton.hidden = NO;
     }
     else {
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
@@ -91,6 +99,26 @@
 
 - (IBAction)stayButtonPressedAction:(id)sender {
 }
+
+- (IBAction)playAgainButton:(id)sender {
+    
+    self.playButton.hidden = NO;
+    
+    self.playerScoreLabel.text = nil;
+    self.dealerScoreLabel.text = nil;
+    
+    [self.playerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    [self.playerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    [self.optionalPlayerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
+
+    [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    [self.dealerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    
+    self.playAgainButton.hidden = YES;
+}
+
+
+
 
 - (IBAction)dealerCardOnePressed:(id)sender {
     CustomCardButton *myCard = (CustomCardButton *) sender;

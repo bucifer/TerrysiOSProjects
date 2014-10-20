@@ -28,11 +28,14 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIButton *hitButton;
+@property (strong, nonatomic) IBOutlet UIButton *stayButton;
+@property (strong, nonatomic) IBOutlet UIButton *playAgainButton;
 
 
 - (IBAction)playGameButtonPressAction:(id)sender;
 - (IBAction)hitButtonPressedAction:(id)sender;
 - (IBAction)stayButtonPressedAction:(id)sender;
+- (IBAction)playAgainButton:(id)sender;
 
 
 - (IBAction)dealerCardOnePressed:(id)sender;

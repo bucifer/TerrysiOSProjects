@@ -18,8 +18,16 @@
 @property (nonatomic) NSInteger playerScore;
 @property (nonatomic) NSInteger dealerScore;
 
+
+
+- (void) checkForPlayerBlackJackElsePlay;
 - (void) runGameResultsCalculation;
+
+
+
 - (NSString *) randomCardNumberStringGeneratorUnique;
 - (void) setImageAndCardValue: (CustomCardButton *) yourCardButton;
+
+
 
 @end

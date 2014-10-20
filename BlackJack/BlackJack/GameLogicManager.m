@@ -25,6 +25,19 @@
     return self;
 }
 
+- (void) checkForPlayerBlackJackElsePlay {
+    if (self.playerScore == 21) {
+        NSLog(@"BLACKJACK! YOU WIN!!");
+        [self.myViewController postPlayerWinScene];
+        self.myViewController.resultsAnnounceLabel.text = @"BLACKJACK!";
+    }
+    else if (self.playerScore < 21) {
+        NSLog(@"you can hit if you want to");
+    }
+}
+
+
+
 - (void) runGameResultsCalculation {
     
     if (self.dealerScore == self.playerScore) {

@@ -56,23 +56,12 @@
     self.gameLogicManager.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
     
-    [self startTheGame];
+    [self.gameLogicManager checkForPlayerBlackJackElsePlay];
     
     [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     self.dealerScoreLabel.hidden = YES;
 }
 
-- (void) startTheGame {
-    if (self.gameLogicManager.playerScore == 21) {
-        NSLog(@"BLACKJACK! YOU WIN!!");
-        [self postPlayerWinScene];
-        self.resultsAnnounceLabel.text = @"BLACKJACK!";
-    }
-    else if (self.gameLogicManager.playerScore < 21) {
-        NSLog(@"you can hit if you want to");
-    }
-    
-}
 
 
 
@@ -80,6 +69,7 @@
     
     if (self.optionalPlayerCardThree.cardValue == 0) {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardThree];
+        [self.optionalPlayerCardThree setTitle:@"" forState:UIControlStateNormal];
         self.gameLogicManager.playerScore += self.optionalPlayerCardThree.cardValue;
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
@@ -87,6 +77,7 @@
     
     else {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardFour];
+        [self.optionalPlayerCardFour setTitle:@"" forState:UIControlStateNormal];
         self.gameLogicManager.playerScore += self.optionalPlayerCardFour.cardValue;
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
@@ -138,7 +129,7 @@
             // code to be executed on the main queue after delay
             [self.gameLogicManager setImageAndCardValue:self.optionalDealerCardThree];
             self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue;
-
+            [self.optionalDealerCardThree setTitle:@"" forState:UIControlStateNormal];
             if (self.gameLogicManager.dealerScore > 21) {
                 self.dealerScoreLabel.text = @"BUST";
                 self.dealerScoreLabel.textColor = [UIColor orangeColor];

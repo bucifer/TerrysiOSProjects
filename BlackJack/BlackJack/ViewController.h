@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dealerScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *playerScoreLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *resultsAnnounceLabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIButton *hitButton;

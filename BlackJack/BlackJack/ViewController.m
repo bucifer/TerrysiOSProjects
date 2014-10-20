@@ -93,8 +93,7 @@
     else if (self.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
         self.playerScoreLabel.text = @"BUST";
-        self.playAgainButton.hidden = NO;
-        [self hidePlayerActionButtons];
+        [self postPlayerLoseScene];
     }
     else {
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
@@ -104,7 +103,6 @@
 - (void) hidePlayerActionButtons {
     self.hitButton.hidden = YES;
     self.stayButton.hidden = YES;
-    
 }
 
 
@@ -112,7 +110,6 @@
 
     //dealer doesn't get to hit
     if (self.dealerScore >= 17) {
-        
         //we run results logic
         [self runGameResultsCalculation];
         
@@ -129,16 +126,37 @@
 
 - (void) runGameResultsCalculation {
     
-    if (self.dealerScore > 21)
+    if (self.dealerScore > 21) {
         NSLog(@"DEALER BUST - Player WINS!");
-    else if (self.dealerScore <= 21 && self.dealerScore == self.playerScore)
+        [self postPlayerWinScene];
+    }
+    else if (self.dealerScore <= 21 && self.dealerScore == self.playerScore) {
         NSLog(@"PUSH");
-    else if (self.dealerScore > self.playerScore)
+        [self hidePlayerActionButtons];
+        self.playAgainButton.hidden = NO;
+    }
+    else if (self.dealerScore > self.playerScore) {
         NSLog(@"Player loses!");
+        [self postPlayerLoseScene];
+    }
     else {
         NSLog(@"Player Wins!");
+        [self postPlayerWinScene];
     }
-    
+}
+
+- (void) postPlayerWinScene {
+    [self hidePlayerActionButtons];
+    self.playAgainButton.hidden = NO;
+    self.resultsAnnounceLabel.text = @"YOU WIN!";
+    self.resultsAnnounceLabel.textColor = [UIColor greenColor];
+}
+
+- (void) postPlayerLoseScene {
+    [self hidePlayerActionButtons];
+    self.playAgainButton.hidden = NO;
+    self.resultsAnnounceLabel.text = @"YOU LOSE";
+    self.resultsAnnounceLabel.textColor = [UIColor redColor];
 }
 
 
@@ -152,11 +170,13 @@
     [self.playerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     [self.playerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     [self.optionalPlayerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.optionalDealercardThree setBackgroundImage:nil forState:UIControlStateNormal];
 
     [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     [self.dealerCardTwo setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     
     self.playAgainButton.hidden = YES;
+    self.resultsAnnounceLabel.text = nil;
 }
 
 

@@ -13,11 +13,13 @@
 @interface GameLogicManager : NSObject
 
 @property (strong, nonatomic) ViewController* myViewController;
+@property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
 
 @property (nonatomic) NSInteger playerScore;
 @property (nonatomic) NSInteger dealerScore;
 
 - (void) runGameResultsCalculation;
-
+- (NSString *) randomCardNumberStringGeneratorUnique;
+- (void) setImageAndCardValue: (CustomCardButton *) yourCardButton;
 
 @end

@@ -17,7 +17,6 @@
 
 @property (nonatomic) GameLogicManager *gameLogicManager;
 
-@property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
 
 @property (strong, nonatomic) IBOutlet CustomCardButton *dealerCardOne;
 @property (strong, nonatomic) IBOutlet CustomCardButton *dealerCardTwo;

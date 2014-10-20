@@ -81,6 +81,7 @@
 
 
 - (IBAction)hitButtonPressedAction:(id)sender {
+    
     [self setImageAndCardValue:self.optionalPlayerCardThree];
     self.playerScore += self.optionalPlayerCardThree.cardValue;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
@@ -99,6 +100,7 @@
     else {
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
     }
+    
 }
 
 - (void) hidePlayerActionButtons {

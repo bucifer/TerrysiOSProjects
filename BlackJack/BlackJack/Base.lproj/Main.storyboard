@@ -29,19 +29,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIH-5B-jv8">
-                                <rect key="frame" x="115" y="268" width="90" height="31"/>
+                                <rect key="frame" x="115" y="225" width="90" height="31"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Play Game">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dealButtonPressAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5EI-HW-PDd"/>
+                                    <action selector="playGameButtonPressAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aYS-Rb-lrx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-oP-Hr3">
-                                <rect key="frame" x="145" y="136" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-oP-Hr3">
+                                <rect key="frame" x="127" y="136" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,14 +81,8 @@
                                     <action selector="dealerCardTwoPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yd2-eX-Oeg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dx-Fs-6zb">
-                                <rect key="frame" x="179" y="394" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSC-cz-ESy">
-                                <rect key="frame" x="124" y="315" width="72" height="31"/>
+                                <rect key="frame" x="124" y="272" width="72" height="31"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Hit">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,22 +99,39 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31v-cJ-aIK" customClass="CustomCardButton">
-                                <rect key="frame" x="247" y="46" width="46" height="30"/>
+                                <rect key="frame" x="247" y="46" width="49" height="30"/>
                                 <state key="normal" title="Option">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-vC-xLl">
+                                <rect key="frame" x="124" y="312" width="72" height="31"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Stay">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stayButtonPressedAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EL0-3K-7uu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dx-Fs-6zb">
+                                <rect key="frame" x="124" y="418" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="dealButton" destination="OIH-5B-jv8" id="5x2-gS-nJo"/>
                         <outlet property="dealerCardOne" destination="P1q-K6-xcg" id="Hp9-2A-yjm"/>
                         <outlet property="dealerCardTwo" destination="ral-kY-zzx" id="2Cv-dF-j1c"/>
                         <outlet property="dealerScoreLabel" destination="xfz-oP-Hr3" id="GrV-gF-0zr"/>
                         <outlet property="hitButton" destination="rSC-cz-ESy" id="Vij-AC-Hgh"/>
                         <outlet property="optionalDealercardThree" destination="31v-cJ-aIK" id="ExK-B5-ebZ"/>
                         <outlet property="optionalPlayerCardThree" destination="lDG-Ae-Fyq" id="P3O-J6-yc7"/>
+                        <outlet property="playButton" destination="OIH-5B-jv8" id="J0g-IZ-Dek"/>
                         <outlet property="playerCardOne" destination="gc9-TN-KzX" id="4MG-mI-YtJ"/>
                         <outlet property="playerCardTwo" destination="8ib-NA-iVf" id="JZG-4M-6jG"/>
                         <outlet property="playerScoreLabel" destination="1dx-Fs-6zb" id="VSQ-jK-dVV"/>

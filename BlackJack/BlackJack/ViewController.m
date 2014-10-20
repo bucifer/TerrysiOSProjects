@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.dealButton.layer.cornerRadius = 10;
+    self.playButton.layer.cornerRadius = 10;
     self.hitButton.layer.cornerRadius = 10;
 
 }
@@ -32,7 +32,7 @@
 
 
 
-- (IBAction)dealButtonPressAction:(id)sender {
+- (IBAction)playGameButtonPressAction:(id)sender {
     
     //For one-deck-play-no-duplicates checking
     NSMutableArray *myIntegers = [[NSMutableArray array]init];
@@ -87,6 +87,9 @@
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
     }
 
+}
+
+- (IBAction)stayButtonPressedAction:(id)sender {
 }
 
 - (IBAction)dealerCardOnePressed:(id)sender {

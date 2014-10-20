@@ -26,12 +26,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *playerScoreLabel;
 
 
-@property (strong, nonatomic) IBOutlet UIButton *dealButton;
+@property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIButton *hitButton;
 
 
-- (IBAction)dealButtonPressAction:(id)sender;
+- (IBAction)playGameButtonPressAction:(id)sender;
 - (IBAction)hitButtonPressedAction:(id)sender;
+- (IBAction)stayButtonPressedAction:(id)sender;
 
 
 - (IBAction)dealerCardOnePressed:(id)sender;

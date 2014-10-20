@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomCardButton.h"
+#import "GameLogicManager.h"
 
 @interface ViewController : UIViewController
 
+
+@property (strong, nonatomic) GameLogicManager *gameLogicManager;
 
 @property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
 

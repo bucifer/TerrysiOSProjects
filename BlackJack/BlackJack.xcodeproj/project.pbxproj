@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAAA183D19F5BFA000189FAB /* GameLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAA183C19F5BFA000189FAB /* GameLogicManager.m */; };
 		AAB9C2DC19F19C7000F4341F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DB19F19C7000F4341F /* main.m */; };
 		AAB9C2DF19F19C7000F4341F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DE19F19C7000F4341F /* AppDelegate.m */; };
 		AAB9C2E219F19C7000F4341F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2E119F19C7000F4341F /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAAA183B19F5BFA000189FAB /* GameLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogicManager.h; sourceTree = "<group>"; };
+		AAAA183C19F5BFA000189FAB /* GameLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogicManager.m; sourceTree = "<group>"; };
 		AAB9C2D619F19C7000F4341F /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C2DA19F19C7000F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C2DB19F19C7000F4341F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,9 +91,11 @@
 				AAB9C2DE19F19C7000F4341F /* AppDelegate.m */,
 				AAB9C2E019F19C7000F4341F /* ViewController.h */,
 				AAB9C2E119F19C7000F4341F /* ViewController.m */,
-				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
+				AAAA183B19F5BFA000189FAB /* GameLogicManager.h */,
+				AAAA183C19F5BFA000189FAB /* GameLogicManager.m */,
 				AAB9C30B19F1E1EB00F4341F /* CustomCardButton.h */,
 				AAB9C30C19F1E1EB00F4341F /* CustomCardButton.m */,
+				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
 				AAB9C2E619F19C7000F4341F /* Images.xcassets */,
 				AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */,
 				AAB9C2D919F19C7000F4341F /* Supporting Files */,
@@ -228,6 +233,7 @@
 				AAB9C2DF19F19C7000F4341F /* AppDelegate.m in Sources */,
 				AAB9C30D19F1E1EB00F4341F /* CustomCardButton.m in Sources */,
 				AAB9C2DC19F19C7000F4341F /* main.m in Sources */,
+				AAAA183D19F5BFA000189FAB /* GameLogicManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

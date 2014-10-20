@@ -62,20 +62,16 @@
     
     [self startTheGame];
     
-
+    [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    self.dealerScoreLabel.hidden = YES;
 }
 
 - (void) startTheGame {
-    
     if (self.playerScore == 21) {
         NSLog(@"BLACKJACK!");
     }
     else if (self.playerScore < 21) {
         NSLog(@"you can hit if you want to");
-    }
-    
-    if (self.dealerScore < 17) {
-        NSLog(@"Dealer has to hit because his score < 17");
     }
     
 }
@@ -108,6 +104,9 @@
 
 - (IBAction)stayButtonPressedAction:(id)sender {
 
+    self.dealerScoreLabel.hidden = NO;
+    [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld", self.dealerCardOne.rawCardName]] forState:UIControlStateNormal];
+    
     //dealer doesn't get to hit
     if (self.dealerScore >= 17) {
         //we run results logic
@@ -132,8 +131,7 @@
     }
     else if (self.dealerScore <= 21 && self.dealerScore == self.playerScore) {
         NSLog(@"PUSH");
-        [self hidePlayerActionButtons];
-        self.playAgainButton.hidden = NO;
+        [self postTieResultScene];
     }
     else if (self.dealerScore > self.playerScore) {
         NSLog(@"Player loses!");
@@ -143,6 +141,13 @@
         NSLog(@"Player Wins!");
         [self postPlayerWinScene];
     }
+}
+
+- (void) postTieResultScene {
+    [self hidePlayerActionButtons];
+    self.playAgainButton.hidden = NO;
+    self.resultsAnnounceLabel.text = @"PUSH";
+    self.resultsAnnounceLabel.textColor = [UIColor whiteColor];
 }
 
 - (void) postPlayerWinScene {

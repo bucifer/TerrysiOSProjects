@@ -70,6 +70,7 @@
     if (self.playerScore == 21) {
         NSLog(@"BLACKJACK! YOU WIN!!");
         [self postPlayerWinScene];
+        self.resultsAnnounceLabel.text = @"BLACKJACK!";
     }
     else if (self.playerScore < 21) {
         NSLog(@"you can hit if you want to");
@@ -86,6 +87,8 @@
     
     if (self.playerScore == 21) {
         NSLog(@"BLACKJACK!");
+        [self postPlayerWinScene];
+        self.resultsAnnounceLabel.text = @"BLACKJACK!";
     }
     else if (self.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
@@ -195,6 +198,11 @@
     
     self.playAgainButton.hidden = YES;
     self.resultsAnnounceLabel.text = nil;
+    
+    //colors reset
+    self.playerScoreLabel.textColor = [UIColor whiteColor];
+    self.dealerScoreLabel.textColor = [UIColor whiteColor];
+
 }
 
 

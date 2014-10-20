@@ -142,20 +142,34 @@
             // code to be executed on the main queue after delay
             [self setImageAndCardValue:self.optionalDealerCardThree];
             self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue;
-            
-            if (self.dealerScore <= 21)
-                self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
-            else {
+
+            if (self.dealerScore > 21) {
                 self.dealerScoreLabel.text = @"BUST";
                 self.dealerScoreLabel.textColor = [UIColor orangeColor];
+                [self runGameResultsCalculation];
             }
-            
-            [self runGameResultsCalculation];
+            else {
+                self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+                //if dealer score is less than 17, we need fourth card logic
+                if (self.dealerScore < 17) {
+                    //we ask for 4th card
+                    [self setImageAndCardValue:self.optionalDealerCardFour];
+                    self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue + self.optionalDealerCardFour.cardValue;
+                    if (self.dealerScore <= 21) {
+                        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+                    }
+                    else {
+                        self.dealerScoreLabel.text = @"BUST";
+                        self.dealerScoreLabel.textColor = [UIColor orangeColor];
+                    }
+                }
+                [self runGameResultsCalculation];
+            }
         });
     }
-    
 }
-
+                       
+                       
 - (void) runGameResultsCalculation {
     
     if (self.dealerScore == self.playerScore) {
@@ -213,10 +227,10 @@
 
     [self.optionalPlayerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
     self.optionalPlayerCardThree.cardValue = nil;
+    [self.optionalPlayerCardFour setBackgroundImage:nil forState:UIControlStateNormal];
+    self.optionalPlayerCardFour.cardValue = nil;
 
     
-
-
     [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     self.dealerCardOne.cardValue = 0;
 
@@ -224,7 +238,8 @@
     self.dealerCardTwo.cardValue = 0;
 
     [self.optionalDealerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
-    self.optionalPlayerCardThree.cardValue = nil;
+    [self.optionalDealerCardFour setBackgroundImage:nil forState:UIControlStateNormal];
+
     
     
     self.playAgainButton.hidden = YES;

@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.gameLogicManager = [[GameLogicManager alloc]init];
+    
     self.playButton.layer.cornerRadius = 10;
     self.hitButton.layer.cornerRadius = 10;
 
@@ -51,14 +53,14 @@
     //Dealer Calculations
     [self setImageAndCardValue:self.dealerCardOne];
     [self setImageAndCardValue:self.dealerCardTwo];
-    self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue;
-    self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+    self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue;
+    self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
     
     //Player Calculations
     [self setImageAndCardValue:self.playerCardOne];
     [self setImageAndCardValue:self.playerCardTwo];
-    self.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue;
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+    self.gameLogicManager.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue;
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
     
     [self startTheGame];
     
@@ -67,12 +69,12 @@
 }
 
 - (void) startTheGame {
-    if (self.playerScore == 21) {
+    if (self.gameLogicManager.playerScore == 21) {
         NSLog(@"BLACKJACK! YOU WIN!!");
         [self postPlayerWinScene];
         self.resultsAnnounceLabel.text = @"BLACKJACK!";
     }
-    else if (self.playerScore < 21) {
+    else if (self.gameLogicManager.playerScore < 21) {
         NSLog(@"you can hit if you want to");
     }
     
@@ -84,15 +86,15 @@
     
     if (self.optionalPlayerCardThree.cardValue == 0) {
         [self setImageAndCardValue:self.optionalPlayerCardThree];
-        self.playerScore += self.optionalPlayerCardThree.cardValue;
-        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+        self.gameLogicManager.playerScore += self.optionalPlayerCardThree.cardValue;
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
     }
     
     else {
         [self setImageAndCardValue:self.optionalPlayerCardFour];
-        self.playerScore += self.optionalPlayerCardFour.cardValue;
-        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+        self.gameLogicManager.playerScore += self.optionalPlayerCardFour.cardValue;
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
 
     }
@@ -100,19 +102,19 @@
 }
 
 - (void) runPostHitButtonPlayerCalculations {
-    if (self.playerScore == 21) {
+    if (self.gameLogicManager.playerScore == 21) {
         NSLog(@"BLACKJACK!");
         [self postPlayerWinScene];
         self.resultsAnnounceLabel.text = @"BLACKJACK!";
     }
-    else if (self.playerScore > 21) {
+    else if (self.gameLogicManager.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
         self.playerScoreLabel.text = @"BUST";
         self.playerScoreLabel.textColor = [UIColor orangeColor];
         [self postPlayerLoseScene];
     }
     else {
-        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
+        self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
     }
 
 }
@@ -130,9 +132,9 @@
     [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld", self.dealerCardOne.rawCardName]] forState:UIControlStateNormal];
     
     //dealer doesn't get to hit
-    if (self.dealerScore >= 17) {
+    if (self.gameLogicManager.dealerScore >= 17) {
         //we run results logic
-        [self runGameResultsCalculation];
+        [self.gameLogicManager runGameResultsCalculation];
     }
     else {
         NSLog(@"Dealer has to hit");
@@ -141,54 +143,34 @@
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             // code to be executed on the main queue after delay
             [self setImageAndCardValue:self.optionalDealerCardThree];
-            self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue;
+            self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue;
 
-            if (self.dealerScore > 21) {
+            if (self.gameLogicManager.dealerScore > 21) {
                 self.dealerScoreLabel.text = @"BUST";
                 self.dealerScoreLabel.textColor = [UIColor orangeColor];
-                [self runGameResultsCalculation];
+                [self.gameLogicManager runGameResultsCalculation];
             }
             else {
-                self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+                self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
                 //if dealer score is less than 17, we need fourth card logic
-                if (self.dealerScore < 17) {
+                if (self.gameLogicManager.dealerScore < 17) {
                     //we ask for 4th card
                     [self setImageAndCardValue:self.optionalDealerCardFour];
-                    self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue + self.optionalDealerCardFour.cardValue;
-                    if (self.dealerScore <= 21) {
-                        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+                    self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue + self.optionalDealerCardFour.cardValue;
+                    if (self.gameLogicManager.dealerScore <= 21) {
+                        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
                     }
                     else {
                         self.dealerScoreLabel.text = @"BUST";
                         self.dealerScoreLabel.textColor = [UIColor orangeColor];
                     }
                 }
-                [self runGameResultsCalculation];
+                [self.gameLogicManager runGameResultsCalculation];
             }
         });
     }
 }
-                       
-                       
-- (void) runGameResultsCalculation {
-    
-    if (self.dealerScore == self.playerScore) {
-        NSLog(@"PUSH");
-        [self postTieResultScene];
-    }
-    else if (self.dealerScore > 21) {
-        NSLog(@"DEALER BUST - Player WINS!");
-        [self postPlayerWinScene];
-    }
-    else if (self.dealerScore > self.playerScore) {
-        NSLog(@"Player loses!");
-        [self postPlayerLoseScene];
-    }
-    else {
-        NSLog(@"Player Wins!");
-        [self postPlayerWinScene];
-    }
-}
+
 
 - (void) postTieResultScene {
     [self hidePlayerActionButtons];
@@ -240,8 +222,6 @@
     [self.optionalDealerCardThree setBackgroundImage:nil forState:UIControlStateNormal];
     [self.optionalDealerCardFour setBackgroundImage:nil forState:UIControlStateNormal];
 
-    
-    
     self.playAgainButton.hidden = YES;
     self.resultsAnnounceLabel.text = nil;
     

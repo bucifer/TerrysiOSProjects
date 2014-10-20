@@ -13,21 +13,21 @@
 
 - (void) runGameResultsCalculation {
     
-    if (self.myViewController.dealerScore == self.myViewController.playerScore) {
+    if (self.dealerScore == self.playerScore) {
         NSLog(@"PUSH");
-        [self postTieResultScene];
+        [self.myViewController postTieResultScene];
     }
     else if (self.dealerScore > 21) {
         NSLog(@"DEALER BUST - Player WINS!");
-        [self postPlayerWinScene];
+        [self.myViewController postPlayerWinScene];
     }
     else if (self.dealerScore > self.playerScore) {
         NSLog(@"Player loses!");
-        [self postPlayerLoseScene];
+        [self.myViewController postPlayerLoseScene];
     }
     else {
         NSLog(@"Player Wins!");
-        [self postPlayerWinScene];
+        [self.myViewController postPlayerWinScene];
     }
     
     

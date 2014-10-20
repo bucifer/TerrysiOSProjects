@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
 
+@class ViewController;
 @interface GameLogicManager : NSObject
 
 @property (strong, nonatomic) ViewController* myViewController;
 
+@property (nonatomic) NSInteger playerScore;
+@property (nonatomic) NSInteger dealerScore;
 
 - (void) runGameResultsCalculation;
 

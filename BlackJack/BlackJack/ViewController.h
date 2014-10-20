@@ -10,10 +10,12 @@
 #import "CustomCardButton.h"
 #import "GameLogicManager.h"
 
+@class GameLogicManager;
+
 @interface ViewController : UIViewController
 
 
-@property (strong, nonatomic) GameLogicManager *gameLogicManager;
+@property (nonatomic) GameLogicManager *gameLogicManager;
 
 @property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
 
@@ -23,8 +25,6 @@
 @property (strong, nonatomic) IBOutlet CustomCardButton *playerCardTwo;
 
 
-@property (nonatomic) NSInteger playerScore;
-@property (nonatomic) NSInteger dealerScore;
 @property (strong, nonatomic) IBOutlet UILabel *dealerScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *playerScoreLabel;
 
@@ -53,6 +53,11 @@
 
 @property (strong, nonatomic) IBOutlet CustomCardButton *optionalDealerCardThree;
 @property (strong, nonatomic) IBOutlet CustomCardButton *optionalDealerCardFour;
+
+
+- (void) postTieResultScene;
+- (void) postPlayerWinScene;
+- (void) postPlayerLoseScene;
 
 
 @end

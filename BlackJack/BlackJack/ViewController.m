@@ -68,7 +68,8 @@
 
 - (void) startTheGame {
     if (self.playerScore == 21) {
-        NSLog(@"BLACKJACK!");
+        NSLog(@"BLACKJACK! YOU WIN!!");
+        [self postPlayerWinScene];
     }
     else if (self.playerScore < 21) {
         NSLog(@"you can hit if you want to");
@@ -89,6 +90,7 @@
     else if (self.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
         self.playerScoreLabel.text = @"BUST";
+        self.playerScoreLabel.textColor = [UIColor orangeColor];
         [self postPlayerLoseScene];
     }
     else {
@@ -111,27 +113,38 @@
     if (self.dealerScore >= 17) {
         //we run results logic
         [self runGameResultsCalculation];
-        
     }
     else {
         NSLog(@"Dealer has to hit");
-        [self setImageAndCardValue:self.optionalDealercardThree];
-        self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealercardThree.cardValue;
-        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
-        [self runGameResultsCalculation];
+        double delayInSeconds = 0.75;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            // code to be executed on the main queue after delay
+            [self setImageAndCardValue:self.optionalDealercardThree];
+            self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealercardThree.cardValue;
+            
+            if (self.dealerScore <= 21)
+                self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+            else {
+                self.dealerScoreLabel.text = @"BUST";
+                self.dealerScoreLabel.textColor = [UIColor orangeColor];
+            }
+            
+            [self runGameResultsCalculation];
+        });
     }
     
 }
 
 - (void) runGameResultsCalculation {
     
-    if (self.dealerScore > 21) {
-        NSLog(@"DEALER BUST - Player WINS!");
-        [self postPlayerWinScene];
-    }
-    else if (self.dealerScore <= 21 && self.dealerScore == self.playerScore) {
+    if (self.dealerScore == self.playerScore) {
         NSLog(@"PUSH");
         [self postTieResultScene];
+    }
+    else if (self.dealerScore > 21) {
+        NSLog(@"DEALER BUST - Player WINS!");
+        [self postPlayerWinScene];
     }
     else if (self.dealerScore > self.playerScore) {
         NSLog(@"Player loses!");

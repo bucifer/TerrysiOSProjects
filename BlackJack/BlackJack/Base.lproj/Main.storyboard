@@ -99,7 +99,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31v-cJ-aIK" customClass="CustomCardButton">
-                                <rect key="frame" x="265" y="58" width="49" height="30"/>
+                                <rect key="frame" x="265" y="32" width="64" height="92"/>
                                 <state key="normal" title="Option">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

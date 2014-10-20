@@ -85,20 +85,62 @@
 - (IBAction)hitButtonPressedAction:(id)sender {
     [self setImageAndCardValue:self.optionalPlayerCardThree];
     self.playerScore += self.optionalPlayerCardThree.cardValue;
-
-    if (self.playerScore > 21) {
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+    
+    if (self.playerScore == 21) {
+        NSLog(@"BLACKJACK!");
+    }
+    else if (self.playerScore > 21) {
         NSLog(@"BUST YOU LOSE");
         self.playerScoreLabel.text = @"BUST";
         self.playAgainButton.hidden = NO;
+        [self hidePlayerActionButtons];
     }
     else {
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.playerScore];
     }
-
 }
+
+- (void) hidePlayerActionButtons {
+    self.hitButton.hidden = YES;
+    self.stayButton.hidden = YES;
+    
+}
+
 
 - (IBAction)stayButtonPressedAction:(id)sender {
+
+    //dealer doesn't get to hit
+    if (self.dealerScore >= 17) {
+        
+        //we run results logic
+        [self runGameResultsCalculation];
+        
+    }
+    else {
+        NSLog(@"Dealer has to hit");
+        [self setImageAndCardValue:self.optionalDealercardThree];
+        self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealercardThree.cardValue;
+        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.dealerScore];
+        [self runGameResultsCalculation];
+    }
+    
 }
+
+- (void) runGameResultsCalculation {
+    
+    if (self.dealerScore > 21)
+        NSLog(@"DEALER BUST - Player WINS!");
+    else if (self.dealerScore <= 21 && self.dealerScore == self.playerScore)
+        NSLog(@"PUSH");
+    else if (self.dealerScore > self.playerScore)
+        NSLog(@"Player loses!");
+    else {
+        NSLog(@"Player Wins!");
+    }
+    
+}
+
 
 - (IBAction)playAgainButton:(id)sender {
     

@@ -45,8 +45,6 @@
 
 
 @property (strong, nonatomic) IBOutlet CustomCardButton *optionalPlayerCardThree;
-
-
 @property (strong, nonatomic) IBOutlet CustomCardButton *optionalDealercardThree;
 
 

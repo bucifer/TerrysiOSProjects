@@ -72,8 +72,7 @@
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardThree];
         [self.optionalPlayerCardThree setTitle:@"" forState:UIControlStateNormal];
         [self.gameLogicManager recalculatePlayerScore];
-        
-        [self.gameLogicManager runThisIfPlayerHappensToHaveAnAce];
+        [self.gameLogicManager aceCheckerFirstCardtoThirdCard];
         
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
@@ -84,7 +83,9 @@
     else {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardFour];
         [self.optionalPlayerCardFour setTitle:@"" forState:UIControlStateNormal];
-        self.gameLogicManager.playerScore += self.optionalPlayerCardFour.cardValue;
+        [self.gameLogicManager recalculatePlayerScore];
+        [self.gameLogicManager aceCheckerFourthCard];
+
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
 

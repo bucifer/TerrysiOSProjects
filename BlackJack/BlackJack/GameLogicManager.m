@@ -120,7 +120,6 @@
             n = n - 1;
         }
     }
-    
     [yourCardButton setBackgroundImage:[UIImage imageNamed:myCardNumberString] forState:UIControlStateNormal  ];
     yourCardButton.cardValue = myCardValue;
     yourCardButton.rawCardName = rawCardNameValue;
@@ -128,10 +127,15 @@
 
 
 - (void) recalculatePlayerScore {
-    self.playerScore = self.myViewController.playerCardOne.cardValue + self.myViewController.playerCardTwo.cardValue + self.myViewController.optionalPlayerCardThree.cardValue;
+    if (self.myViewController.optionalPlayerCardThree != 0 && self.myViewController.optionalPlayerCardFour == 0) {
+        self.playerScore = self.myViewController.playerCardOne.cardValue + self.myViewController.playerCardTwo.cardValue + self.myViewController.optionalPlayerCardThree.cardValue;
+    }
+    else {
+        self.playerScore = self.myViewController.playerCardOne.cardValue + self.myViewController.playerCardTwo.cardValue + self.myViewController.optionalPlayerCardThree.cardValue + self.myViewController.optionalPlayerCardFour.cardValue;
+    }
 }
 
-- (void) runThisIfPlayerHappensToHaveAnAce {
+- (void) aceCheckerFirstCardtoThirdCard {
     if (self.playerScore > 21) {
         //if the playerscore is a bust, BUT there is an Ace in one of these 3 cards, it counts as a 1 instead of 11
         //and the playerscore gets calculated to reflect that
@@ -149,9 +153,20 @@
             [self recalculatePlayerScore];
         }
     }
-
 }
 
+- (void) aceCheckerFourthCard {
+    if (self.playerScore > 21) {
+        //if the playerscore is a bust, BUT there is an Ace in one of these 3 cards, it counts as a 1 instead of 11
+        //and the playerscore gets calculated to reflect that
+        
+        //loop through all the cards and check which one is an ace, and turn its cardvalue to 1
+        if (self.myViewController.optionalPlayerCardFour.cardValue == 11) {
+            self.myViewController.optionalPlayerCardFour.cardValue = 1;
+            [self recalculatePlayerScore];
+        }
+    }
+}
 
 
 @end

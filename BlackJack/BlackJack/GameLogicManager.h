@@ -23,7 +23,8 @@
 - (void) checkForPlayerBlackJackElsePlay;
 - (void) runGameResultsCalculation;
 - (void) recalculatePlayerScore;
-- (void) runThisIfPlayerHappensToHaveAnAce;
+- (void) aceCheckerFirstCardtoThirdCard;
+- (void) aceCheckerFourthCard;
 
 
 - (NSString *) randomCardNumberStringGeneratorUnique;

@@ -67,13 +67,36 @@
 
 - (IBAction)hitButtonPressedAction:(id)sender {
     
+    //if the third cardvalue was never initialized, that means thirdcard never got flipped so instantiate a 3rd card
     if (self.optionalPlayerCardThree.cardValue == 0) {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardThree];
         [self.optionalPlayerCardThree setTitle:@"" forState:UIControlStateNormal];
-        self.gameLogicManager.playerScore += self.optionalPlayerCardThree.cardValue;
+        [self recalculatePlayerScore];
+        
+        if (self.gameLogicManager.playerScore > 21) {
+            //if the playerscore is a bust, BUT there is an Ace in one of these 3 cards, it counts as a 1 instead of 11
+            //and the playerscore gets calculated to reflect that
+            
+            //loop through all the cards and check which one is an ace, and turn its cardvalue to 1
+            if (self.playerCardOne.cardValue == 11 || self.playerCardTwo.cardValue == 11 || self.optionalPlayerCardThree.cardValue == 11) {
+                NSArray *myCardsArray = @[self.playerCardOne, self.playerCardTwo, self.optionalPlayerCardThree];
+                for (int i = 0; i < myCardsArray.count; i++) {
+                    CustomCardButton *mySelectedCard = myCardsArray[i];
+                    if (mySelectedCard.cardValue == 11) {
+                        mySelectedCard.cardValue = 1;
+                        NSLog(@"Found an ace at a > 21 situation so lowered it down to 1 instead of 11!");
+                    }
+                }
+                [self recalculatePlayerScore];
+            }
+        }
+        
+        
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
     }
+    
+    //if 3rd is already there, that means we want a 4th card
     
     else {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardFour];
@@ -83,8 +106,12 @@
         [self runPostHitButtonPlayerCalculations];
 
     }
-    
 }
+
+- (void) recalculatePlayerScore {
+    self.gameLogicManager.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue + self.optionalPlayerCardThree.cardValue;
+}
+
 
 - (void) runPostHitButtonPlayerCalculations {
     if (self.gameLogicManager.playerScore == 21) {

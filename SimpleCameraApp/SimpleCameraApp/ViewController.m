@@ -25,5 +25,22 @@
 }
 
 - (IBAction)cameraToolbarButtonPressedAction:(id)sender {
+
+    UIImagePickerController *myImagePickerController = [[UIImagePickerController alloc]init];
+    
+    if( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ){
+        
+        [myImagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else {
+        NSLog(@"camera not available");
+    }
+    myImagePickerController.delegate = self;
+
+    [self presentViewController:myImagePickerController animated:YES completion:NULL];
+
 }
+
+
+
 @end

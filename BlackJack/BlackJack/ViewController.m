@@ -164,20 +164,29 @@
             }
             else {
                 self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
-                //if dealer score is less than 17, we need fourth card logic
+                
+                //we check if dealer score is less than 17, we need to run fourth card .. but with same delay
                 if (self.gameLogicManager.dealerScore < 17) {
-                    //we ask for 4th card
-                    [self.gameLogicManager setImageAndCardValue:self.optionalDealerCardFour];
-                    self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue + self.optionalDealerCardFour.cardValue;
-                    if (self.gameLogicManager.dealerScore <= 21) {
-                        self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
-                    }
-                    else {
-                        self.dealerScoreLabel.text = @"BUST";
-                        self.dealerScoreLabel.textColor = [UIColor orangeColor];
-                    }
+                    //we ask for 4th card ... but with a delay!
+                    double delayInSeconds = 0.75;
+                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                        [self.gameLogicManager setImageAndCardValue:self.optionalDealerCardFour];
+                        self.gameLogicManager.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue + self.optionalDealerCardThree.cardValue + self.optionalDealerCardFour.cardValue;
+                        if (self.gameLogicManager.dealerScore <= 21) {
+                            self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.dealerScore];
+                            [self.gameLogicManager runGameResultsCalculation];
+                        }
+                        else {
+                            self.dealerScoreLabel.text = @"BUST";
+                            self.dealerScoreLabel.textColor = [UIColor orangeColor];
+                            [self.gameLogicManager runGameResultsCalculation];
+                        }
+                    });
                 }
-                [self.gameLogicManager runGameResultsCalculation];
+                else {
+                    [self.gameLogicManager runGameResultsCalculation];
+                }
             }
         });
     }

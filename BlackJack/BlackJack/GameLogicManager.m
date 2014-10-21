@@ -127,6 +127,31 @@
 }
 
 
+- (void) recalculatePlayerScore {
+    self.playerScore = self.myViewController.playerCardOne.cardValue + self.myViewController.playerCardTwo.cardValue + self.myViewController.optionalPlayerCardThree.cardValue;
+}
+
+- (void) runThisIfPlayerHappensToHaveAnAce {
+    if (self.playerScore > 21) {
+        //if the playerscore is a bust, BUT there is an Ace in one of these 3 cards, it counts as a 1 instead of 11
+        //and the playerscore gets calculated to reflect that
+        
+        //loop through all the cards and check which one is an ace, and turn its cardvalue to 1
+        if (self.myViewController.playerCardOne.cardValue == 11 || self.myViewController.playerCardTwo.cardValue == 11 || self.myViewController.optionalPlayerCardThree.cardValue == 11) {
+            NSArray *myCardsArray = @[self.myViewController.playerCardOne, self.myViewController.playerCardTwo, self.myViewController.optionalPlayerCardThree];
+            for (int i = 0; i < myCardsArray.count; i++) {
+                CustomCardButton *mySelectedCard = myCardsArray[i];
+                if (mySelectedCard.cardValue == 11) {
+                    mySelectedCard.cardValue = 1;
+                    NSLog(@"Found an ace at a > 21 situation so lowered it down to 1 instead of 11!");
+                }
+            }
+            [self recalculatePlayerScore];
+        }
+    }
+
+}
+
 
 
 @end

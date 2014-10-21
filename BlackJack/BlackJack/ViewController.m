@@ -71,26 +71,9 @@
     if (self.optionalPlayerCardThree.cardValue == 0) {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardThree];
         [self.optionalPlayerCardThree setTitle:@"" forState:UIControlStateNormal];
-        [self recalculatePlayerScore];
+        [self.gameLogicManager recalculatePlayerScore];
         
-        if (self.gameLogicManager.playerScore > 21) {
-            //if the playerscore is a bust, BUT there is an Ace in one of these 3 cards, it counts as a 1 instead of 11
-            //and the playerscore gets calculated to reflect that
-            
-            //loop through all the cards and check which one is an ace, and turn its cardvalue to 1
-            if (self.playerCardOne.cardValue == 11 || self.playerCardTwo.cardValue == 11 || self.optionalPlayerCardThree.cardValue == 11) {
-                NSArray *myCardsArray = @[self.playerCardOne, self.playerCardTwo, self.optionalPlayerCardThree];
-                for (int i = 0; i < myCardsArray.count; i++) {
-                    CustomCardButton *mySelectedCard = myCardsArray[i];
-                    if (mySelectedCard.cardValue == 11) {
-                        mySelectedCard.cardValue = 1;
-                        NSLog(@"Found an ace at a > 21 situation so lowered it down to 1 instead of 11!");
-                    }
-                }
-                [self recalculatePlayerScore];
-            }
-        }
-        
+        [self.gameLogicManager runThisIfPlayerHappensToHaveAnAce];
         
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
@@ -108,9 +91,7 @@
     }
 }
 
-- (void) recalculatePlayerScore {
-    self.gameLogicManager.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue + self.optionalPlayerCardThree.cardValue;
-}
+
 
 
 - (void) runPostHitButtonPlayerCalculations {

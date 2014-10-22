@@ -10,6 +10,7 @@
 		AAAA183D19F5BFA000189FAB /* GameLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAA183C19F5BFA000189FAB /* GameLogicManager.m */; };
 		AAAC116A19F830BD00494372 /* jazztoast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAAC116919F830BD00494372 /* jazztoast.mp3 */; };
 		AAAC116C19F830C200494372 /* cardflip.wav in Resources */ = {isa = PBXBuildFile; fileRef = AAAC116B19F830C200494372 /* cardflip.wav */; };
+		AAAC116E19F8326900494372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC116D19F8326900494372 /* AudioToolbox.framework */; };
 		AAB9C2DC19F19C7000F4341F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DB19F19C7000F4341F /* main.m */; };
 		AAB9C2DF19F19C7000F4341F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DE19F19C7000F4341F /* AppDelegate.m */; };
 		AAB9C2E219F19C7000F4341F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2E119F19C7000F4341F /* ViewController.m */; };
@@ -35,6 +36,7 @@
 		AAAA183C19F5BFA000189FAB /* GameLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogicManager.m; sourceTree = "<group>"; };
 		AAAC116919F830BD00494372 /* jazztoast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jazztoast.mp3; path = "../../0 - Resources/sounds/jazztoast.mp3"; sourceTree = "<group>"; };
 		AAAC116B19F830C200494372 /* cardflip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cardflip.wav; path = "../../0 - Resources/sounds/cardflip.wav"; sourceTree = "<group>"; };
+		AAAC116D19F8326900494372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AAB9C2D619F19C7000F4341F /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C2DA19F19C7000F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C2DB19F19C7000F4341F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC116E19F8326900494372 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 		AAB9C2CD19F19C7000F4341F = {
 			isa = PBXGroup;
 			children = (
+				AAAC116D19F8326900494372 /* AudioToolbox.framework */,
 				AAB9C2D819F19C7000F4341F /* BlackJack */,
 				AAB9C2F219F19C7000F4341F /* BlackJackTests */,
 				AAB9C2D719F19C7000F4341F /* Products */,
@@ -101,8 +105,6 @@
 				AAB9C30C19F1E1EB00F4341F /* CustomCardButton.m */,
 				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
 				AAB9C2E619F19C7000F4341F /* Images.xcassets */,
-				AAAC116919F830BD00494372 /* jazztoast.mp3 */,
-				AAAC116B19F830C200494372 /* cardflip.wav */,
 				AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */,
 				AAB9C2D919F19C7000F4341F /* Supporting Files */,
 			);
@@ -112,6 +114,8 @@
 		AAB9C2D919F19C7000F4341F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAAC116919F830BD00494372 /* jazztoast.mp3 */,
+				AAAC116B19F830C200494372 /* cardflip.wav */,
 				AAB9C2DA19F19C7000F4341F /* Info.plist */,
 				AAB9C2DB19F19C7000F4341F /* main.m */,
 			);
@@ -364,8 +368,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlackJack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -374,8 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlackJack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

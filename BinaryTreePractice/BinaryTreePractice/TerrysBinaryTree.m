@@ -44,4 +44,19 @@
 }
 
 
+
+- (int) countAllNodesInThisTree: (Node*) currentNode {
+    
+    //end condition for recursion ... if this method is ever being passed to a NULL node, then this function ends
+    if (currentNode == nil) return 0;
+    
+    
+    //otherwise, we want the object to count itself and tell the children to count themselves by using this same function recursively
+    return 1 + [self countAllNodesInThisTree:currentNode.leftChild] + [self countAllNodesInThisTree:currentNode.rightChild];
+    
+}
+
+
+
+
 @end

@@ -11,13 +11,14 @@
 
 
 
-@interface ViewController ()
-
-
-@property SystemSoundID mySound;
+@interface ViewController () {
+    SystemSoundID mySoundEffect;
+}
 
 
 @end
+
+
 
 @implementation ViewController
 
@@ -36,9 +37,13 @@
     [self configureAudioSession];
     [self configureAudioPlayer];
     
-    [self.backgroundMusicPlayer prepareToPlay];
-    [self.backgroundMusicPlayer play];
+//    [self.backgroundMusicPlayer prepareToPlay];
+//    [self.backgroundMusicPlayer play];
     
+
+//    NSString *path  = [[NSBundle mainBundle] pathForResource:@"cardflip" ofType:@"wav"];
+//    NSURL *pathURL = [NSURL fileURLWithPath : path];
+//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pathURL, &mySoundEffect);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +88,6 @@
 
 
 - (IBAction)playGameButtonPressAction:(id)sender {
-    
     self.playButton.hidden = YES;
     self.hitButton.hidden = NO;
     self.stayButton.hidden = NO;
@@ -113,12 +117,8 @@
 
 
 - (IBAction)hitButtonPressedAction:(id)sender {
-    
-    NSString *path  = [[NSBundle mainBundle] pathForResource:@"cardflip" ofType:@"wav"];
-    NSURL *pathURL = [NSURL fileURLWithPath : path];
-    
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pathURL, &_mySound);
-    AudioServicesPlaySystemSound(self.mySound);
+    AudioServicesPlaySystemSound(mySoundEffect);
+
 
     //if the third cardvalue was never initialized, that means thirdcard never got flipped so instantiate a 3rd card
     if (self.optionalPlayerCardThree.cardValue == 0) {

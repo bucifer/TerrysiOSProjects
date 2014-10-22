@@ -20,6 +20,6 @@
 
 - (Node *) findClosestCommonAncestor: (Node *) nodeP secondNode: (Node *)nodeQ;
 
-
+- (int) countAllNodesInThisTree: (Node*) currentNode;
 
 @end

@@ -50,14 +50,12 @@
     NodeE.rightChild = NodeG;
     
     NSLog(@"%@", [myCustomBinaryTree findClosestCommonAncestor:NodeD secondNode:NodeF].name);
+ 
     
-
+    NSLog(@"%d",[myCustomBinaryTree countAllNodesInThisTree:NodeA]);
     
-
 
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

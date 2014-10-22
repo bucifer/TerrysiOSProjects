@@ -64,11 +64,20 @@
 
 - (void)configureAudioPlayer {
     // Create audio player with background music
-    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"mamma" ofType:@"mp3"];
+    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"jazztoast" ofType:@"mp3"];
     NSURL *backgroundMusicURL = [NSURL fileURLWithPath:backgroundMusicPath];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:nil];
     self.backgroundMusicPlayer.delegate = self;  // We need this so we can restart after interruptions
     self.backgroundMusicPlayer.numberOfLoops = -1;	// Negative number means loop forever
+    [self.backgroundMusicPlayer setVolume:0.0];
+    [self volumeFadeIn];
+}
+
+- (void) volumeFadeIn {
+    if (self.backgroundMusicPlayer.volume < 0.15) {
+        self.backgroundMusicPlayer.volume = self.backgroundMusicPlayer.volume + 0.02;
+        [self performSelector:@selector(volumeFadeIn) withObject:nil afterDelay:0.5];
+    }
 }
 
 
@@ -111,9 +120,6 @@
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)pathURL, &_mySound);
     AudioServicesPlaySystemSound(self.mySound);
 
-    
-    
-    
     //if the third cardvalue was never initialized, that means thirdcard never got flipped so instantiate a 3rd card
     if (self.optionalPlayerCardThree.cardValue == 0) {
         [self.gameLogicManager setImageAndCardValue:self.optionalPlayerCardThree];
@@ -135,11 +141,8 @@
 
         self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", self.gameLogicManager.playerScore];
         [self runPostHitButtonPlayerCalculations];
-
     }
 }
-
-
 
 
 - (void) runPostHitButtonPlayerCalculations {

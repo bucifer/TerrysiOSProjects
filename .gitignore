@@ -5,6 +5,8 @@
 *.jpeg
 *.jpg
 *.gif
+*.mp3
+*.wav
 
 *.json
 

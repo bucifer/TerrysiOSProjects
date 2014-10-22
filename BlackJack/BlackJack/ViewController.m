@@ -9,7 +9,13 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+
 @interface ViewController ()
+
+
+@property SystemSoundID mySound;
+
 
 @end
 
@@ -25,6 +31,14 @@
     self.hitButton.hidden = YES;
     self.stayButton.hidden = YES;
     self.playAgainButton.hidden = YES;
+    
+    
+    [self configureAudioSession];
+    [self configureAudioPlayer];
+    
+    [self.backgroundMusicPlayer prepareToPlay];
+    [self.backgroundMusicPlayer play];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +46,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) configureAudioSession {
+    // Implicit initialization of audio session
+    self.audioSession = [AVAudioSession sharedInstance];
+    
+    // Set category of audio session
+    // See handy chart on pg. 46 of the Audio Session Programming Guide for what the categories mean
+    // Not absolutely required in this example, but good to get into the habit of doing
+    // See pg. 10 of Audio Session Programming Guide for "Why a Default Session Usually Isn't What You Want"
+    
+    NSError *setCategoryError = nil;
+    [self.audioSession setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
+    if (setCategoryError) {
+        NSLog(@"Error setting category! %ld", (long)[setCategoryError code]);
+    }
+}
+
+- (void)configureAudioPlayer {
+    // Create audio player with background music
+    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"mamma" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:backgroundMusicPath];
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:nil];
+    self.backgroundMusicPlayer.delegate = self;  // We need this so we can restart after interruptions
+    self.backgroundMusicPlayer.numberOfLoops = -1;	// Negative number means loop forever
+}
 
 
 
@@ -66,6 +104,15 @@
 
 
 - (IBAction)hitButtonPressedAction:(id)sender {
+    
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"cardflip" ofType:@"wav"];
+    NSURL *pathURL = [NSURL fileURLWithPath : path];
+    
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pathURL, &_mySound);
+    AudioServicesPlaySystemSound(self.mySound);
+
+    
+    
     
     //if the third cardvalue was never initialized, that means thirdcard never got flipped so instantiate a 3rd card
     if (self.optionalPlayerCardThree.cardValue == 0) {

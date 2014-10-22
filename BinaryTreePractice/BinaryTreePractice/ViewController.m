@@ -51,8 +51,14 @@
     
     NSLog(@"%@", [myCustomBinaryTree findClosestCommonAncestor:NodeD secondNode:NodeF].name);
     
+
     
+
+
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

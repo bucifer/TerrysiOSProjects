@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AAAA183D19F5BFA000189FAB /* GameLogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAA183C19F5BFA000189FAB /* GameLogicManager.m */; };
+		AAAC116619F828FF00494372 /* cardflip.wav in Resources */ = {isa = PBXBuildFile; fileRef = AAAC116519F828FF00494372 /* cardflip.wav */; };
+		AAAC116819F82E0000494372 /* mamma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAAC116719F82E0000494372 /* mamma.mp3 */; };
 		AAB9C2DC19F19C7000F4341F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DB19F19C7000F4341F /* main.m */; };
 		AAB9C2DF19F19C7000F4341F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2DE19F19C7000F4341F /* AppDelegate.m */; };
 		AAB9C2E219F19C7000F4341F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2E119F19C7000F4341F /* ViewController.m */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		AAAA183B19F5BFA000189FAB /* GameLogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogicManager.h; sourceTree = "<group>"; };
 		AAAA183C19F5BFA000189FAB /* GameLogicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogicManager.m; sourceTree = "<group>"; };
+		AAAC116519F828FF00494372 /* cardflip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cardflip.wav; path = ../../cardflip.wav; sourceTree = "<group>"; };
+		AAAC116719F82E0000494372 /* mamma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mamma.mp3; path = ../../../../Downloads/mamma.mp3; sourceTree = "<group>"; };
 		AAB9C2D619F19C7000F4341F /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C2DA19F19C7000F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C2DB19F19C7000F4341F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				AAB9C30C19F1E1EB00F4341F /* CustomCardButton.m */,
 				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
 				AAB9C2E619F19C7000F4341F /* Images.xcassets */,
+				AAAC116519F828FF00494372 /* cardflip.wav */,
+				AAAC116719F82E0000494372 /* mamma.mp3 */,
 				AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */,
 				AAB9C2D919F19C7000F4341F /* Supporting Files */,
 			);
@@ -209,7 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC116819F82E0000494372 /* mamma.mp3 in Resources */,
 				AAB9C2E519F19C7000F4341F /* Main.storyboard in Resources */,
+				AAAC116619F828FF00494372 /* cardflip.wav in Resources */,
 				AAB9C2EA19F19C7000F4341F /* LaunchScreen.xib in Resources */,
 				AAB9C2E719F19C7000F4341F /* Images.xcassets in Resources */,
 			);

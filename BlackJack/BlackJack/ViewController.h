@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "CustomCardButton.h"
 #import "GameLogicManager.h"
+#import <AudioToolbox/AudioToolbox.h>
+@import AVFoundation;
+
 
 @class GameLogicManager;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <AVAudioPlayerDelegate>
 
+@property (strong, nonatomic) AVAudioSession *audioSession;
+@property (strong, nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 
 @property (nonatomic) GameLogicManager *gameLogicManager;
 

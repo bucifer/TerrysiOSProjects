@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TerrysBinaryTree.h"
 
 @interface ViewController : UIViewController
 

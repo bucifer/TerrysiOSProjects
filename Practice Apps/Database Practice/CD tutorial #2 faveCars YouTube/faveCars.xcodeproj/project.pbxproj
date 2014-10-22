@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAA1043B19D1C4E0005BF5A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1043A19D1C4E0005BF5A2 /* Foundation.framework */; };
+		AAA1043D19D1C4E0005BF5A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1043C19D1C4E0005BF5A2 /* CoreGraphics.framework */; };
+		AAA1043F19D1C4E0005BF5A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1043E19D1C4E0005BF5A2 /* UIKit.framework */; };
+		AAA1044119D1C4E0005BF5A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1044019D1C4E0005BF5A2 /* CoreData.framework */; };
+		AAA1044719D1C4E0005BF5A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA1044519D1C4E0005BF5A2 /* InfoPlist.strings */; };
+		AAA1044919D1C4E0005BF5A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1044819D1C4E0005BF5A2 /* main.m */; };
+		AAA1044D19D1C4E0005BF5A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1044C19D1C4E0005BF5A2 /* AppDelegate.m */; };
+		AAA1045019D1C4E0005BF5A2 /* faveCars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAA1044E19D1C4E0005BF5A2 /* faveCars.xcdatamodeld */; };
+		AAA1045219D1C4E0005BF5A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA1045119D1C4E0005BF5A2 /* Images.xcassets */; };
+		AAA1045919D1C4E0005BF5A2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1045819D1C4E0005BF5A2 /* XCTest.framework */; };
+		AAA1045A19D1C4E0005BF5A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1043A19D1C4E0005BF5A2 /* Foundation.framework */; };
+		AAA1045B19D1C4E0005BF5A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1043E19D1C4E0005BF5A2 /* UIKit.framework */; };
+		AAA1045C19D1C4E0005BF5A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1044019D1C4E0005BF5A2 /* CoreData.framework */; };
+		AAA1046419D1C4E0005BF5A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA1046219D1C4E0005BF5A2 /* InfoPlist.strings */; };
+		AAA1046619D1C4E0005BF5A2 /* faveCarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1046519D1C4E0005BF5A2 /* faveCarsTests.m */; };
+		AAA1047019D1C54F005BF5A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA1046F19D1C54F005BF5A2 /* Main.storyboard */; };
+		AAA1047319D1C6AF005BF5A2 /* faveCarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1047219D1C6AF005BF5A2 /* faveCarsTableViewController.m */; };
+		AAA1047619D1C6C9005BF5A2 /* faveCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1047519D1C6C9005BF5A2 /* faveCarsViewController.m */; };
+		AAA104FB19D1FB62005BF5A2 /* Cars.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA104FA19D1FB62005BF5A2 /* Cars.m */; };
+		AAA104FE19D1FB7B005BF5A2 /* Drivers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA104FD19D1FB7B005BF5A2 /* Drivers.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAA1045D19D1C4E0005BF5A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAA1042F19D1C4E0005BF5A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAA1043619D1C4E0005BF5A2;
+			remoteInfo = faveCars;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAA1043719D1C4E0005BF5A2 /* faveCars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = faveCars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA1043A19D1C4E0005BF5A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AAA1043C19D1C4E0005BF5A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AAA1043E19D1C4E0005BF5A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AAA1044019D1C4E0005BF5A2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AAA1044419D1C4E0005BF5A2 /* faveCars-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "faveCars-Info.plist"; sourceTree = "<group>"; };
+		AAA1044619D1C4E0005BF5A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAA1044819D1C4E0005BF5A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAA1044A19D1C4E0005BF5A2 /* faveCars-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "faveCars-Prefix.pch"; sourceTree = "<group>"; };
+		AAA1044B19D1C4E0005BF5A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AAA1044C19D1C4E0005BF5A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AAA1044F19D1C4E0005BF5A2 /* faveCars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = faveCars.xcdatamodel; sourceTree = "<group>"; };
+		AAA1045119D1C4E0005BF5A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AAA1045719D1C4E0005BF5A2 /* faveCarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = faveCarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA1045819D1C4E0005BF5A2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AAA1046119D1C4E0005BF5A2 /* faveCarsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "faveCarsTests-Info.plist"; sourceTree = "<group>"; };
+		AAA1046319D1C4E0005BF5A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAA1046519D1C4E0005BF5A2 /* faveCarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = faveCarsTests.m; sourceTree = "<group>"; };
+		AAA1046F19D1C54F005BF5A2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AAA1047119D1C6AF005BF5A2 /* faveCarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faveCarsTableViewController.h; sourceTree = "<group>"; };
+		AAA1047219D1C6AF005BF5A2 /* faveCarsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = faveCarsTableViewController.m; sourceTree = "<group>"; };
+		AAA1047419D1C6C9005BF5A2 /* faveCarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faveCarsViewController.h; sourceTree = "<group>"; };
+		AAA1047519D1C6C9005BF5A2 /* faveCarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = faveCarsViewController.m; sourceTree = "<group>"; };
+		AAA104F919D1FB62005BF5A2 /* Cars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cars.h; sourceTree = "<group>"; };
+		AAA104FA19D1FB62005BF5A2 /* Cars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cars.m; sourceTree = "<group>"; };
+		AAA104FC19D1FB7B005BF5A2 /* Drivers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drivers.h; sourceTree = "<group>"; };
+		AAA104FD19D1FB7B005BF5A2 /* Drivers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drivers.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAA1043419D1C4E0005BF5A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1043D19D1C4E0005BF5A2 /* CoreGraphics.framework in Frameworks */,
+				AAA1044119D1C4E0005BF5A2 /* CoreData.framework in Frameworks */,
+				AAA1043F19D1C4E0005BF5A2 /* UIKit.framework in Frameworks */,
+				AAA1043B19D1C4E0005BF5A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA1045419D1C4E0005BF5A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1045919D1C4E0005BF5A2 /* XCTest.framework in Frameworks */,
+				AAA1045C19D1C4E0005BF5A2 /* CoreData.framework in Frameworks */,
+				AAA1045B19D1C4E0005BF5A2 /* UIKit.framework in Frameworks */,
+				AAA1045A19D1C4E0005BF5A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAA1042E19D1C4E0005BF5A2 = {
+			isa = PBXGroup;
+			children = (
+				AAA1044219D1C4E0005BF5A2 /* faveCars */,
+				AAA1045F19D1C4E0005BF5A2 /* faveCarsTests */,
+				AAA1043919D1C4E0005BF5A2 /* Frameworks */,
+				AAA1043819D1C4E0005BF5A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAA1043819D1C4E0005BF5A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1043719D1C4E0005BF5A2 /* faveCars.app */,
+				AAA1045719D1C4E0005BF5A2 /* faveCarsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA1043919D1C4E0005BF5A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1043A19D1C4E0005BF5A2 /* Foundation.framework */,
+				AAA1043C19D1C4E0005BF5A2 /* CoreGraphics.framework */,
+				AAA1043E19D1C4E0005BF5A2 /* UIKit.framework */,
+				AAA1044019D1C4E0005BF5A2 /* CoreData.framework */,
+				AAA1045819D1C4E0005BF5A2 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAA1044219D1C4E0005BF5A2 /* faveCars */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1044B19D1C4E0005BF5A2 /* AppDelegate.h */,
+				AAA1044C19D1C4E0005BF5A2 /* AppDelegate.m */,
+				AAA1046F19D1C54F005BF5A2 /* Main.storyboard */,
+				AAA1047419D1C6C9005BF5A2 /* faveCarsViewController.h */,
+				AAA1047519D1C6C9005BF5A2 /* faveCarsViewController.m */,
+				AAA1047119D1C6AF005BF5A2 /* faveCarsTableViewController.h */,
+				AAA1047219D1C6AF005BF5A2 /* faveCarsTableViewController.m */,
+				AAA1044E19D1C4E0005BF5A2 /* faveCars.xcdatamodeld */,
+				AAA104FC19D1FB7B005BF5A2 /* Drivers.h */,
+				AAA104FD19D1FB7B005BF5A2 /* Drivers.m */,
+				AAA104F919D1FB62005BF5A2 /* Cars.h */,
+				AAA104FA19D1FB62005BF5A2 /* Cars.m */,
+				AAA1045119D1C4E0005BF5A2 /* Images.xcassets */,
+				AAA1044319D1C4E0005BF5A2 /* Supporting Files */,
+			);
+			path = faveCars;
+			sourceTree = "<group>";
+		};
+		AAA1044319D1C4E0005BF5A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1044419D1C4E0005BF5A2 /* faveCars-Info.plist */,
+				AAA1044519D1C4E0005BF5A2 /* InfoPlist.strings */,
+				AAA1044819D1C4E0005BF5A2 /* main.m */,
+				AAA1044A19D1C4E0005BF5A2 /* faveCars-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAA1045F19D1C4E0005BF5A2 /* faveCarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1046519D1C4E0005BF5A2 /* faveCarsTests.m */,
+				AAA1046019D1C4E0005BF5A2 /* Supporting Files */,
+			);
+			path = faveCarsTests;
+			sourceTree = "<group>";
+		};
+		AAA1046019D1C4E0005BF5A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1046119D1C4E0005BF5A2 /* faveCarsTests-Info.plist */,
+				AAA1046219D1C4E0005BF5A2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAA1043619D1C4E0005BF5A2 /* faveCars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA1046919D1C4E0005BF5A2 /* Build configuration list for PBXNativeTarget "faveCars" */;
+			buildPhases = (
+				AAA1043319D1C4E0005BF5A2 /* Sources */,
+				AAA1043419D1C4E0005BF5A2 /* Frameworks */,
+				AAA1043519D1C4E0005BF5A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = faveCars;
+			productName = faveCars;
+			productReference = AAA1043719D1C4E0005BF5A2 /* faveCars.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAA1045619D1C4E0005BF5A2 /* faveCarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA1046C19D1C4E0005BF5A2 /* Build configuration list for PBXNativeTarget "faveCarsTests" */;
+			buildPhases = (
+				AAA1045319D1C4E0005BF5A2 /* Sources */,
+				AAA1045419D1C4E0005BF5A2 /* Frameworks */,
+				AAA1045519D1C4E0005BF5A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAA1045E19D1C4E0005BF5A2 /* PBXTargetDependency */,
+			);
+			name = faveCarsTests;
+			productName = faveCarsTests;
+			productReference = AAA1045719D1C4E0005BF5A2 /* faveCarsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAA1042F19D1C4E0005BF5A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = NM;
+				TargetAttributes = {
+					AAA1045619D1C4E0005BF5A2 = {
+						TestTargetID = AAA1043619D1C4E0005BF5A2;
+					};
+				};
+			};
+			buildConfigurationList = AAA1043219D1C4E0005BF5A2 /* Build configuration list for PBXProject "faveCars" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AAA1042E19D1C4E0005BF5A2;
+			productRefGroup = AAA1043819D1C4E0005BF5A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA1043619D1C4E0005BF5A2 /* faveCars */,
+				AAA1045619D1C4E0005BF5A2 /* faveCarsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA1043519D1C4E0005BF5A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1047019D1C54F005BF5A2 /* Main.storyboard in Resources */,
+				AAA1044719D1C4E0005BF5A2 /* InfoPlist.strings in Resources */,
+				AAA1045219D1C4E0005BF5A2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA1045519D1C4E0005BF5A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1046419D1C4E0005BF5A2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAA1043319D1C4E0005BF5A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1044D19D1C4E0005BF5A2 /* AppDelegate.m in Sources */,
+				AAA1045019D1C4E0005BF5A2 /* faveCars.xcdatamodeld in Sources */,
+				AAA104FB19D1FB62005BF5A2 /* Cars.m in Sources */,
+				AAA104FE19D1FB7B005BF5A2 /* Drivers.m in Sources */,
+				AAA1047319D1C6AF005BF5A2 /* faveCarsTableViewController.m in Sources */,
+				AAA1044919D1C4E0005BF5A2 /* main.m in Sources */,
+				AAA1047619D1C6C9005BF5A2 /* faveCarsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA1045319D1C4E0005BF5A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA1046619D1C4E0005BF5A2 /* faveCarsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAA1045E19D1C4E0005BF5A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAA1043619D1C4E0005BF5A2 /* faveCars */;
+			targetProxy = AAA1045D19D1C4E0005BF5A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAA1044519D1C4E0005BF5A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA1044619D1C4E0005BF5A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AAA1046219D1C4E0005BF5A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA1046319D1C4E0005BF5A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAA1046719D1C4E0005BF5A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AAA1046819D1C4E0005BF5A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAA1046A19D1C4E0005BF5A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "faveCars/faveCars-Prefix.pch";
+				INFOPLIST_FILE = "faveCars/faveCars-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AAA1046B19D1C4E0005BF5A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "faveCars/faveCars-Prefix.pch";
+				INFOPLIST_FILE = "faveCars/faveCars-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AAA1046D19D1C4E0005BF5A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/faveCars.app/faveCars";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "faveCars/faveCars-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "faveCarsTests/faveCarsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AAA1046E19D1C4E0005BF5A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/faveCars.app/faveCars";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "faveCars/faveCars-Prefix.pch";
+				INFOPLIST_FILE = "faveCarsTests/faveCarsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAA1043219D1C4E0005BF5A2 /* Build configuration list for PBXProject "faveCars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA1046719D1C4E0005BF5A2 /* Debug */,
+				AAA1046819D1C4E0005BF5A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA1046919D1C4E0005BF5A2 /* Build configuration list for PBXNativeTarget "faveCars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA1046A19D1C4E0005BF5A2 /* Debug */,
+				AAA1046B19D1C4E0005BF5A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA1046C19D1C4E0005BF5A2 /* Build configuration list for PBXNativeTarget "faveCarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA1046D19D1C4E0005BF5A2 /* Debug */,
+				AAA1046E19D1C4E0005BF5A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AAA1044E19D1C4E0005BF5A2 /* faveCars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AAA1044F19D1C4E0005BF5A2 /* faveCars.xcdatamodel */,
+			);
+			currentVersion = AAA1044F19D1C4E0005BF5A2 /* faveCars.xcdatamodel */;
+			path = faveCars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AAA1042F19D1C4E0005BF5A2 /* Project object */;
+}

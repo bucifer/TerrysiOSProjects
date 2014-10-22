@@ -10,4 +10,19 @@
 
 @interface Node : NSObject
 
+@property (strong, nonatomic) Node *leftChild;
+@property (strong, nonatomic) Node *rightChild;
+@property (strong, nonatomic) Node *parent;
+@property (strong, nonatomic) NSString *name;
+
+
+
+
+
+-(id)initWithNameAndParent: (NSString *)nodeName parentNode: (Node *)parentNode;
+
+
+
+
+
 @end

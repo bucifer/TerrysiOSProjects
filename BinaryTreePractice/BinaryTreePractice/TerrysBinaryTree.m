@@ -8,6 +8,40 @@
 
 #import "TerrysBinaryTree.h"
 
+
 @implementation TerrysBinaryTree
+
+
+
+
+
+- (Node *) findClosestCommonAncestor: (Node *) nodeP secondNode: (Node *)nodeQ {
+    
+    //handle exceptions first
+    if (nodeP == nil || nodeQ == nil)
+        return nil;
+    else if (nodeP == nodeQ)
+        return nodeP;
+    
+    //handle regular case
+    NSMutableArray *nodeParentsArray = [[NSMutableArray alloc]init];
+    while (nodeP.parent != nil) {
+        [nodeParentsArray addObject:nodeP.parent];
+        nodeP = nodeP.parent;
+    }
+    
+    while (nodeQ.parent != nil) {
+        for (Node* node in nodeParentsArray) {
+            if (node == nodeQ.parent) {
+                return node;
+            }
+        }
+        nodeQ = nodeQ.parent;
+    }
+    
+    return self.root;
+    
+}
+
 
 @end

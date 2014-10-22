@@ -10,4 +10,17 @@
 
 @implementation Node
 
+
+-(id)initWithNameAndParent: (NSString *)nodeName parentNode: (Node *)parentNode {
+    self = [super init];
+    
+    if (self) {
+        self.name = nodeName;
+        self.parent = parentNode;
+    }
+    return self;
+}
+
+
+
 @end

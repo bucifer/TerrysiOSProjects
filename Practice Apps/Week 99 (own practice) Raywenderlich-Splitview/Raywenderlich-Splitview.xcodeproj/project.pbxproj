@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAA102D519DB3DBE00D38424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102D419DB3DBE00D38424 /* Foundation.framework */; };
+		AAA102D719DB3DBE00D38424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102D619DB3DBE00D38424 /* CoreGraphics.framework */; };
+		AAA102D919DB3DBE00D38424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102D819DB3DBE00D38424 /* UIKit.framework */; };
+		AAA102DF19DB3DBE00D38424 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA102DD19DB3DBE00D38424 /* InfoPlist.strings */; };
+		AAA102E119DB3DBE00D38424 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA102E019DB3DBE00D38424 /* main.m */; };
+		AAA102E519DB3DBE00D38424 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA102E419DB3DBE00D38424 /* AppDelegate.m */; };
+		AAA102E719DB3DBE00D38424 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA102E619DB3DBE00D38424 /* Images.xcassets */; };
+		AAA102EE19DB3DBE00D38424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102ED19DB3DBE00D38424 /* XCTest.framework */; };
+		AAA102EF19DB3DBE00D38424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102D419DB3DBE00D38424 /* Foundation.framework */; };
+		AAA102F019DB3DBE00D38424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA102D819DB3DBE00D38424 /* UIKit.framework */; };
+		AAA102F819DB3DBF00D38424 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA102F619DB3DBF00D38424 /* InfoPlist.strings */; };
+		AAA102FA19DB3DBF00D38424 /* Raywenderlich_SplitviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA102F919DB3DBF00D38424 /* Raywenderlich_SplitviewTests.m */; };
+		AAA1030419DB3E1100D38424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA1030319DB3E1100D38424 /* Main.storyboard */; };
+		AAA1030719DB449F00D38424 /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030619DB449F00D38424 /* LeftTableViewController.m */; };
+		AAA1030A19DB460300D38424 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030919DB460300D38424 /* RightViewController.m */; };
+		AAA1030D19DB492700D38424 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030C19DB492700D38424 /* Monster.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAA102F119DB3DBE00D38424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAA102C919DB3DBE00D38424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAA102D019DB3DBE00D38424;
+			remoteInfo = "Raywenderlich-Splitview";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAA102D119DB3DBE00D38424 /* Raywenderlich-Splitview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Raywenderlich-Splitview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA102D419DB3DBE00D38424 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AAA102D619DB3DBE00D38424 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AAA102D819DB3DBE00D38424 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AAA102DC19DB3DBE00D38424 /* Raywenderlich-Splitview-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Raywenderlich-Splitview-Info.plist"; sourceTree = "<group>"; };
+		AAA102DE19DB3DBE00D38424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAA102E019DB3DBE00D38424 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAA102E219DB3DBE00D38424 /* Raywenderlich-Splitview-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Raywenderlich-Splitview-Prefix.pch"; sourceTree = "<group>"; };
+		AAA102E319DB3DBE00D38424 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AAA102E419DB3DBE00D38424 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AAA102E619DB3DBE00D38424 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AAA102EC19DB3DBE00D38424 /* Raywenderlich-SplitviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Raywenderlich-SplitviewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA102ED19DB3DBE00D38424 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AAA102F519DB3DBF00D38424 /* Raywenderlich-SplitviewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Raywenderlich-SplitviewTests-Info.plist"; sourceTree = "<group>"; };
+		AAA102F719DB3DBF00D38424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAA102F919DB3DBF00D38424 /* Raywenderlich_SplitviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Raywenderlich_SplitviewTests.m; sourceTree = "<group>"; };
+		AAA1030319DB3E1100D38424 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		AAA1030519DB449F00D38424 /* LeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftTableViewController.h; path = ../LeftTableViewController.h; sourceTree = "<group>"; };
+		AAA1030619DB449F00D38424 /* LeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftTableViewController.m; path = ../LeftTableViewController.m; sourceTree = "<group>"; };
+		AAA1030819DB460300D38424 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		AAA1030919DB460300D38424 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		AAA1030B19DB492700D38424 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		AAA1030C19DB492700D38424 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
+		AAA1030E19DB522D00D38424 /* MonsterSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterSelectionDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAA102CE19DB3DBE00D38424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102D719DB3DBE00D38424 /* CoreGraphics.framework in Frameworks */,
+				AAA102D919DB3DBE00D38424 /* UIKit.framework in Frameworks */,
+				AAA102D519DB3DBE00D38424 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA102E919DB3DBE00D38424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102EE19DB3DBE00D38424 /* XCTest.framework in Frameworks */,
+				AAA102F019DB3DBE00D38424 /* UIKit.framework in Frameworks */,
+				AAA102EF19DB3DBE00D38424 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAA102C819DB3DBE00D38424 = {
+			isa = PBXGroup;
+			children = (
+				AAA102DA19DB3DBE00D38424 /* Raywenderlich-Splitview */,
+				AAA102F319DB3DBF00D38424 /* Raywenderlich-SplitviewTests */,
+				AAA102D319DB3DBE00D38424 /* Frameworks */,
+				AAA102D219DB3DBE00D38424 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAA102D219DB3DBE00D38424 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA102D119DB3DBE00D38424 /* Raywenderlich-Splitview.app */,
+				AAA102EC19DB3DBE00D38424 /* Raywenderlich-SplitviewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA102D319DB3DBE00D38424 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAA102D419DB3DBE00D38424 /* Foundation.framework */,
+				AAA102D619DB3DBE00D38424 /* CoreGraphics.framework */,
+				AAA102D819DB3DBE00D38424 /* UIKit.framework */,
+				AAA102ED19DB3DBE00D38424 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAA102DA19DB3DBE00D38424 /* Raywenderlich-Splitview */ = {
+			isa = PBXGroup;
+			children = (
+				AAA1030319DB3E1100D38424 /* Main.storyboard */,
+				AAA1030B19DB492700D38424 /* Monster.h */,
+				AAA1030C19DB492700D38424 /* Monster.m */,
+				AAA1030519DB449F00D38424 /* LeftTableViewController.h */,
+				AAA1030619DB449F00D38424 /* LeftTableViewController.m */,
+				AAA1030819DB460300D38424 /* RightViewController.h */,
+				AAA1030919DB460300D38424 /* RightViewController.m */,
+				AAA1030E19DB522D00D38424 /* MonsterSelectionDelegate.h */,
+				AAA102E319DB3DBE00D38424 /* AppDelegate.h */,
+				AAA102E419DB3DBE00D38424 /* AppDelegate.m */,
+				AAA102E619DB3DBE00D38424 /* Images.xcassets */,
+				AAA102DB19DB3DBE00D38424 /* Supporting Files */,
+			);
+			path = "Raywenderlich-Splitview";
+			sourceTree = "<group>";
+		};
+		AAA102DB19DB3DBE00D38424 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAA102DC19DB3DBE00D38424 /* Raywenderlich-Splitview-Info.plist */,
+				AAA102DD19DB3DBE00D38424 /* InfoPlist.strings */,
+				AAA102E019DB3DBE00D38424 /* main.m */,
+				AAA102E219DB3DBE00D38424 /* Raywenderlich-Splitview-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAA102F319DB3DBF00D38424 /* Raywenderlich-SplitviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAA102F919DB3DBF00D38424 /* Raywenderlich_SplitviewTests.m */,
+				AAA102F419DB3DBF00D38424 /* Supporting Files */,
+			);
+			path = "Raywenderlich-SplitviewTests";
+			sourceTree = "<group>";
+		};
+		AAA102F419DB3DBF00D38424 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAA102F519DB3DBF00D38424 /* Raywenderlich-SplitviewTests-Info.plist */,
+				AAA102F619DB3DBF00D38424 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAA102D019DB3DBE00D38424 /* Raywenderlich-Splitview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA102FD19DB3DBF00D38424 /* Build configuration list for PBXNativeTarget "Raywenderlich-Splitview" */;
+			buildPhases = (
+				AAA102CD19DB3DBE00D38424 /* Sources */,
+				AAA102CE19DB3DBE00D38424 /* Frameworks */,
+				AAA102CF19DB3DBE00D38424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Raywenderlich-Splitview";
+			productName = "Raywenderlich-Splitview";
+			productReference = AAA102D119DB3DBE00D38424 /* Raywenderlich-Splitview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAA102EB19DB3DBE00D38424 /* Raywenderlich-SplitviewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA1030019DB3DBF00D38424 /* Build configuration list for PBXNativeTarget "Raywenderlich-SplitviewTests" */;
+			buildPhases = (
+				AAA102E819DB3DBE00D38424 /* Sources */,
+				AAA102E919DB3DBE00D38424 /* Frameworks */,
+				AAA102EA19DB3DBE00D38424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAA102F219DB3DBE00D38424 /* PBXTargetDependency */,
+			);
+			name = "Raywenderlich-SplitviewTests";
+			productName = "Raywenderlich-SplitviewTests";
+			productReference = AAA102EC19DB3DBE00D38424 /* Raywenderlich-SplitviewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAA102C919DB3DBE00D38424 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = NM;
+				TargetAttributes = {
+					AAA102EB19DB3DBE00D38424 = {
+						TestTargetID = AAA102D019DB3DBE00D38424;
+					};
+				};
+			};
+			buildConfigurationList = AAA102CC19DB3DBE00D38424 /* Build configuration list for PBXProject "Raywenderlich-Splitview" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AAA102C819DB3DBE00D38424;
+			productRefGroup = AAA102D219DB3DBE00D38424 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA102D019DB3DBE00D38424 /* Raywenderlich-Splitview */,
+				AAA102EB19DB3DBE00D38424 /* Raywenderlich-SplitviewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA102CF19DB3DBE00D38424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102DF19DB3DBE00D38424 /* InfoPlist.strings in Resources */,
+				AAA102E719DB3DBE00D38424 /* Images.xcassets in Resources */,
+				AAA1030419DB3E1100D38424 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA102EA19DB3DBE00D38424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102F819DB3DBF00D38424 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAA102CD19DB3DBE00D38424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102E519DB3DBE00D38424 /* AppDelegate.m in Sources */,
+				AAA1030D19DB492700D38424 /* Monster.m in Sources */,
+				AAA1030A19DB460300D38424 /* RightViewController.m in Sources */,
+				AAA1030719DB449F00D38424 /* LeftTableViewController.m in Sources */,
+				AAA102E119DB3DBE00D38424 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA102E819DB3DBE00D38424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA102FA19DB3DBF00D38424 /* Raywenderlich_SplitviewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAA102F219DB3DBE00D38424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAA102D019DB3DBE00D38424 /* Raywenderlich-Splitview */;
+			targetProxy = AAA102F119DB3DBE00D38424 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAA102DD19DB3DBE00D38424 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA102DE19DB3DBE00D38424 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AAA102F619DB3DBF00D38424 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA102F719DB3DBF00D38424 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAA102FB19DB3DBF00D38424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		AAA102FC19DB3DBF00D38424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAA102FE19DB3DBF00D38424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raywenderlich-Splitview/Raywenderlich-Splitview-Prefix.pch";
+				INFOPLIST_FILE = "Raywenderlich-Splitview/Raywenderlich-Splitview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AAA102FF19DB3DBF00D38424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raywenderlich-Splitview/Raywenderlich-Splitview-Prefix.pch";
+				INFOPLIST_FILE = "Raywenderlich-Splitview/Raywenderlich-Splitview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AAA1030119DB3DBF00D38424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Raywenderlich-Splitview.app/Raywenderlich-Splitview";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raywenderlich-Splitview/Raywenderlich-Splitview-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Raywenderlich-SplitviewTests/Raywenderlich-SplitviewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AAA1030219DB3DBF00D38424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Raywenderlich-Splitview.app/Raywenderlich-Splitview";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raywenderlich-Splitview/Raywenderlich-Splitview-Prefix.pch";
+				INFOPLIST_FILE = "Raywenderlich-SplitviewTests/Raywenderlich-SplitviewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAA102CC19DB3DBE00D38424 /* Build configuration list for PBXProject "Raywenderlich-Splitview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA102FB19DB3DBF00D38424 /* Debug */,
+				AAA102FC19DB3DBF00D38424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA102FD19DB3DBF00D38424 /* Build configuration list for PBXNativeTarget "Raywenderlich-Splitview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA102FE19DB3DBF00D38424 /* Debug */,
+				AAA102FF19DB3DBF00D38424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA1030019DB3DBF00D38424 /* Build configuration list for PBXNativeTarget "Raywenderlich-SplitviewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA1030119DB3DBF00D38424 /* Debug */,
+				AAA1030219DB3DBF00D38424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAA102C919DB3DBE00D38424 /* Project object */;
+}

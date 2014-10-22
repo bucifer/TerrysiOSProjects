@@ -14,6 +14,8 @@
 		AAAC114719F808A400494372 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAC114619F808A400494372 /* Images.xcassets */; };
 		AAAC114A19F808A400494372 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAAC114819F808A400494372 /* LaunchScreen.xib */; };
 		AAAC115619F808A400494372 /* BinaryTreePracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC115519F808A400494372 /* BinaryTreePracticeTests.m */; };
+		AAAC116119F8090C00494372 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC116019F8090C00494372 /* Node.m */; };
+		AAAC116419F8092000494372 /* TerrysBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC116319F8092000494372 /* TerrysBinaryTree.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		AAAC114F19F808A400494372 /* BinaryTreePracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinaryTreePracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAC115419F808A400494372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAAC115519F808A400494372 /* BinaryTreePracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryTreePracticeTests.m; sourceTree = "<group>"; };
+		AAAC115F19F8090C00494372 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		AAAC116019F8090C00494372 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		AAAC116219F8092000494372 /* TerrysBinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysBinaryTree.h; sourceTree = "<group>"; };
+		AAAC116319F8092000494372 /* TerrysBinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysBinaryTree.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				AAAC113E19F808A400494372 /* AppDelegate.m */,
 				AAAC114019F808A400494372 /* ViewController.h */,
 				AAAC114119F808A400494372 /* ViewController.m */,
+				AAAC115F19F8090C00494372 /* Node.h */,
+				AAAC116019F8090C00494372 /* Node.m */,
+				AAAC116219F8092000494372 /* TerrysBinaryTree.h */,
+				AAAC116319F8092000494372 /* TerrysBinaryTree.m */,
 				AAAC114319F808A400494372 /* Main.storyboard */,
 				AAAC114619F808A400494372 /* Images.xcassets */,
 				AAAC114819F808A400494372 /* LaunchScreen.xib */,
@@ -222,6 +232,8 @@
 				AAAC114219F808A400494372 /* ViewController.m in Sources */,
 				AAAC113F19F808A400494372 /* AppDelegate.m in Sources */,
 				AAAC113C19F808A400494372 /* main.m in Sources */,
+				AAAC116419F8092000494372 /* TerrysBinaryTree.m in Sources */,
+				AAAC116119F8090C00494372 /* Node.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

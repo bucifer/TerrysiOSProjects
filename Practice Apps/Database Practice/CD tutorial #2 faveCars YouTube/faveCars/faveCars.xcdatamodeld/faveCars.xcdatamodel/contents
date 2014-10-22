@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Cars" representedClassName="Cars" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="drivers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Drivers" inverseName="cars" inverseEntity="Drivers" syncable="YES"/>
+    </entity>
+    <entity name="Drivers" representedClassName="Drivers" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cars" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Cars" inverseName="drivers" inverseEntity="Cars" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cars" positionX="-4673" positionY="-846" width="128" height="88"/>
+        <element name="Drivers" positionX="-4266" positionY="-810" width="128" height="73"/>
+    </elements>
+</model>

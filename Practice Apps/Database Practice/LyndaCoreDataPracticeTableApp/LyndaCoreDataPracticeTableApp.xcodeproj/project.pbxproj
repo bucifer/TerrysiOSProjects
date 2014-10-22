@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA38552519F0431100EFD75E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38552419F0431100EFD75E /* main.m */; };
+		AA38552819F0431100EFD75E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38552719F0431100EFD75E /* AppDelegate.m */; };
+		AA38552B19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA38552919F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld */; };
+		AA38553119F0431100EFD75E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA38552F19F0431100EFD75E /* Main.storyboard */; };
+		AA38553319F0431100EFD75E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA38553219F0431100EFD75E /* Images.xcassets */; };
+		AA38553619F0431100EFD75E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA38553419F0431100EFD75E /* LaunchScreen.xib */; };
+		AA38554219F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38554119F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.m */; };
+		AA38554D19F043EC00EFD75E /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38554C19F043EC00EFD75E /* Course.m */; };
+		AA38555019F045D500EFD75E /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38554F19F045D500EFD75E /* CoursesTableViewController.m */; };
+		AA38555319F051AF00EFD75E /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38555219F051AF00EFD75E /* AddCourseViewController.m */; };
+		AA38555619F0605600EFD75E /* DisplayEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38555519F0605600EFD75E /* DisplayEditViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA38553C19F0431100EFD75E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA38551719F0431100EFD75E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA38551E19F0431100EFD75E;
+			remoteInfo = LyndaCoreDataPracticeTableApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA38551F19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyndaCoreDataPracticeTableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA38552319F0431100EFD75E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA38552419F0431100EFD75E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA38552619F0431100EFD75E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AA38552719F0431100EFD75E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AA38552A19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LyndaCoreDataPracticeTableApp.xcdatamodel; sourceTree = "<group>"; };
+		AA38553019F0431100EFD75E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA38553219F0431100EFD75E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AA38553519F0431100EFD75E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AA38553B19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyndaCoreDataPracticeTableAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA38554019F0431100EFD75E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA38554119F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LyndaCoreDataPracticeTableAppTests.m; sourceTree = "<group>"; };
+		AA38554B19F043EC00EFD75E /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		AA38554C19F043EC00EFD75E /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		AA38554E19F045D500EFD75E /* CoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTableViewController.h; sourceTree = "<group>"; };
+		AA38554F19F045D500EFD75E /* CoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableViewController.m; sourceTree = "<group>"; };
+		AA38555119F051AF00EFD75E /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		AA38555219F051AF00EFD75E /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		AA38555419F0605600EFD75E /* DisplayEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayEditViewController.h; sourceTree = "<group>"; };
+		AA38555519F0605600EFD75E /* DisplayEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayEditViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA38551C19F0431100EFD75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA38553819F0431100EFD75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA38551619F0431100EFD75E = {
+			isa = PBXGroup;
+			children = (
+				AA38552119F0431100EFD75E /* LyndaCoreDataPracticeTableApp */,
+				AA38553E19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests */,
+				AA38552019F0431100EFD75E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA38552019F0431100EFD75E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA38551F19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.app */,
+				AA38553B19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA38552119F0431100EFD75E /* LyndaCoreDataPracticeTableApp */ = {
+			isa = PBXGroup;
+			children = (
+				AA38552619F0431100EFD75E /* AppDelegate.h */,
+				AA38552719F0431100EFD75E /* AppDelegate.m */,
+				AA38552F19F0431100EFD75E /* Main.storyboard */,
+				AA38554E19F045D500EFD75E /* CoursesTableViewController.h */,
+				AA38554F19F045D500EFD75E /* CoursesTableViewController.m */,
+				AA38555119F051AF00EFD75E /* AddCourseViewController.h */,
+				AA38555219F051AF00EFD75E /* AddCourseViewController.m */,
+				AA38555419F0605600EFD75E /* DisplayEditViewController.h */,
+				AA38555519F0605600EFD75E /* DisplayEditViewController.m */,
+				AA38553219F0431100EFD75E /* Images.xcassets */,
+				AA38553419F0431100EFD75E /* LaunchScreen.xib */,
+				AA38552919F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld */,
+				AA38554B19F043EC00EFD75E /* Course.h */,
+				AA38554C19F043EC00EFD75E /* Course.m */,
+				AA38552219F0431100EFD75E /* Supporting Files */,
+			);
+			path = LyndaCoreDataPracticeTableApp;
+			sourceTree = "<group>";
+		};
+		AA38552219F0431100EFD75E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA38552319F0431100EFD75E /* Info.plist */,
+				AA38552419F0431100EFD75E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA38553E19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA38554119F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.m */,
+				AA38553F19F0431100EFD75E /* Supporting Files */,
+			);
+			path = LyndaCoreDataPracticeTableAppTests;
+			sourceTree = "<group>";
+		};
+		AA38553F19F0431100EFD75E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA38554019F0431100EFD75E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA38551E19F0431100EFD75E /* LyndaCoreDataPracticeTableApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA38554519F0431100EFD75E /* Build configuration list for PBXNativeTarget "LyndaCoreDataPracticeTableApp" */;
+			buildPhases = (
+				AA38551B19F0431100EFD75E /* Sources */,
+				AA38551C19F0431100EFD75E /* Frameworks */,
+				AA38551D19F0431100EFD75E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LyndaCoreDataPracticeTableApp;
+			productName = LyndaCoreDataPracticeTableApp;
+			productReference = AA38551F19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA38553A19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA38554819F0431100EFD75E /* Build configuration list for PBXNativeTarget "LyndaCoreDataPracticeTableAppTests" */;
+			buildPhases = (
+				AA38553719F0431100EFD75E /* Sources */,
+				AA38553819F0431100EFD75E /* Frameworks */,
+				AA38553919F0431100EFD75E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA38553D19F0431100EFD75E /* PBXTargetDependency */,
+			);
+			name = LyndaCoreDataPracticeTableAppTests;
+			productName = LyndaCoreDataPracticeTableAppTests;
+			productReference = AA38553B19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA38551719F0431100EFD75E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = NM;
+				TargetAttributes = {
+					AA38551E19F0431100EFD75E = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					AA38553A19F0431100EFD75E = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = AA38551E19F0431100EFD75E;
+					};
+				};
+			};
+			buildConfigurationList = AA38551A19F0431100EFD75E /* Build configuration list for PBXProject "LyndaCoreDataPracticeTableApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA38551619F0431100EFD75E;
+			productRefGroup = AA38552019F0431100EFD75E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA38551E19F0431100EFD75E /* LyndaCoreDataPracticeTableApp */,
+				AA38553A19F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA38551D19F0431100EFD75E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA38553119F0431100EFD75E /* Main.storyboard in Resources */,
+				AA38553619F0431100EFD75E /* LaunchScreen.xib in Resources */,
+				AA38553319F0431100EFD75E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA38553919F0431100EFD75E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA38551B19F0431100EFD75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA38552B19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld in Sources */,
+				AA38555019F045D500EFD75E /* CoursesTableViewController.m in Sources */,
+				AA38552819F0431100EFD75E /* AppDelegate.m in Sources */,
+				AA38555619F0605600EFD75E /* DisplayEditViewController.m in Sources */,
+				AA38555319F051AF00EFD75E /* AddCourseViewController.m in Sources */,
+				AA38552519F0431100EFD75E /* main.m in Sources */,
+				AA38554D19F043EC00EFD75E /* Course.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA38553719F0431100EFD75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA38554219F0431100EFD75E /* LyndaCoreDataPracticeTableAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA38553D19F0431100EFD75E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA38551E19F0431100EFD75E /* LyndaCoreDataPracticeTableApp */;
+			targetProxy = AA38553C19F0431100EFD75E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA38552F19F0431100EFD75E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA38553019F0431100EFD75E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA38553419F0431100EFD75E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA38553519F0431100EFD75E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA38554319F0431100EFD75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA38554419F0431100EFD75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA38554619F0431100EFD75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LyndaCoreDataPracticeTableApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA38554719F0431100EFD75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LyndaCoreDataPracticeTableApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA38554919F0431100EFD75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LyndaCoreDataPracticeTableAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyndaCoreDataPracticeTableApp.app/LyndaCoreDataPracticeTableApp";
+			};
+			name = Debug;
+		};
+		AA38554A19F0431100EFD75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LyndaCoreDataPracticeTableAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyndaCoreDataPracticeTableApp.app/LyndaCoreDataPracticeTableApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA38551A19F0431100EFD75E /* Build configuration list for PBXProject "LyndaCoreDataPracticeTableApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA38554319F0431100EFD75E /* Debug */,
+				AA38554419F0431100EFD75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA38554519F0431100EFD75E /* Build configuration list for PBXNativeTarget "LyndaCoreDataPracticeTableApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA38554619F0431100EFD75E /* Debug */,
+				AA38554719F0431100EFD75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA38554819F0431100EFD75E /* Build configuration list for PBXNativeTarget "LyndaCoreDataPracticeTableAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA38554919F0431100EFD75E /* Debug */,
+				AA38554A19F0431100EFD75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA38552919F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA38552A19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodel */,
+			);
+			currentVersion = AA38552A19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodel */;
+			path = LyndaCoreDataPracticeTableApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA38551719F0431100EFD75E /* Project object */;
+}

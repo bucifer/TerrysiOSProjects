@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Node.h"
 
 @interface TerrysBinaryTree : NSObject
+
+@property (strong, nonatomic) Node *root;
+@property int numberOfNodes;
+
+
+
+
+
+- (Node *) findClosestCommonAncestor: (Node *) nodeP secondNode: (Node *)nodeQ;
+
+
 
 @end

@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBook/AddressBook.h>
 
 @interface ViewController : UIViewController
 
 
+
+
+
+
+
+
+- (void) checkForAuthorizationAB;
+- (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber;
+
+    
+    
 @end
 

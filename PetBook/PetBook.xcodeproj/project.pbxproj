@@ -25,6 +25,7 @@
 		20F8E544188EFCA1003D59C9 /* contact_Freckles.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20F8E540188EFCA1003D59C9 /* contact_Freckles.jpg */; };
 		20F8E545188EFCA1003D59C9 /* contact_Maxi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20F8E541188EFCA1003D59C9 /* contact_Maxi.jpg */; };
 		20F8E546188EFCA1003D59C9 /* contact_Shippo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20F8E542188EFCA1003D59C9 /* contact_Shippo.jpg */; };
+		AAEA2DCF19F97324006E14E4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEA2DCE19F97324006E14E4 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		20F8E540188EFCA1003D59C9 /* contact_Freckles.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contact_Freckles.jpg; sourceTree = "<group>"; };
 		20F8E541188EFCA1003D59C9 /* contact_Maxi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contact_Maxi.jpg; sourceTree = "<group>"; };
 		20F8E542188EFCA1003D59C9 /* contact_Shippo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contact_Shippo.jpg; sourceTree = "<group>"; };
+		AAEA2DCE19F97324006E14E4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEA2DCF19F97324006E14E4 /* AddressBook.framework in Frameworks */,
 				20F8E50D188EFC17003D59C9 /* CoreGraphics.framework in Frameworks */,
 				20F8E50F188EFC17003D59C9 /* UIKit.framework in Frameworks */,
 				20F8E50B188EFC17003D59C9 /* Foundation.framework in Frameworks */,
@@ -109,6 +112,7 @@
 		20F8E509188EFC17003D59C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAEA2DCE19F97324006E14E4 /* AddressBook.framework */,
 				20F8E50A188EFC17003D59C9 /* Foundation.framework */,
 				20F8E50C188EFC17003D59C9 /* CoreGraphics.framework */,
 				20F8E50E188EFC17003D59C9 /* UIKit.framework */,
@@ -476,6 +480,7 @@
 				20F8E53B188EFC17003D59C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20F8E53C188EFC17003D59C9 /* Build configuration list for PBXNativeTarget "PetBookTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +489,7 @@
 				20F8E53E188EFC17003D59C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

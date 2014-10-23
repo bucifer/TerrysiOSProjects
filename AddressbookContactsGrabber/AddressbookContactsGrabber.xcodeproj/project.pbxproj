@@ -14,6 +14,7 @@
 		AAB414AB19F95E8500CD7B6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB414AA19F95E8500CD7B6F /* Images.xcassets */; };
 		AAB414AE19F95E8500CD7B6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */; };
 		AAB414BA19F95E8500CD7B6F /* AddressbookContactsGrabberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB414B919F95E8500CD7B6F /* AddressbookContactsGrabberTests.m */; };
+		AAEA2E0719F97603006E14E4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEA2E0619F97602006E14E4 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		AAB414B319F95E8500CD7B6F /* AddressbookContactsGrabberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddressbookContactsGrabberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB414B819F95E8500CD7B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB414B919F95E8500CD7B6F /* AddressbookContactsGrabberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressbookContactsGrabberTests.m; sourceTree = "<group>"; };
+		AAEA2E0619F97602006E14E4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEA2E0719F97603006E14E4 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		AAB4149119F95E8500CD7B6F = {
 			isa = PBXGroup;
 			children = (
+				AAEA2E0619F97602006E14E4 /* AddressBook.framework */,
 				AAB4149C19F95E8500CD7B6F /* AddressbookContactsGrabber */,
 				AAB414B619F95E8500CD7B6F /* AddressbookContactsGrabberTests */,
 				AAB4149B19F95E8500CD7B6F /* Products */,
@@ -414,6 +418,7 @@
 				AAB414BF19F95E8500CD7B6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAB414C019F95E8500CD7B6F /* Build configuration list for PBXNativeTarget "AddressbookContactsGrabberTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				AAB414C219F95E8500CD7B6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

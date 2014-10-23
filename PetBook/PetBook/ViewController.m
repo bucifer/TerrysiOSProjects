@@ -25,7 +25,6 @@
         [cantAddContactAlert show];
     } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
         //2
-        NSLog(@"Authorized");
         [self addPetToContacts:sender];
 
     } else{ //ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
@@ -39,7 +38,6 @@
                 return;
             }
             //5
-            NSLog(@"Just authorized");
             [self addPetToContacts:sender];
 
         });
@@ -87,9 +85,34 @@
     
     ABPersonSetImageData(pet, (__bridge CFDataRef)petImageData, nil);
     
+    
+    
+    //Prevent duplicates
+    
+    
+    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+    
+    for (id record in allContacts){
+        ABRecordRef thisContact = (__bridge ABRecordRef)record;
+        if (CFStringCompare(ABRecordCopyCompositeName(thisContact),
+                            ABRecordCopyCompositeName(pet), 0) == kCFCompareEqualTo){
+            //The contact already exists!
+            UIAlertView *contactExistsAlert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"There can only be one %@", petFirstName] message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [contactExistsAlert show];
+            return;
+        }
+    }
+    
+    
+    //
+    
+    
+    
+    
     ABAddressBookAddRecord(addressBookRef, pet, nil);
     ABAddressBookSave(addressBookRef, nil);
-    
+    UIAlertView *contactAddedAlert = [[UIAlertView alloc]initWithTitle:@"Contact Added" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [contactAddedAlert show];
 }
 
 

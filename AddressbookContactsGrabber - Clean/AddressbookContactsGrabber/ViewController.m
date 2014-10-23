@@ -21,10 +21,6 @@
     ABContactsGrabberDAO *myDAO = [[ABContactsGrabberDAO alloc]init];
     self.DAO = myDAO;
     myDAO.delegate = self;
-    
-//    [self.DAO checkForAuthorizationAndAdd:@"Jeremy" lastName:@"Lin" phoneNumber:@"2019535443"];
-//    [self.DAO checkForAuthorizationAndAdd:@"Amare" lastName:@"DontHavePhoneNumber" phoneNumber:nil];
-//    [self.DAO checkForAuthorizationAndAdd:@"I" lastName:@"HavePhoneNumber" phoneNumber:@"1111111111"];
 
     [self.DAO runGrabContactsOnBackgroundQueue];
 }

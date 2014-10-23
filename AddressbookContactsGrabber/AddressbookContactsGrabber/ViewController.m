@@ -2,7 +2,7 @@
 //  ViewController.m
 //  AddressbookContactsGrabber
 //
-//  Created by Aditya Narayan on 10/23/14.
+//  Created by TB on 10/23/14.
 //  Copyright (c) 2014 TerryBuOrganization. All rights reserved.
 //
 
@@ -22,18 +22,24 @@
     self.DAO = myDAO;
     myDAO.delegate = self;
     
-    [self.DAO addNewPersonInAddressBook:@"Jeremy" lastName:@"Lin" phoneNumber:@"2019535443"];
-    [self.DAO addNewPersonInAddressBook:@"Amare" lastName:@"DontHavePhoneNumber" phoneNumber:nil];
-    [self.DAO addNewPersonInAddressBook:@"I" lastName:@"HavePhoneNumber" phoneNumber:@"1111111111"];
+//    [self.DAO checkForAuthorizationAndAdd:@"Jeremy" lastName:@"Lin" phoneNumber:@"2019535443"];
+//    [self.DAO checkForAuthorizationAndAdd:@"Amare" lastName:@"DontHavePhoneNumber" phoneNumber:nil];
+//    [self.DAO checkForAuthorizationAndAdd:@"I" lastName:@"HavePhoneNumber" phoneNumber:@"1111111111"];
 
     [self.DAO grabContactsOnBackgroundQueue];
-
 }
+
+
 
 - (void) DAOdidFinishFilteringContactsForPhoneNumbers {
     NSLog(@"%@", self.DAO.filteredContactsArrayWhoHavePhoneNumbers.description);
 
+    for (int i=0; i < self.DAO.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {
+        Contact *contactPointer = self.DAO.filteredContactsArrayWhoHavePhoneNumbers[i];
+        NSLog(@"%@ %@ - %@", contactPointer.firstName, contactPointer.lastName, contactPointer.mobileNumber);
+    }
 }
+
 
 - (void) DAOdidFinishAddingContact {
     UIAlertView *contactAddedAlert = [[UIAlertView alloc]initWithTitle:@"Contact Added" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

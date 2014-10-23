@@ -19,6 +19,12 @@
 - (void) checkForAuthorizationAndAdd;
 - (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber;
 
+
+- (NSMutableArray *) grabOnlyContactsWithPhoneNumber;
+
+    
+    
+    
 @end
 
 

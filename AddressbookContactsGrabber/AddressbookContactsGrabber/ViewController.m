@@ -22,8 +22,8 @@
     self.DAO = myDAO;
     myDAO.delegate = self;
     
-    [self.DAO checkForAuthorizationAndAdd];
-
+//    [self.DAO checkForAuthorizationAndAdd];
+    NSLog([self.DAO grabOnlyContactsWithPhoneNumber].description);
     
 
 }

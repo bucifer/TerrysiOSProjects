@@ -10,6 +10,36 @@
 
 @implementation ABContactsGrabberDAO
 
+
+
+- (NSMutableArray *) grabOnlyContactsWithPhoneNumber {
+    
+    NSMutableArray *resultsArray = [[NSMutableArray alloc]init];
+    
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
+
+    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+    
+    for (id record in allContacts){
+        ABRecordRef thisContact = (__bridge ABRecordRef)record;
+        ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
+        if (ABMultiValueGetCount(mvr) != 0) {
+//            ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
+//            NSArray *currentNums = (__bridge NSArray*) ABMultiValueCopyArrayOfAllValues(mvr);
+//            [resultsArray addObjectsFromArray:currentNums];
+            //above is for pulling the phone numbers
+            NSString *personName = (__bridge NSString *) ABRecordCopyCompositeName(thisContact);
+            [resultsArray addObject:personName];
+        }
+        else {
+            NSLog(@"found a contact without phone number at %@", ABRecordCopyCompositeName(thisContact));
+        }
+    }
+    
+    return resultsArray;
+}
+
+
 - (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber{
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
     NSString* guyFirstName = firstName;

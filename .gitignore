@@ -11,7 +11,7 @@
 *.json
 
 SplitAppTests/
-sample/
+Samples/
 
 TabApp/Images.xcassets/
 # Xcode

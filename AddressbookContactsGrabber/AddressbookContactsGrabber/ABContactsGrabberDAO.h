@@ -15,12 +15,13 @@
 
 
 @property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
 
 - (void) checkForAuthorizationAndAdd;
 - (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber;
 
-
-- (NSMutableArray *) grabOnlyContactsWithPhoneNumber;
+- (void) grabContactsOnBackgroundQueue;
+- (void) grabOnlyContactsWithPhoneNumber;
 
     
     

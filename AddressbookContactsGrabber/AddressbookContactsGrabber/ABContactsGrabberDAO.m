@@ -15,12 +15,12 @@
     NSOperationQueue *queue = [NSOperationQueue new];
     /* Create our NSInvocationOperation to call loadDataWithOperation, passing in nil */
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-                                                                            selector:@selector(grabOnlyContactsWithPhoneNumber)
+                                                                            selector:@selector(grabContactsWithAPhoneNumber)
                                                                               object:nil];
     [queue addOperation:operation];
 }
 
-- (void) grabOnlyContactsWithPhoneNumber {
+- (void) grabContactsWithAPhoneNumber {
     
     NSMutableArray *resultsArray = [[NSMutableArray alloc]init];
     
@@ -45,8 +45,7 @@
     }
     
     self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;
-    NSLog(@"%@", self.filteredContactsArrayWhoHavePhoneNumbers.description);
-
+    [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
 }
 
 

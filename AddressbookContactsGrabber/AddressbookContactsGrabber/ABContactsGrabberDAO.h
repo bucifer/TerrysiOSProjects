@@ -13,18 +13,17 @@
 
 @interface ABContactsGrabberDAO : NSObject
 
-
 @property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
+
+
+
+- (void) grabContactsOnBackgroundQueue;
+- (void) grabContactsWithAPhoneNumber;
 
 - (void) checkForAuthorizationAndAdd;
 - (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber;
 
-- (void) grabContactsOnBackgroundQueue;
-- (void) grabOnlyContactsWithPhoneNumber;
-
-    
-    
     
 @end
 
@@ -33,7 +32,9 @@
 
 @protocol ABContactsGrabberDAODelegate
 
+- (void) DAOdidFinishFilteringContactsForPhoneNumbers;
 - (void) DAOdidFinishAddingContact;
+
 - (void) authorizationProblemHappened;
 
 @end

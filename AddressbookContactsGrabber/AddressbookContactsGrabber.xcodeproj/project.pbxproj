@@ -15,6 +15,7 @@
 		AAB414AE19F95E8500CD7B6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */; };
 		AAB414BA19F95E8500CD7B6F /* AddressbookContactsGrabberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB414B919F95E8500CD7B6F /* AddressbookContactsGrabberTests.m */; };
 		AAEA2E0719F97603006E14E4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEA2E0619F97602006E14E4 /* AddressBook.framework */; };
+		AAEA2E0A19F97C13006E14E4 /* ABContactsGrabberDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEA2E0919F97C13006E14E4 /* ABContactsGrabberDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		AAB414B819F95E8500CD7B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB414B919F95E8500CD7B6F /* AddressbookContactsGrabberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressbookContactsGrabberTests.m; sourceTree = "<group>"; };
 		AAEA2E0619F97602006E14E4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AAEA2E0819F97C13006E14E4 /* ABContactsGrabberDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABContactsGrabberDAO.h; sourceTree = "<group>"; };
+		AAEA2E0919F97C13006E14E4 /* ABContactsGrabberDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABContactsGrabberDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				AAB414A219F95E8500CD7B6F /* AppDelegate.m */,
 				AAB414A419F95E8500CD7B6F /* ViewController.h */,
 				AAB414A519F95E8500CD7B6F /* ViewController.m */,
+				AAEA2E0819F97C13006E14E4 /* ABContactsGrabberDAO.h */,
+				AAEA2E0919F97C13006E14E4 /* ABContactsGrabberDAO.m */,
 				AAB414A719F95E8500CD7B6F /* Main.storyboard */,
 				AAB414AA19F95E8500CD7B6F /* Images.xcassets */,
 				AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */,
@@ -226,6 +231,7 @@
 				AAB414A619F95E8500CD7B6F /* ViewController.m in Sources */,
 				AAB414A319F95E8500CD7B6F /* AppDelegate.m in Sources */,
 				AAB414A019F95E8500CD7B6F /* main.m in Sources */,
+				AAEA2E0A19F97C13006E14E4 /* ABContactsGrabberDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

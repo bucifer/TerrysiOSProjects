@@ -8,18 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
+#import "ABContactsGrabberDAO.h"
 
-@interface ViewController : UIViewController
-
-
-
+@interface ViewController : UIViewController <ABContactsGrabberDAODelegate>
 
 
 
+@property ABContactsGrabberDAO *DAO;
 
 
-- (void) checkForAuthorizationAB;
-- (void) addNewPersonInAddressBook: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber;
+
+
 
     
     

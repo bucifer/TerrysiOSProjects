@@ -18,14 +18,14 @@
 @property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
 @property (nonatomic, strong) NSString *lastContactsSyncTime;
 
-@property (nonatomic, strong) NSMutableArray *brandNewContactsThatNeverGotInvitedFromLastSync;
+@property (nonatomic, strong) NSMutableArray *arrayOfNewContactsThatNeverGotInvitedFromLastSync;
 
 - (void) runGrabContactsOnBackgroundQueue;
 - (void) checkForABAuthorizationAndStartRun;
 - (void) grabContactsWithAPhoneNumber;
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
-
+- (void) findContactsThatNeverGotInvited;
 
 
 

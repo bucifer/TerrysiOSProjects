@@ -82,8 +82,6 @@
     
     [self saveContactsForPersistence];
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
-    
-    [self brandNewContactsThatNeverGotInvitedFromLastSync];
 }
 
 
@@ -124,7 +122,7 @@
 
 - (void) findContactsThatNeverGotInvited {
     
-    self.brandNewContactsThatNeverGotInvitedFromLastSync = [[NSMutableArray alloc]init];
+    self.arrayOfNewContactsThatNeverGotInvitedFromLastSync = [[NSMutableArray alloc]init];
     
     CFErrorRef error = nil;
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, &error); // indirection
@@ -150,11 +148,16 @@
         
         //we check against the phone number. If the existing defaults data doesn't have the phone number, then we add to brandNewContacts array
         if (![allPhoneNumbersFromDefaults containsObject:somePhoneNumberFromAB]) {
-            [self.brandNewContactsThatNeverGotInvitedFromLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+            [self.arrayOfNewContactsThatNeverGotInvitedFromLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
         }
     }
-
-    NSLog(@"Brand new contacts synced and invited: %@", self.brandNewContactsThatNeverGotInvitedFromLastSync.description);
+    
+    if (self.arrayOfNewContactsThatNeverGotInvitedFromLastSync.count == 0) {
+        NSLog(@"there were no new contacts since last sync");
+    }
+    else {
+        NSLog(@"Brand new contacts synced and invited: %@", self.arrayOfNewContactsThatNeverGotInvitedFromLastSync.description);
+    }
 }
 
 

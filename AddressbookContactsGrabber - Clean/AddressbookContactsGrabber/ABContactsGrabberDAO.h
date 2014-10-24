@@ -18,13 +18,24 @@
 @property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
 @property (nonatomic, strong) NSString *lastContactsSyncTime;
 
+@property (nonatomic, strong) NSMutableArray *brandNewContactsThatNeverGotInvitedFromLastSync;
 
 - (void) runGrabContactsOnBackgroundQueue;
+- (void) checkForABAuthorizationAndStartRun;
 - (void) grabContactsWithAPhoneNumber;
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
+
+
+
+
 //for persistence
 - (void) saveContactsForPersistence;
+
+
+
+
+
 
 
 //test methods just to add records to addressbook

@@ -10,25 +10,18 @@
 
 @implementation ABContactsGrabberDAO
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self.filteredContactsArrayWhoHavePhoneNumbers forKey:@"filteredContactsArray"];
-}
-
-
-
-
 
 
 #pragma mark Grabbing from Addressbook
 - (void) runGrabContactsOnBackgroundQueue {
     NSOperationQueue *queue = [NSOperationQueue new];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-                                                                            selector:@selector(grabContactsWithAPhoneNumber)
+                                                                            selector:@selector(checkForABAuthorizationAndStartRun)
                                                                               object:nil];
     [queue addOperation:operation];
 }
 
-- (void) grabContactsWithAPhoneNumber {
+- (void) checkForABAuthorizationAndStartRun {
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
         ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted){
@@ -38,7 +31,7 @@
     } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
         //2
         NSLog(@"Authorized");
-        [self runWhenABRequestAccessIsAuthorized];
+        [self grabContactsWithAPhoneNumber];
     } else { //case of ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
         //3
         NSLog(@"Not determined");
@@ -50,14 +43,13 @@
             }
             //5
             NSLog(@"Authorized");
-            [self runWhenABRequestAccessIsAuthorized];
+            [self grabContactsWithAPhoneNumber];
         });
     }
 }
 
-- (void) runWhenABRequestAccessIsAuthorized {
+- (void) grabContactsWithAPhoneNumber {
     NSMutableArray *resultsArray = [[NSMutableArray alloc]init];
-    
     
     CFErrorRef error = nil;
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, &error); // indirection
@@ -90,6 +82,8 @@
     
     [self saveContactsForPersistence];
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
+    
+    [self brandNewContactsThatNeverGotInvitedFromLastSync];
 }
 
 
@@ -100,9 +94,19 @@
     ABMultiValueRef mvr = ABRecordCopyValue(myABRecordRef, kABPersonPhoneProperty);
     myContactObject.mobileNumber =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
     
+    [self sendSplitInviteToContactObject: myContactObject];
+    
     return myContactObject;
 }
 
+
+- (void) sendSplitInviteToContactObject: (Contact *)someContact {
+//    NSLog(@"dummy method");
+    someContact.inviteAlreadySentFlag = YES;
+}
+
+
+#pragma mark For Persistence
 - (void) saveContactsForPersistence {
     //NSUserDefaults for persisting contacts
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -118,7 +122,40 @@
 
 #pragma mark Checking for new contacts on post-initial run
 
+- (void) findContactsThatNeverGotInvited {
+    
+    self.brandNewContactsThatNeverGotInvitedFromLastSync = [[NSMutableArray alloc]init];
+    
+    CFErrorRef error = nil;
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, &error); // indirection
+    if (!addressBookRef) // test the result, not the error
+    {
+        NSLog(@"error: %@", error);
+        return; // bail
+    }
+    
+    NSMutableArray *allPhoneNumbersFromDefaults = [[NSMutableArray alloc]init];
+    for (int i=0; i < self.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {
+        Contact *selectedContact = self.filteredContactsArrayWhoHavePhoneNumbers[i];
+        [allPhoneNumbersFromDefaults addObject:selectedContact.mobileNumber];
+    }
+    
+    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+    
+    //looping through every record in the AB
+    for (id record in allContacts){
+        ABRecordRef thisContact = (__bridge ABRecordRef)record;
+        ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
+        NSString *somePhoneNumberFromAB =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
+        
+        //we check against the phone number. If the existing defaults data doesn't have the phone number, then we add to brandNewContacts array
+        if (![allPhoneNumbersFromDefaults containsObject:somePhoneNumberFromAB]) {
+            [self.brandNewContactsThatNeverGotInvitedFromLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+        }
+    }
 
+    NSLog(@"Brand new contacts synced and invited: %@", self.brandNewContactsThatNeverGotInvitedFromLastSync.description);
+}
 
 
 

@@ -22,15 +22,10 @@
     self.DAO = myDAO;
     myDAO.delegate = self;
 
-    [self.DAO runGrabContactsOnBackgroundQueue];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"savedContactsWithPhoneNumbers"]) {
-        NSLog(@"Found user defaults data");
-        NSData *data = [defaults dataForKey:@"savedContactsWithPhoneNumbers"];
-        NSArray *decodedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        NSLog(@"%@", decodedData.description);
-    }
+    [self.DAO loadOrGrabOnFirstRunLogic];
+    
+    
 }
 
 

@@ -65,9 +65,11 @@
         ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
         NSString *personFullName = (__bridge NSString *) ABRecordCopyCompositeName(thisContact);
         
-        //check for phone number existence - if the record does have a phone number, push to our array
+        //check for phone number existence - if the record does have a phone number, push to our array and send invite
         if (ABMultiValueGetCount(mvr) != 0) {
-            [resultsArray addObject:[self createContactObjectBasedOnAddressBookRecord:thisContact]];
+            Contact *myNewContactObject = [self createContactObjectBasedOnAddressBookRecord:thisContact];
+            [resultsArray addObject:myNewContactObject];
+            [self sendSplitInviteToContactObject: myNewContactObject];
         }
         else {
             NSLog(@"found a contact without any phone number at %@", personFullName);
@@ -92,8 +94,6 @@
     ABMultiValueRef mvr = ABRecordCopyValue(myABRecordRef, kABPersonPhoneProperty);
     myContactObject.mobileNumber =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
     
-    [self sendSplitInviteToContactObject: myContactObject];
-    
     return myContactObject;
 }
 
@@ -116,13 +116,33 @@
     NSLog(@"Contacts saved on userdefaults");
 }
 
+- (void) loadFromPersistentStorage {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"savedContactsWithPhoneNumbers"]) {
+        NSLog(@"Found user defaults data .. LOADING");
+        NSData *data = [defaults dataForKey:@"savedContactsWithPhoneNumbers"];
+        NSArray *decodedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        self.filteredContactsArrayWhoHavePhoneNumbers = [decodedData mutableCopy];
+    }
+    [self printOutAllInFetchedArray];
+}
+
+- (void) loadOrGrabOnFirstRunLogic {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"savedContactsWithPhoneNumbers"])
+        [self loadFromPersistentStorage];
+    else
+        [self runGrabContactsOnBackgroundQueue];
+}
 
 
-#pragma mark Checking for new contacts on post-initial run
+
+#pragma mark Syncing for new contacts
 
 - (void) findContactsThatNeverGotInvited {
     
-    self.arrayOfNewContactsThatNeverGotInvitedFromLastSync = [[NSMutableArray alloc]init];
+    self.arrayOfNewContactsNeverInvitedLastSync = [[NSMutableArray alloc]init];
     
     CFErrorRef error = nil;
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, &error); // indirection
@@ -148,19 +168,28 @@
         
         //we check against the phone number. If the existing defaults data doesn't have the phone number, then we add to brandNewContacts array
         if (![allPhoneNumbersFromDefaults containsObject:somePhoneNumberFromAB]) {
-            [self.arrayOfNewContactsThatNeverGotInvitedFromLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+            [self.arrayOfNewContactsNeverInvitedLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
         }
     }
     
-    if (self.arrayOfNewContactsThatNeverGotInvitedFromLastSync.count == 0) {
+    if (self.arrayOfNewContactsNeverInvitedLastSync.count == 0) {
         NSLog(@"there were no new contacts since last sync");
     }
     else {
-        NSLog(@"Brand new contacts synced and invited: %@", self.arrayOfNewContactsThatNeverGotInvitedFromLastSync.description);
+        [self mergeNewContactsIntoExistingPersistenceAndSave];
+        NSLog(@"Brand new contacts synced and invited: %@", self.arrayOfNewContactsNeverInvitedLastSync.description);
     }
 }
 
-
+- (void) mergeNewContactsIntoExistingPersistenceAndSave {
+    
+    for (int i=0; i < self.arrayOfNewContactsNeverInvitedLastSync.count; i++) {
+        [self.filteredContactsArrayWhoHavePhoneNumbers addObject:self.arrayOfNewContactsNeverInvitedLastSync[i]];
+    }
+    
+    [self saveContactsForPersistence];
+    
+}
 
 
 
@@ -220,6 +249,12 @@
     
 }
 
+- (void) printOutAllInFetchedArray {
+    for (int i=0; i < self.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {
+        Contact *contact = self.filteredContactsArrayWhoHavePhoneNumbers[i];
+        NSLog(@"%@ %@", contact.firstName, contact.lastName);
+    }
+}
 
 
 

@@ -15,10 +15,11 @@
 @interface ABContactsGrabberDAO : NSObject
 
 @property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
+
+
 @property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
 @property (nonatomic, strong) NSString *lastContactsSyncTime;
-
-@property (nonatomic, strong) NSMutableArray *arrayOfNewContactsThatNeverGotInvitedFromLastSync;
+@property (nonatomic, strong) NSMutableArray *arrayOfNewContactsNeverInvitedLastSync;
 
 - (void) runGrabContactsOnBackgroundQueue;
 - (void) checkForABAuthorizationAndStartRun;
@@ -26,15 +27,13 @@
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
 - (void) findContactsThatNeverGotInvited;
-
+- (void) mergeNewContactsIntoExistingPersistenceAndSave;
 
 
 //for persistence
+- (void) loadOrGrabOnFirstRunLogic;
 - (void) saveContactsForPersistence;
-
-
-
-
+- (void) loadFromPersistentStorage;
 
 
 

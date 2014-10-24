@@ -22,9 +22,7 @@
 - (void) grabContactsWithAPhoneNumber {
     
     NSMutableArray *resultsArray = [[NSMutableArray alloc]init];
-    
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
-
     NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
     
     for (id record in allContacts){
@@ -32,15 +30,9 @@
         ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
         NSString *personFullName = (__bridge NSString *) ABRecordCopyCompositeName(thisContact);
 
-        //check for any phone number existence
+        //check for phone number existence - if the record does have a phone number, push to our array
         if (ABMultiValueGetCount(mvr) != 0) {
-        
-            Contact *mySelectedContact = [[Contact alloc]init];
-            mySelectedContact.firstName = (__bridge NSString *)(ABRecordCopyValue(thisContact, kABPersonFirstNameProperty));
-            mySelectedContact.lastName = (__bridge NSString *)(ABRecordCopyValue(thisContact, kABPersonLastNameProperty));
-            mySelectedContact.mobileNumber =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
-
-            [resultsArray addObject:mySelectedContact];
+            [resultsArray addObject:[self createContactObjectBasedOnAddressBookRecord:thisContact]];
         }
         else {
             NSLog(@"found a contact without any phone number at %@", personFullName);
@@ -49,6 +41,17 @@
     
     self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;        
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
+}
+
+
+- (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef {
+    Contact *myContactObject = [[Contact alloc]init];
+    myContactObject.firstName = (__bridge NSString *)(ABRecordCopyValue(myABRecordRef, kABPersonFirstNameProperty));
+    myContactObject.lastName = (__bridge NSString *)(ABRecordCopyValue(myABRecordRef, kABPersonLastNameProperty));
+    ABMultiValueRef mvr = ABRecordCopyValue(myABRecordRef, kABPersonPhoneProperty);
+    myContactObject.mobileNumber =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
+    
+    return myContactObject;
 }
 
 
@@ -96,12 +99,13 @@
     ABAddressBookSave(addressBookRef, nil);
     [self.delegate DAOdidFinishAddingContact];
     
-    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
     
-    for (id record in allContacts){
-        ABRecordRef thisContact = (__bridge ABRecordRef)record;
+    //Just to log out results
+//    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+//    for (id record in allContacts){
+//        ABRecordRef thisContact = (__bridge ABRecordRef)record;
 //        NSLog(@"%@", ABRecordCopyCompositeName(thisContact));
-    }
+//    }
     
 }
 

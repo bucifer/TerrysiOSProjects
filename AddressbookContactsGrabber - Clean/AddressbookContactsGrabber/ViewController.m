@@ -23,6 +23,7 @@
     myDAO.delegate = self;
 
     [self.DAO runGrabContactsOnBackgroundQueue];
+
 }
 
 

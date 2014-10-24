@@ -10,12 +10,8 @@
 #import <AddressBook/AddressBook.h>
 #import "Contact.h"
 
-@protocol ABContactsGrabberDAODelegate;
 
 @interface ABContactsGrabberDAO : NSObject
-
-@property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
-
 
 @property (nonatomic, strong) NSMutableArray *savedArrayOfContactsWithPhoneNumbers;
 
@@ -30,14 +26,4 @@
 
 - (void) printOutAllInFetchedArray;
     
-@end
-
-
-
-//in case we want to use delegates
-@protocol ABContactsGrabberDAODelegate
-
-- (void) DAOdidFinishFilteringContactsForPhoneNumbers;
-- (void) authorizationProblemHappened;
-
 @end

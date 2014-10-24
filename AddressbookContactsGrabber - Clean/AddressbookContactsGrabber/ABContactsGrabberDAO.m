@@ -28,7 +28,6 @@
         ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted){
         //1
         NSLog(@"you must allow app permissions to access your contacts from this app");
-        [self.delegate authorizationProblemHappened];
     } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
         //2
         NSLog(@"Authorized");
@@ -64,8 +63,6 @@
     for (id record in allContacts){
         ABRecordRef thisContact = (__bridge ABRecordRef)record;
         ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
-        NSString *personFullName = (__bridge NSString *) ABRecordCopyCompositeName(thisContact);
-        
         //check for phone number existence - if the record does have a phone number, push to our array
         if (ABMultiValueGetCount(mvr) != 0) {
             Contact *myNewContactObject = [self createContactObjectBasedOnAddressBookRecord:thisContact];

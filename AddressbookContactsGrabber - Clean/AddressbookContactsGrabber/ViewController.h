@@ -10,7 +10,7 @@
 #import <AddressBook/AddressBook.h>
 #import "ABContactsGrabberDAO.h"
 
-@interface ViewController : UIViewController <ABContactsGrabberDAODelegate>
+@interface ViewController : UIViewController
 
 
 

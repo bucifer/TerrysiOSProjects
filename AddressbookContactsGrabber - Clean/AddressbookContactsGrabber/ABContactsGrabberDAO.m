@@ -176,7 +176,8 @@
         if (![allPhoneNumbersFromExistingStorage containsObject:somePhoneNumberFromAB]) {
             
             if ([self thisPhoneNumberIsValid:somePhoneNumberFromAB]) {
-                [self.arrayOfNewContactsNeverInvitedLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+                Contact *contact = [self createContactObjectBasedOnAddressBookRecord:thisContact];
+                [self.arrayOfNewContactsNeverInvitedLastSync addObject:contact];
             }
             else
                 NSLog(@"phone number of this record reference is not valid or null - not adding");

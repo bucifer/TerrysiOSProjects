@@ -50,6 +50,8 @@
 @protocol ABContactsGrabberDAODelegate
 
 - (void) DAOdidFinishFilteringContactsForPhoneNumbers;
+- (void) DAOdidFinishSyncAttempt;
+
 - (void) DAOdidFinishAddingContact;
 
 - (void) authorizationProblemHappened;

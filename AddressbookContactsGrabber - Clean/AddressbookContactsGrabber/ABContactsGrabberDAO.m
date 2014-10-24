@@ -77,10 +77,7 @@
     }
     
     self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
-    self.lastContactsSyncTime = [dateFormatter stringFromDate:[NSDate date]];
+    [self updateLastSyncTime];
     
     [self saveContactsForPersistence];
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
@@ -96,6 +93,15 @@
     
     return myContactObject;
 }
+
+
+
+- (void) updateLastSyncTime {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+    self.lastContactsSyncTime = [dateFormatter stringFromDate:[NSDate date]];
+}
+
 
 
 - (void) sendSplitInviteToContactObject: (Contact *)someContact {
@@ -152,10 +158,10 @@
         return; // bail
     }
     
-    NSMutableArray *allPhoneNumbersFromDefaults = [[NSMutableArray alloc]init];
+    NSMutableArray *allPhoneNumbersFromExistingStorage = [[NSMutableArray alloc]init];
     for (int i=0; i < self.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {
         Contact *selectedContact = self.filteredContactsArrayWhoHavePhoneNumbers[i];
-        [allPhoneNumbersFromDefaults addObject:selectedContact.mobileNumber];
+        [allPhoneNumbersFromExistingStorage addObject:selectedContact.mobileNumber];
     }
     
     NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
@@ -166,9 +172,14 @@
         ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
         NSString *somePhoneNumberFromAB =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
         
-        //we check against the phone number. If the existing defaults data doesn't have the phone number, then we add to brandNewContacts array
-        if (![allPhoneNumbersFromDefaults containsObject:somePhoneNumberFromAB]) {
-            [self.arrayOfNewContactsNeverInvitedLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+        //we check against the phone number. If the brand new number is invalid, we don't add. If it is valid and the existing defaults data doesn't have the phone number, then we add to newcontacts array
+        if (![allPhoneNumbersFromExistingStorage containsObject:somePhoneNumberFromAB]) {
+            
+            if ([self thisPhoneNumberIsValid:somePhoneNumberFromAB]) {
+                [self.arrayOfNewContactsNeverInvitedLastSync addObject: [self createContactObjectBasedOnAddressBookRecord:thisContact]];
+            }
+            else
+                NSLog(@"phone number of this record reference is not valid or null - not adding");
         }
     }
     
@@ -179,7 +190,20 @@
         [self mergeNewContactsIntoExistingPersistenceAndSave];
         NSLog(@"Brand new contacts synced and invited: %@", self.arrayOfNewContactsNeverInvitedLastSync.description);
     }
+    
+    [self updateLastSyncTime];
+    [self.delegate DAOdidFinishSyncAttempt];
 }
+
+- (BOOL) thisPhoneNumberIsValid: (NSString *) somePhoneNumber {
+    
+    if (somePhoneNumber == nil)
+        return NO;
+    
+    return YES;
+    
+}
+
 
 - (void) mergeNewContactsIntoExistingPersistenceAndSave {
     
@@ -188,7 +212,7 @@
     }
     
     [self saveContactsForPersistence];
-    
+    [self printOutAllInFetchedArray];
 }
 
 

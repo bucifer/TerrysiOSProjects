@@ -32,13 +32,17 @@
 
 - (void) DAOdidFinishFilteringContactsForPhoneNumbers {
     self.syncTimeLabel.text = self.DAO.lastContactsSyncTime;
+}
 
-    NSLog(@"%@", self.DAO.filteredContactsArrayWhoHavePhoneNumbers.description);
+- (void) DAOdidFinishSyncAttempt {
+    self.syncTimeLabel.text = self.DAO.lastContactsSyncTime;
+}
 
-    for (int i=0; i < self.DAO.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {
-        Contact *contactPointer = self.DAO.filteredContactsArrayWhoHavePhoneNumbers[i];
-        NSLog(@"%@ %@ - %@", contactPointer.firstName, contactPointer.lastName, contactPointer.mobileNumber);
-    }
+
+
+- (IBAction)syncActionButton:(id)sender {
+    
+    [self.DAO findContactsThatNeverGotInvited];
     
 }
 
@@ -55,11 +59,8 @@
 
 
 
-- (IBAction)syncActionButton:(id)sender {
-    
-    [self.DAO findContactsThatNeverGotInvited];
-    
-}
+
+
 
 
 

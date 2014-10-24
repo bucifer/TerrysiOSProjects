@@ -17,8 +17,7 @@
 @property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
 
 
-@property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
-@property (nonatomic, strong) NSMutableArray *arrayOfNewContactsNeverInvitedLastSync;
+@property (nonatomic, strong) NSMutableArray *savedArrayOfContactsWithPhoneNumbers;
 
 
 - (void) runGrabContactsOnBackgroundQueue;
@@ -27,6 +26,7 @@
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
 - (void) startListeningForABChanges;
+- (void) addNewContactsIntoCustomArray;
 
 - (void) printOutAllInFetchedArray;
     

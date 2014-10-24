@@ -16,6 +16,10 @@
 
 @property ABContactsGrabberDAO *DAO;
 
+
+@property (strong, nonatomic) IBOutlet UILabel *syncTimeLabel;
+
+- (IBAction)syncActionButton:(id)sender;
     
     
 @end

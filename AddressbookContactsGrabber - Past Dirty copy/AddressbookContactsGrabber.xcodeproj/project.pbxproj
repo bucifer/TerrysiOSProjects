@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA03978219FAD70600ACEB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA03978119FAD70600ACEB3E /* Main.storyboard */; };
 		AAB414A019F95E8500CD7B6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB4149F19F95E8500CD7B6F /* main.m */; };
 		AAB414A319F95E8500CD7B6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB414A219F95E8500CD7B6F /* AppDelegate.m */; };
 		AAB414A619F95E8500CD7B6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB414A519F95E8500CD7B6F /* ViewController.m */; };
+		AAB414A919F95E8500CD7B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB414A719F95E8500CD7B6F /* Main.storyboard */; };
 		AAB414AB19F95E8500CD7B6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB414AA19F95E8500CD7B6F /* Images.xcassets */; };
 		AAB414AE19F95E8500CD7B6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */; };
 		AAB414BA19F95E8500CD7B6F /* AddressbookContactsGrabberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB414B919F95E8500CD7B6F /* AddressbookContactsGrabberTests.m */; };
@@ -30,7 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA03978119FAD70600ACEB3E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AAB4149A19F95E8500CD7B6F /* AddressbookContactsGrabber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressbookContactsGrabber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB4149E19F95E8500CD7B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB4149F19F95E8500CD7B6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		AAB414A219F95E8500CD7B6F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AAB414A419F95E8500CD7B6F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AAB414A519F95E8500CD7B6F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AAB414A819F95E8500CD7B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAB414AA19F95E8500CD7B6F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AAB414AD19F95E8500CD7B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AAB414B319F95E8500CD7B6F /* AddressbookContactsGrabberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddressbookContactsGrabberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,11 +95,11 @@
 				AAB414A219F95E8500CD7B6F /* AppDelegate.m */,
 				AAB414A419F95E8500CD7B6F /* ViewController.h */,
 				AAB414A519F95E8500CD7B6F /* ViewController.m */,
-				AA03978119FAD70600ACEB3E /* Main.storyboard */,
 				AAEA2E0819F97C13006E14E4 /* ABContactsGrabberDAO.h */,
 				AAEA2E0919F97C13006E14E4 /* ABContactsGrabberDAO.m */,
 				AAEA2E0D19F9A449006E14E4 /* Contact.h */,
 				AAEA2E0E19F9A449006E14E4 /* Contact.m */,
+				AAB414A719F95E8500CD7B6F /* Main.storyboard */,
 				AAB414AA19F95E8500CD7B6F /* Images.xcassets */,
 				AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */,
 				AAB4149D19F95E8500CD7B6F /* Supporting Files */,
@@ -214,7 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA03978219FAD70600ACEB3E /* Main.storyboard in Resources */,
+				AAB414A919F95E8500CD7B6F /* Main.storyboard in Resources */,
 				AAB414AE19F95E8500CD7B6F /* LaunchScreen.xib in Resources */,
 				AAB414AB19F95E8500CD7B6F /* Images.xcassets in Resources */,
 			);
@@ -261,6 +261,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AAB414A719F95E8500CD7B6F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAB414A819F95E8500CD7B6F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		AAB414AC19F95E8500CD7B6F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

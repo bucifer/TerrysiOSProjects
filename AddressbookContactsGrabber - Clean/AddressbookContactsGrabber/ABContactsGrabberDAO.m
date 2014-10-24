@@ -43,7 +43,7 @@
     self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
     self.lastContactsSyncTime = [dateFormatter stringFromDate:[NSDate date]];
     
     

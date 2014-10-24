@@ -10,6 +10,14 @@
 
 @implementation ABContactsGrabberDAO
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.filteredContactsArrayWhoHavePhoneNumbers forKey:@"filteredContactsArray"];
+}
+
+
+
+
+
 
 #pragma mark Grabbing from Addressbook
 - (void) runGrabContactsOnBackgroundQueue {
@@ -22,15 +30,49 @@
 
 - (void) grabContactsWithAPhoneNumber {
     
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
+        ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted){
+        //1
+        NSLog(@"you must allow app permissions to access your contacts from this app");
+        [self.delegate authorizationProblemHappened];
+    } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
+        //2
+        NSLog(@"Authorized");
+        [self runWhenABRequestAccessIsAuthorized];
+    } else { //case of ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
+        //3
+        NSLog(@"Not determined");
+        ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
+            if (!granted){
+                //4
+                NSLog(@"you must allow app permissions to access your contacts from this app");
+                return;
+            }
+            //5
+            NSLog(@"Authorized");
+            [self runWhenABRequestAccessIsAuthorized];
+        });
+    }
+}
+
+- (void) runWhenABRequestAccessIsAuthorized {
     NSMutableArray *resultsArray = [[NSMutableArray alloc]init];
-    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
+    
+    
+    CFErrorRef error = nil;
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, &error); // indirection
+    if (!addressBookRef) // test the result, not the error
+    {
+        NSLog(@"error: %@", error);
+        return; // bail
+    }
     NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBookRef);
     
     for (id record in allContacts){
         ABRecordRef thisContact = (__bridge ABRecordRef)record;
         ABMultiValueRef mvr = ABRecordCopyValue(thisContact, kABPersonPhoneProperty);
         NSString *personFullName = (__bridge NSString *) ABRecordCopyCompositeName(thisContact);
-
+        
         //check for phone number existence - if the record does have a phone number, push to our array
         if (ABMultiValueGetCount(mvr) != 0) {
             [resultsArray addObject:[self createContactObjectBasedOnAddressBookRecord:thisContact]];
@@ -46,7 +88,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
     self.lastContactsSyncTime = [dateFormatter stringFromDate:[NSDate date]];
     
-    
+    [self saveContactsForPersistence];
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
 }
 
@@ -59,6 +101,17 @@
     myContactObject.mobileNumber =  (__bridge NSString *)(ABMultiValueCopyValueAtIndex(mvr, 0));
     
     return myContactObject;
+}
+
+- (void) saveContactsForPersistence {
+    //NSUserDefaults for persisting contacts
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.filteredContactsArrayWhoHavePhoneNumbers];
+    [defaults setObject:data forKey:@"savedContactsWithPhoneNumbers"];
+    
+    //unless you tell UserDefaults to synchronize explicitly, it won't do it unless you go out to home screen REMEMBER THIS
+    [defaults synchronize];
+    NSLog(@"Contacts saved on userdefaults");
 }
 
 

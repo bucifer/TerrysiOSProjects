@@ -15,4 +15,10 @@
 @property(strong, nonatomic)NSString *mobileNumber;
 @property BOOL inviteAlreadySentFlag;
 
+
+
+
+
+
+
 @end

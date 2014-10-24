@@ -24,19 +24,16 @@
 
     [self.DAO runGrabContactsOnBackgroundQueue];
     
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, nil);
-    ABAddressBookRegisterExternalChangeCallback(addressBook, addressBookChanged, (__bridge void *)(self));
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"savedContactsWithPhoneNumbers"]) {
+        NSLog(@"Found user defaults data");
+        NSData *data = [defaults dataForKey:@"savedContactsWithPhoneNumbers"];
+        NSArray *decodedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSLog(@"%@", decodedData.description);
+    }
 }
 
-void addressBookChanged(ABAddressBookRef abRef, CFDictionaryRef dicRef, void *context) {
-    
-    NSLog(@"!!!!!Address Book Changed!");
-    
-    //Do Something You Need. (Recreate addressbook or Reload UITableView data.)
-    
-    ABAddressBookUnregisterExternalChangeCallback(abRef, addressBookChanged, context);
-}
+
 
 - (void) DAOdidFinishFilteringContactsForPhoneNumbers {
     self.syncTimeLabel.text = self.DAO.lastContactsSyncTime;
@@ -47,6 +44,7 @@ void addressBookChanged(ABAddressBookRef abRef, CFDictionaryRef dicRef, void *co
         Contact *contactPointer = self.DAO.filteredContactsArrayWhoHavePhoneNumbers[i];
         NSLog(@"%@ %@ - %@", contactPointer.firstName, contactPointer.lastName, contactPointer.mobileNumber);
     }
+    
 }
 
 

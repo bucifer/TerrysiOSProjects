@@ -23,6 +23,8 @@
 - (void) grabContactsWithAPhoneNumber;
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
+//for persistence
+- (void) saveContactsForPersistence;
 
 
 //test methods just to add records to addressbook

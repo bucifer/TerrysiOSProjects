@@ -19,13 +19,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *syncTimeLabel;
 
-
-void ABAddressBookRegisterExternalChangeCallback (
-                                                  ABAddressBookRef addressBook,
-                                                  ABExternalChangeCallback callback,
-                                                  void *context
-                                                  );
-
     
     
 @end

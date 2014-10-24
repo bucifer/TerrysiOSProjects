@@ -24,6 +24,8 @@
 
     
     [self.DAO runGrabContactsOnBackgroundQueue];
+    [self.DAO startListeningForABChanges];
+    
 }
 
 

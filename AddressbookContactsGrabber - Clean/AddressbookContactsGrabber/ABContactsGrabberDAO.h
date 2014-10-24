@@ -26,6 +26,8 @@
 - (void) grabContactsWithAPhoneNumber;
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef;
 
+- (void) startListeningForABChanges;
+
 - (void) printOutAllInFetchedArray;
     
 @end

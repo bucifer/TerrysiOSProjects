@@ -69,7 +69,6 @@
         if (ABMultiValueGetCount(mvr) != 0) {
             Contact *myNewContactObject = [self createContactObjectBasedOnAddressBookRecord:thisContact];
             [resultsArray addObject:myNewContactObject];
-            [self sendSplitInviteToContactObject: myNewContactObject];
         }
         else {
             NSLog(@"found a contact without any phone number at %@", personFullName);
@@ -79,6 +78,8 @@
     self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;
     [self printOutAllInFetchedArray];
 }
+
+
 
 
 - (Contact *) createContactObjectBasedOnAddressBookRecord: (ABRecordRef) myABRecordRef {
@@ -94,13 +95,25 @@
 
 
 
-
-
-- (void) sendSplitInviteToContactObject: (Contact *)someContact {
-//    NSLog(@"dummy method");
-    someContact.inviteAlreadySentFlag = YES;
+- (void) startListeningForABChanges {
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil); // indirection
+    ABAddressBookRegisterExternalChangeCallback(addressBookRef, addressBookChanged, (__bridge void *)(self));
 }
 
+
+
+void ABAddressBookRegisterExternalChangeCallback (
+                                                  ABAddressBookRef addressBook,
+                                                  ABExternalChangeCallback callback,
+                                                  void *context
+                                                  );
+
+
+void addressBookChanged(ABAddressBookRef abRef, CFDictionaryRef dicRef, void *context) {
+    
+    NSLog(@"!!!!!Address Book Changed!");
+    
+}
 
 
 
@@ -110,7 +123,5 @@
         NSLog(@"%@ %@", contact.firstName, contact.lastName);
     }
 }
-
-
 
 @end

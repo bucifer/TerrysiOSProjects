@@ -11,6 +11,7 @@
 @implementation ABContactsGrabberDAO
 
 
+#pragma mark Grabbing from Addressbook
 - (void) runGrabContactsOnBackgroundQueue {
     NSOperationQueue *queue = [NSOperationQueue new];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
@@ -39,7 +40,13 @@
         }
     }
     
-    self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;        
+    self.filteredContactsArrayWhoHavePhoneNumbers = resultsArray;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    self.lastContactsSyncTime = [dateFormatter stringFromDate:[NSDate date]];
+    
+    
     [self.delegate DAOdidFinishFilteringContactsForPhoneNumbers];
 }
 
@@ -55,6 +62,17 @@
 }
 
 
+
+#pragma mark Checking for new contacts on post-initial run
+
+
+
+
+
+
+
+
+#pragma mark Adding to Addressbook - Just for testing
 - (void) checkForAuthorizationAndAdd: (NSString *)firstName lastName:(NSString *)lastName phoneNumber:(NSString *) phoneNumber {
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
         ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted){
@@ -66,7 +84,7 @@
         NSLog(@"Authorized");
         [self addNewPersonInAddressBook: firstName lastName:lastName phoneNumber:phoneNumber];
         
-    } else { //ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
+    } else { //case of ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
         //3
         NSLog(@"Not determined");
         ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {

@@ -23,12 +23,24 @@
     myDAO.delegate = self;
 
     [self.DAO runGrabContactsOnBackgroundQueue];
+    
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, nil);
+    ABAddressBookRegisterExternalChangeCallback(addressBook, addressBookChanged, (__bridge void *)(self));
 
 }
 
-
+void addressBookChanged(ABAddressBookRef abRef, CFDictionaryRef dicRef, void *context) {
+    
+    NSLog(@"!!!!!Address Book Changed!");
+    
+    //Do Something You Need. (Recreate addressbook or Reload UITableView data.)
+    
+    ABAddressBookUnregisterExternalChangeCallback(abRef, addressBookChanged, context);
+}
 
 - (void) DAOdidFinishFilteringContactsForPhoneNumbers {
+    self.syncTimeLabel.text = self.DAO.lastContactsSyncTime;
+
     NSLog(@"%@", self.DAO.filteredContactsArrayWhoHavePhoneNumbers.description);
 
     for (int i=0; i < self.DAO.filteredContactsArrayWhoHavePhoneNumbers.count; i++) {

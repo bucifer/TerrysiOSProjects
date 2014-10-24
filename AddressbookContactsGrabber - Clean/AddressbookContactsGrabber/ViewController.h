@@ -17,8 +17,14 @@
 @property ABContactsGrabberDAO *DAO;
 
 
+@property (strong, nonatomic) IBOutlet UILabel *syncTimeLabel;
 
 
+void ABAddressBookRegisterExternalChangeCallback (
+                                                  ABAddressBookRef addressBook,
+                                                  ABExternalChangeCallback callback,
+                                                  void *context
+                                                  );
 
     
     

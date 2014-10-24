@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak) id <ABContactsGrabberDAODelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *filteredContactsArrayWhoHavePhoneNumbers;
-
+@property (nonatomic, strong) NSString *lastContactsSyncTime;
 
 
 - (void) runGrabContactsOnBackgroundQueue;

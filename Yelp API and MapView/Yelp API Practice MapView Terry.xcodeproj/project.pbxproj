@@ -22,6 +22,7 @@
 		AA9AA36A19D473AF00621939 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AA36919D473AF00621939 /* MapKit.framework */; };
 		AA9F1E4F19D4CAB2005C0066 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */; };
 		AAA1032919D5ADCF00A95CDC /* RestaurantPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1032819D5ADCF00A95CDC /* RestaurantPointAnnotation.m */; };
+		AAD758F11A0C3730003CF7EB /* TerryMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD758F01A0C3730003CF7EB /* TerryMapManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		AAA1032719D5ADCF00A95CDC /* RestaurantPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPointAnnotation.h; sourceTree = "<group>"; };
 		AAA1032819D5ADCF00A95CDC /* RestaurantPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPointAnnotation.m; sourceTree = "<group>"; };
+		AAD758EF1A0C3730003CF7EB /* TerryMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerryMapManager.h; sourceTree = "<group>"; };
+		AAD758F01A0C3730003CF7EB /* TerryMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerryMapManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AA9AA34919D472F800621939 /* MapViewController.h */,
 				AA9AA34A19D472F800621939 /* MapViewController.m */,
+				AAD758EF1A0C3730003CF7EB /* TerryMapManager.h */,
+				AAD758F01A0C3730003CF7EB /* TerryMapManager.m */,
 				AA9F1E4D19D4CAB2005C0066 /* WebViewController.h */,
 				AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */,
 				AAA1032719D5ADCF00A95CDC /* RestaurantPointAnnotation.h */,
@@ -241,6 +246,7 @@
 				AAA1032919D5ADCF00A95CDC /* RestaurantPointAnnotation.m in Sources */,
 				AA9AA34B19D472F800621939 /* MapViewController.m in Sources */,
 				AA9AA34519D472F800621939 /* AppDelegate.m in Sources */,
+				AAD758F11A0C3730003CF7EB /* TerryMapManager.m in Sources */,
 				AA9AA34119D472F800621939 /* main.m in Sources */,
 				AA9F1E4F19D4CAB2005C0066 /* WebViewController.m in Sources */,
 			);

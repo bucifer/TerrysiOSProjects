@@ -23,7 +23,6 @@
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager setDelegate:self];
-
     if (IS_OS_8_OR_LATER) {
         // Use one or the other, not both. Depending on what you put in info.plist
 //        [self.locationManager requestAlwaysAuthorization];
@@ -37,7 +36,6 @@
     [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
             if (placemarks != nil) {
                 CLPlacemark *placemark = placemarks[0];
-                NSLog(@"%@", placemark);
                 CLLocation *location = placemark.location;
                 CLLocationCoordinate2D TTTCoordinate = location.coordinate;
                 [TTTannotation setCoordinate: TTTCoordinate];
@@ -114,7 +112,7 @@
     //you can set zoom to 50000 on each to make it nicely zoomed out
     [self.myMapView setRegion:region animated:YES];
     
-//    Place a single pin at where you are
+    //Place a single pin at where you are
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     [annotation setCoordinate:userLocation.coordinate];
     [annotation setTitle:@"You are here"];
@@ -129,15 +127,11 @@
 
 - (void) connection:(NSURLConnection* )connection didReceiveResponse:(NSURLResponse *)response {
     //this handler, gets hit ONCE
-
 }
 
 - (void)connection: (NSURLConnection *)connection didReceiveData:(NSData *) data {
     //this handler, gets hit SEVERAL TIMES
-    //Append new data to the instance variable everytime new data comes in
-    
     [self.responseData appendData:data];
-
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
@@ -152,6 +146,7 @@
 
     NSLog(@"connection finished");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
+    
     //Convert your responseData object
     NSError *myError = nil;
     NSDictionary *responseDataInNSDictionary = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
@@ -160,14 +155,11 @@
     for (int i=0; i < resultsArray.count; i++) {
         NSDictionary *restaurantObject = resultsArray[i];
         NSString *restaurantName = [restaurantObject objectForKey:@"name"];
-        NSLog(@"%@", restaurantName);
         NSDictionary *geometryObject = [restaurantObject objectForKey:@"geometry"];
         NSDictionary *locationObject = [geometryObject objectForKey:@"location"];
-        NSLog(@"%@ %@", [locationObject objectForKey:@"lat"], [locationObject objectForKey:@"lng"]);
-        
+        NSLog(@"%@", restaurantName);
         //Place the pin on these restaurants
         RestaurantPointAnnotation *annotation = [[RestaurantPointAnnotation alloc]init];
-        
         CLLocationCoordinate2D restaurantCoordinate = CLLocationCoordinate2DMake([[locationObject objectForKey:@"lat"] doubleValue], [[locationObject objectForKey:@"lng"] doubleValue]);
         
         [annotation setCoordinate:restaurantCoordinate];

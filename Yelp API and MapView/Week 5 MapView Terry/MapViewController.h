@@ -10,22 +10,23 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WebViewController.h"
+#import "TerryMapManager.h"
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue])
 
 @interface MapViewController : UIViewController
 <CLLocationManagerDelegate, MKMapViewDelegate, NSURLConnectionDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 @property (strong, nonatomic) IBOutlet MKMapView *myMapView;
-@property (strong, nonatomic) NSMutableData *responseData;
-@property (strong, nonatomic) NSString* url;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (strong, nonatomic) NSMutableData *responseData;
+
+@property (strong, nonatomic) NSString* url;
 
 - (IBAction)segmentMapSelection:(id)sender;
 
 
-//class methods
 
 - (void) requestDataFromAPI:(MKUserLocation *)userLocation;
 

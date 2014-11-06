@@ -35,21 +35,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA9AA33119D472F800621939 /* Week 5 MapView Terry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week 5 MapView Terry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9AA33119D472F800621939 /* Yelp API Practice MapView Terry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yelp API Practice MapView Terry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9AA33419D472F800621939 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA9AA33619D472F800621939 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AA9AA33819D472F800621939 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		AA9AA33C19D472F800621939 /* Week 5 MapView Terry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Week 5 MapView Terry-Info.plist"; sourceTree = "<group>"; };
+		AA9AA33C19D472F800621939 /* Yelp API Practice MapView Terry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Yelp API Practice MapView Terry-Info.plist"; sourceTree = "<group>"; };
 		AA9AA33E19D472F800621939 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA9AA34019D472F800621939 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA9AA34219D472F800621939 /* Week 5 MapView Terry-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Week 5 MapView Terry-Prefix.pch"; sourceTree = "<group>"; };
+		AA9AA34219D472F800621939 /* Yelp API Practice MapView Terry-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yelp API Practice MapView Terry-Prefix.pch"; sourceTree = "<group>"; };
 		AA9AA34319D472F800621939 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA9AA34419D472F800621939 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AA9AA34719D472F800621939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA9AA34919D472F800621939 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		AA9AA34A19D472F800621939 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AA9AA34C19D472F800621939 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AA9AA35219D472F900621939 /* Week 5 MapView TerryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Week 5 MapView TerryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9AA35219D472F900621939 /* Yelp API Practice MapView TerryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yelp API Practice MapView TerryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9AA35319D472F900621939 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AA9AA36919D473AF00621939 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AA9F1E4D19D4CAB2005C0066 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		AA9AA33219D472F800621939 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA9AA33119D472F800621939 /* Week 5 MapView Terry.app */,
-				AA9AA35219D472F900621939 /* Week 5 MapView TerryTests.xctest */,
+				AA9AA33119D472F800621939 /* Yelp API Practice MapView Terry.app */,
+				AA9AA35219D472F900621939 /* Yelp API Practice MapView TerryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,10 +134,10 @@
 		AA9AA33B19D472F800621939 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA9AA33C19D472F800621939 /* Week 5 MapView Terry-Info.plist */,
+				AA9AA33C19D472F800621939 /* Yelp API Practice MapView Terry-Info.plist */,
 				AA9AA33D19D472F800621939 /* InfoPlist.strings */,
 				AA9AA34019D472F800621939 /* main.m */,
-				AA9AA34219D472F800621939 /* Week 5 MapView Terry-Prefix.pch */,
+				AA9AA34219D472F800621939 /* Yelp API Practice MapView Terry-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA9AA33019D472F800621939 /* Week 5 MapView Terry */ = {
+		AA9AA33019D472F800621939 /* Yelp API Practice MapView Terry */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9AA36319D472F900621939 /* Build configuration list for PBXNativeTarget "Week 5 MapView Terry" */;
+			buildConfigurationList = AA9AA36319D472F900621939 /* Build configuration list for PBXNativeTarget "Yelp API Practice MapView Terry" */;
 			buildPhases = (
 				AA9AA32D19D472F800621939 /* Sources */,
 				AA9AA32E19D472F800621939 /* Frameworks */,
@@ -157,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = "Week 5 MapView Terry";
+			name = "Yelp API Practice MapView Terry";
 			productName = "Week 5 MapView Terry";
-			productReference = AA9AA33119D472F800621939 /* Week 5 MapView Terry.app */;
+			productReference = AA9AA33119D472F800621939 /* Yelp API Practice MapView Terry.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA9AA35119D472F900621939 /* Week 5 MapView TerryTests */ = {
+		AA9AA35119D472F900621939 /* Yelp API Practice MapView TerryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9AA36619D472F900621939 /* Build configuration list for PBXNativeTarget "Week 5 MapView TerryTests" */;
+			buildConfigurationList = AA9AA36619D472F900621939 /* Build configuration list for PBXNativeTarget "Yelp API Practice MapView TerryTests" */;
 			buildPhases = (
 				AA9AA34E19D472F900621939 /* Sources */,
 				AA9AA34F19D472F900621939 /* Frameworks */,
@@ -175,9 +175,9 @@
 			dependencies = (
 				AA9AA35819D472F900621939 /* PBXTargetDependency */,
 			);
-			name = "Week 5 MapView TerryTests";
+			name = "Yelp API Practice MapView TerryTests";
 			productName = "Week 5 MapView TerryTests";
-			productReference = AA9AA35219D472F900621939 /* Week 5 MapView TerryTests.xctest */;
+			productReference = AA9AA35219D472F900621939 /* Yelp API Practice MapView TerryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -194,7 +194,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AA9AA32C19D472F800621939 /* Build configuration list for PBXProject "Week 5 MapView Terry" */;
+			buildConfigurationList = AA9AA32C19D472F800621939 /* Build configuration list for PBXProject "Yelp API Practice MapView Terry" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -207,8 +207,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA9AA33019D472F800621939 /* Week 5 MapView Terry */,
-				AA9AA35119D472F900621939 /* Week 5 MapView TerryTests */,
+				AA9AA33019D472F800621939 /* Yelp API Practice MapView Terry */,
+				AA9AA35119D472F900621939 /* Yelp API Practice MapView TerryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,7 +258,7 @@
 /* Begin PBXTargetDependency section */
 		AA9AA35819D472F900621939 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA9AA33019D472F800621939 /* Week 5 MapView Terry */;
+			target = AA9AA33019D472F800621939 /* Yelp API Practice MapView Terry */;
 			targetProxy = AA9AA35719D472F900621939 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -359,9 +359,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Week 5 MapView Terry/Week 5 MapView Terry-Prefix.pch";
-				INFOPLIST_FILE = "Week 5 MapView Terry/Week 5 MapView Terry-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Week 5 MapView Terry/Yelp API Practice MapView Terry-Prefix.pch";
+				INFOPLIST_FILE = "Week 5 MapView Terry/Yelp API Practice MapView Terry-Info.plist";
+				PRODUCT_NAME = "Yelp API Practice MapView Terry";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -372,9 +372,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Week 5 MapView Terry/Week 5 MapView Terry-Prefix.pch";
-				INFOPLIST_FILE = "Week 5 MapView Terry/Week 5 MapView Terry-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Week 5 MapView Terry/Yelp API Practice MapView Terry-Prefix.pch";
+				INFOPLIST_FILE = "Week 5 MapView Terry/Yelp API Practice MapView Terry-Info.plist";
+				PRODUCT_NAME = "Yelp API Practice MapView Terry";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -395,7 +395,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Week 5 MapView TerryTests/Week 5 MapView TerryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Yelp API Practice MapView TerryTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -413,7 +413,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Week 5 MapView Terry/Week 5 MapView Terry-Prefix.pch";
 				INFOPLIST_FILE = "Week 5 MapView TerryTests/Week 5 MapView TerryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Yelp API Practice MapView TerryTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -422,7 +422,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA9AA32C19D472F800621939 /* Build configuration list for PBXProject "Week 5 MapView Terry" */ = {
+		AA9AA32C19D472F800621939 /* Build configuration list for PBXProject "Yelp API Practice MapView Terry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9AA36119D472F900621939 /* Debug */,
@@ -431,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9AA36319D472F900621939 /* Build configuration list for PBXNativeTarget "Week 5 MapView Terry" */ = {
+		AA9AA36319D472F900621939 /* Build configuration list for PBXNativeTarget "Yelp API Practice MapView Terry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9AA36419D472F900621939 /* Debug */,
@@ -440,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9AA36619D472F900621939 /* Build configuration list for PBXNativeTarget "Week 5 MapView TerryTests" */ = {
+		AA9AA36619D472F900621939 /* Build configuration list for PBXNativeTarget "Yelp API Practice MapView TerryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9AA36719D472F900621939 /* Debug */,

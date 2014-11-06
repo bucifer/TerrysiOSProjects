@@ -32,14 +32,23 @@
     
     //Place a single pin on TurnToTech
     MKPointAnnotation *TTTannotation = [[MKPointAnnotation alloc]init];
-    CLLocationCoordinate2D TTTCoordinate;
-    TTTCoordinate.latitude = 40.741444;
-    TTTCoordinate.longitude = -73.990070;
-    [TTTannotation setCoordinate:TTTCoordinate];
-    [TTTannotation setTitle:@"TurnToTech"];
-    TTTannotation.subtitle = @"Subtitle: TurnToTech Office is here!!!!";
-    [self.myMapView addAnnotation:TTTannotation];
-    [self.myMapView selectAnnotation:TTTannotation animated:YES];
+    CLGeocoder *clgeocoder = [[CLGeocoder alloc]init];
+
+    [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
+            if (placemarks != nil) {
+                CLPlacemark *placemark = placemarks[0];
+                NSLog(@"%@", placemark);
+                CLLocation *location = placemark.location;
+                CLLocationCoordinate2D TTTCoordinate = location.coordinate;
+                [TTTannotation setCoordinate: TTTCoordinate];
+                [TTTannotation setTitle:@"TurnToTech"];
+                TTTannotation.subtitle = @"Subtitle: TurnToTech Office is here!!!!";
+                [self.myMapView addAnnotation:TTTannotation];
+                [self.myMapView selectAnnotation:TTTannotation animated:YES];
+            }
+        }
+    ];
+    
     
     self.myMapView.delegate = self;
     self.myMapView.showsUserLocation = YES;
@@ -142,7 +151,7 @@
     // You can parse the stuff in your data variable now or do whatever you want
 
     NSLog(@"connection finished");
-    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     //Convert your responseData object
     NSError *myError = nil;
     NSDictionary *responseDataInNSDictionary = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];

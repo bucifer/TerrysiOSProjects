@@ -35,39 +35,6 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
-
-    CLGeocoder *clgeocoder = [[CLGeocoder alloc]init];
-    
-    [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            NSString *term = @"korean";
-            NSString *location = @"flatiron%20NY";
-            //note that spaces can't be directly substitued into the URL because it will break the URL
-            //%20 denotes spaces
-            NSString *searchLimit= @"20";
-            NSString *address = [[NSString alloc]initWithFormat:@"http://api.yelp.com/v2/search?term=%@&location=%@&limit=%@", term, location, searchLimit];
-            
-            NSURL *URL = [NSURL URLWithString:address];
-            //Some boiler plate code to make with OAuth
-            OAConsumer *consumer = [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecret];
-            //Generates the key we pass for OAuth
-            OAToken *token = [[OAToken alloc] initWithKey:kToken secret:kTokenSecret];
-            //Generates the token we pass for OAuth
-            id<OASignatureProviding, NSObject> provider = [[OAHMAC_SHA1SignatureProvider alloc] init];
-            //Encypts the key & token to send it over the Internet
-            OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:URL consumer:consumer token:token realm:nil signatureProvider:provider];
-            //Makes the URL request for our url with key, token and other info we set
-            [request prepare];
-            //OAuth boilerplate
-            
-            self.responseData = [[NSMutableData alloc] init];
-            //Allocates the NSData object that will handle our asynchronous request
-            NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; //This is the part we make (fire) url request
-        }
-    }];
-
     self.myMapView.delegate = self;
     self.myMapView.showsUserLocation = YES;
     [self.myMapView setMapType:MKMapTypeStandard];
@@ -102,10 +69,61 @@
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    //Everytime the location gets updated, we start from a clean mapview - clear out all annotations
+    [mapView removeAnnotations:mapView.annotations];
+    
+    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000);
     //you can set zoom to 50000 on each to make it nicely zoomed out
     [self.myMapView setRegion:region animated:YES];
+    
+    [self requestDataFromYelpAPI:userLocation];
 }
+
+
+- (void) requestDataFromYelpAPI:(MKUserLocation *)userLocation {
+    CLGeocoder *clgeocoder = [[CLGeocoder alloc]init];
+    [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            
+            //Location Version
+            //            NSString *location = @"flatiron%20NY";
+            //            //note that spaces can't be directly substitued into the URL because it will break the URL
+            //            //%20 denotes spaces
+            //            NSString *address = [[NSString alloc]initWithFormat:@"http://api.yelp.com/v2/search?term=%@&location=%@&limit=%@", term, location, searchLimit];
+            
+            //Configuration
+            NSString *term = @"asian";
+            NSString *radiusFilter = @"300";
+            NSString *searchLimit= @"20";
+            
+            NSString *address = [[NSString alloc]initWithFormat:@"http://api.yelp.com/v2/search?term=%@&ll=%f,%f&radius_filter=%@&limit=%@", term, userLocation.coordinate.latitude, userLocation.coordinate.longitude,radiusFilter, searchLimit];
+            
+            NSURL *URL = [NSURL URLWithString:address];
+            //Some boiler plate code to make with OAuth
+            OAConsumer *consumer = [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecret];
+            //Generates the key we pass for OAuth
+            OAToken *token = [[OAToken alloc] initWithKey:kToken secret:kTokenSecret];
+            //Generates the token we pass for OAuth
+            id<OASignatureProviding, NSObject> provider = [[OAHMAC_SHA1SignatureProvider alloc] init];
+            //Encypts the key & token to send it over the Internet
+            OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:URL consumer:consumer token:token realm:nil signatureProvider:provider];
+            //Makes the URL request for our url with key, token and other info we set
+            [request prepare];
+            //OAuth boilerplate
+            
+            self.responseData = [[NSMutableData alloc] init];
+            //Allocates the NSData object that will handle our asynchronous request
+            NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; //This is the part we make (fire) url request
+        }
+    }];
+
+}
+
+
+
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -131,22 +149,31 @@
     NSLog(@"connection finished");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     
+    [self turnDataIntoWorkableJSONAndDropAnnotationsOnMapView:self.responseData];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+}
+
+- (void) turnDataIntoWorkableJSONAndDropAnnotationsOnMapView:(NSMutableData *) responseData {
     //Convert your responseData object
     NSError *myError = nil;
-    NSDictionary *responseDataInNSDictionary = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSDictionary *responseDataInNSDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
     
-    if (myError)
+    if (myError) {
         NSLog(@"error: %@", myError);
+        return;
+    }
     else {
         NSArray *resultsArray = [responseDataInNSDictionary objectForKey:@"businesses"];
-        NSLog(@"%@", resultsArray);
+        //        NSLog(@"%@", resultsArray);
         
         for (int i = 0; i < resultsArray.count; i++) {
             NSDictionary *restaurantObject = resultsArray[i];
             NSString *restaurantName = [restaurantObject objectForKey:@"name"];
             NSDictionary *locationObject = [restaurantObject objectForKey:@"location"];
-            NSLog(@"%@", locationObject);
-            
             NSDictionary *coordinateObject = [locationObject objectForKey:@"coordinate"];
             double latitude = [[coordinateObject objectForKey:@"latitude"] doubleValue];
             double longitude = [[coordinateObject objectForKey:@"longitude"] doubleValue];
@@ -157,17 +184,14 @@
             [self.myMapView addAnnotation:annotation];
             
             NSString *yelpURL = [restaurantObject objectForKey:@"url"];
-            
             annotation.url = yelpURL;
+            
+            NSLog(@"%@", restaurantName);
         }
         
     }
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
-}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -189,12 +213,10 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    
     RestaurantPointAnnotation *thisAnnotation = (RestaurantPointAnnotation *) view.annotation;
     self.restaurantName = thisAnnotation.title;
     self.url = thisAnnotation.url;
     [self performSegueWithIdentifier:@"webViewSegue" sender:self];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

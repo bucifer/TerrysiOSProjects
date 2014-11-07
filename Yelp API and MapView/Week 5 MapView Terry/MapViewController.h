@@ -28,7 +28,7 @@
 
 
 
-- (void) requestDataFromAPI:(MKUserLocation *)userLocation;
+- (void) requestDataFromYelpAPI:(MKUserLocation *)userLocation;
 
 
 @end

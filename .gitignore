@@ -9,6 +9,10 @@
 *.wav
 *.json
 
+YourKeysAndTokens.m
+
+
+
 0 - hidden/
 SplitAppTests/
 Samples/

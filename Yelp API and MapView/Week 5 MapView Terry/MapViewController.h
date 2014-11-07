@@ -10,7 +10,6 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WebViewController.h"
-#import "TerryMapManager.h"
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue])
 
@@ -22,6 +21,7 @@
 
 @property (strong, nonatomic) NSMutableData *responseData;
 
+@property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString* url;
 
 - (IBAction)segmentMapSelection:(id)sender;

@@ -31,7 +31,7 @@
     [self.locationManager setDelegate:self];
     if (IS_OS_8_OR_LATER) {
         // Use one or the other, not both. Depending on what you put in info.plist
-//        [self.locationManager requestAlwaysAuthorization];
+        //[self.locationManager requestAlwaysAuthorization];
         [self.locationManager requestWhenInUseAuthorization];
     }
     
@@ -77,10 +77,7 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    WebViewController *webVC = [segue destinationViewController];
-    webVC.url = self.url;
-}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -105,7 +102,9 @@
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000);
+    //you can set zoom to 50000 on each to make it nicely zoomed out
+    [self.myMapView setRegion:region animated:YES];
 }
 
 #pragma mark NSURLConnection Delegate Methods
@@ -145,12 +144,32 @@
         for (int i = 0; i < resultsArray.count; i++) {
             NSDictionary *restaurantObject = resultsArray[i];
             NSString *restaurantName = [restaurantObject objectForKey:@"name"];
-            NSLog(@"%@", restaurantName);
+            NSDictionary *locationObject = [restaurantObject objectForKey:@"location"];
+            NSLog(@"%@", locationObject);
+            
+            NSDictionary *coordinateObject = [locationObject objectForKey:@"coordinate"];
+            double latitude = [[coordinateObject objectForKey:@"latitude"] doubleValue];
+            double longitude = [[coordinateObject objectForKey:@"longitude"] doubleValue];
+            CLLocationCoordinate2D restaurantCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
+            RestaurantPointAnnotation *annotation = [[RestaurantPointAnnotation alloc]init];
+            [annotation setCoordinate:restaurantCoordinate];
+            [annotation setTitle:restaurantName];
+            [self.myMapView addAnnotation:annotation];
+            
+            NSString *yelpURL = [restaurantObject objectForKey:@"url"];
+            
+            self.restaurantName = restaurantName;
+            self.url = yelpURL;
+            //this one shows the last URL of the object pulled ... you have to associate it with a RESTAURANT custom object ... make a Restaurant object for everytime you make an annotation 
         }
         
     }
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -176,10 +195,14 @@
     [self performSegueWithIdentifier:@"webViewSegue" sender:self];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    WebViewController *webVC = [segue destinationViewController];
+    webVC.title = self.restaurantName;
+    webVC.url = self.url;
+
 }
+
+
 
 
 @end

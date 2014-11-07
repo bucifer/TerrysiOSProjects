@@ -42,7 +42,7 @@
 		AAD44F711A0D3AA500FDB656 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD44F6C1A0D3AA500FDB656 /* NSURLRequest+OAuth.m */; };
 		AAD44F721A0D3AA500FDB656 /* YourKeysAndTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD44F6E1A0D3AA500FDB656 /* YourKeysAndTokens.m */; };
 		AAD44F731A0D3AA500FDB656 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD44F701A0D3AA500FDB656 /* YPAPISample.m */; };
-		AAD758F11A0C3730003CF7EB /* TerryMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD758F01A0C3730003CF7EB /* TerryMapManager.m */; };
+		AAD44F751A0D4C0E00FDB656 /* TurnToTech.gpx in Resources */ = {isa = PBXBuildFile; fileRef = AAD44F741A0D4C0E00FDB656 /* TurnToTech.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,8 +119,7 @@
 		AAD44F6E1A0D3AA500FDB656 /* YourKeysAndTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourKeysAndTokens.m; sourceTree = "<group>"; };
 		AAD44F6F1A0D3AA500FDB656 /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
 		AAD44F701A0D3AA500FDB656 /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
-		AAD758EF1A0C3730003CF7EB /* TerryMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerryMapManager.h; sourceTree = "<group>"; };
-		AAD758F01A0C3730003CF7EB /* TerryMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerryMapManager.m; sourceTree = "<group>"; };
+		AAD44F741A0D4C0E00FDB656 /* TurnToTech.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TurnToTech.gpx; path = "Week 5 MapView Terry/TurnToTech.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +150,7 @@
 		AA9AA32819D472F800621939 = {
 			isa = PBXGroup;
 			children = (
+				AAD44F741A0D4C0E00FDB656 /* TurnToTech.gpx */,
 				AA9AA33A19D472F800621939 /* Week 5 MapView Terry */,
 				AA9AA33319D472F800621939 /* Frameworks */,
 				AA9AA33219D472F800621939 /* Products */,
@@ -193,8 +193,6 @@
 				AAD44F6E1A0D3AA500FDB656 /* YourKeysAndTokens.m */,
 				AA9AA34919D472F800621939 /* MapViewController.h */,
 				AA9AA34A19D472F800621939 /* MapViewController.m */,
-				AAD758EF1A0C3730003CF7EB /* TerryMapManager.h */,
-				AAD758F01A0C3730003CF7EB /* TerryMapManager.m */,
 				AA9F1E4D19D4CAB2005C0066 /* WebViewController.h */,
 				AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */,
 				AAA1032719D5ADCF00A95CDC /* RestaurantPointAnnotation.h */,
@@ -354,6 +352,7 @@
 				AA9AA34D19D472F800621939 /* Images.xcassets in Resources */,
 				AA9AA33F19D472F800621939 /* InfoPlist.strings in Resources */,
 				AA9AA34819D472F800621939 /* Main.storyboard in Resources */,
+				AAD44F751A0D4C0E00FDB656 /* TurnToTech.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +392,6 @@
 				AAD44F661A0D3A9100FDB656 /* OAProblem.m in Sources */,
 				AAD44F611A0D3A9100FDB656 /* OAConsumer.m in Sources */,
 				AAD44F631A0D3A9100FDB656 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
-				AAD758F11A0C3730003CF7EB /* TerryMapManager.m in Sources */,
 				AA9AA34119D472F800621939 /* main.m in Sources */,
 				AAD44F5B1A0D3A9100FDB656 /* NSString+URLEncoding.m in Sources */,
 				AA9F1E4F19D4CAB2005C0066 /* WebViewController.m in Sources */,

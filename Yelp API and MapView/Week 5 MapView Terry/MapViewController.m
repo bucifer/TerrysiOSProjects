@@ -86,7 +86,8 @@
     [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
-        } else {
+        }
+        else {
             
             //Location Version
             //            NSString *location = @"flatiron%20NY";

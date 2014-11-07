@@ -181,8 +181,6 @@
 		AA9AA33A19D472F800621939 /* Week 5 MapView Terry */ = {
 			isa = PBXGroup;
 			children = (
-				AA9AA34319D472F800621939 /* AppDelegate.h */,
-				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AAD44F331A0D3A9100FDB656 /* OAuthConsumer */,
 				AA9AA34619D472F800621939 /* Main.storyboard */,
 				AAD44F6B1A0D3AA500FDB656 /* NSURLRequest+OAuth.h */,
@@ -197,6 +195,8 @@
 				AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */,
 				AAA1032719D5ADCF00A95CDC /* RestaurantPointAnnotation.h */,
 				AAA1032819D5ADCF00A95CDC /* RestaurantPointAnnotation.m */,
+				AA9AA34319D472F800621939 /* AppDelegate.h */,
+				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AA9AA34C19D472F800621939 /* Images.xcassets */,
 				AA9AA33B19D472F800621939 /* Supporting Files */,
 			);

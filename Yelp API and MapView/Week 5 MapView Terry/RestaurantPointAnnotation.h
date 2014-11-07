@@ -10,4 +10,8 @@
 
 @interface RestaurantPointAnnotation : MKPointAnnotation
 
+
+@property (nonatomic, strong) NSString *url;
+
+
 @end

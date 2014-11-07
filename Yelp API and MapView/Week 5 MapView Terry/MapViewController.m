@@ -158,9 +158,7 @@
             
             NSString *yelpURL = [restaurantObject objectForKey:@"url"];
             
-            self.restaurantName = restaurantName;
-            self.url = yelpURL;
-            //this one shows the last URL of the object pulled ... you have to associate it with a RESTAURANT custom object ... make a Restaurant object for everytime you make an annotation 
+            annotation.url = yelpURL;
         }
         
     }
@@ -191,8 +189,12 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    // Perform Segue
+    
+    RestaurantPointAnnotation *thisAnnotation = (RestaurantPointAnnotation *) view.annotation;
+    self.restaurantName = thisAnnotation.title;
+    self.url = thisAnnotation.url;
     [self performSegueWithIdentifier:@"webViewSegue" sender:self];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

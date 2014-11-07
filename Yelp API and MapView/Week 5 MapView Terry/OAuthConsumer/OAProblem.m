@@ -102,12 +102,12 @@ const NSString *token_not_renewable = @"token_not_renewable";
 }
 
 - (int)code {
-	return [[[self class] validProblems] indexOfObject:problem];
+	return (int) [[[self class] validProblems] indexOfObject:problem];
 }
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"OAuth Problem: %@", (NSString *)problem];
+	return  [NSString stringWithFormat:@"OAuth Problem: %@", (NSString *)problem];
 }
 
 #pragma mark class_methods

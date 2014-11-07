@@ -10,6 +10,11 @@
 #import "WebViewController.h"
 #import "RestaurantPointAnnotation.h"
 #import "YPAPISample.h"
+#import "OAConsumer.h"
+#import "OAToken.h"
+#import "OAMutableURLRequest.h"
+#import "NSURLRequest+OAuth.h"
+#import "YourKeysAndTokens.h"
 
 @interface MapViewController ()
 
@@ -30,58 +35,51 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
-    //Place a single pin on TurnToTech
-    MKPointAnnotation *TTTannotation = [[MKPointAnnotation alloc]init];
-    CLGeocoder *clgeocoder = [[CLGeocoder alloc]init];
 
+    CLGeocoder *clgeocoder = [[CLGeocoder alloc]init];
+    
     [clgeocoder geocodeAddressString:@"TurnToTech, New York, NY" completionHandler:^(NSArray *placemarks, NSError *error) {
-            if (placemarks != nil) {
-                CLPlacemark *placemark = placemarks[0];
-                CLLocation *location = placemark.location;
-                CLLocationCoordinate2D TTTCoordinate = location.coordinate;
-                [TTTannotation setCoordinate: TTTCoordinate];
-                [TTTannotation setTitle:@"TurnToTech"];
-                TTTannotation.subtitle = @"Subtitle: TurnToTech Office is here!!!!";
-                [self.myMapView addAnnotation:TTTannotation];
-                [self.myMapView selectAnnotation:TTTannotation animated:YES];
-            }
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            NSString *term = @"korean";
+            NSString *location = @"flatiron%20NY";
+            //note that spaces can't be directly substitued into the URL because it will break the URL
+            //%20 denotes spaces
+            NSString *searchLimit= @"20";
+            NSString *address = [[NSString alloc]initWithFormat:@"http://api.yelp.com/v2/search?term=%@&location=%@&limit=%@", term, location, searchLimit];
+            
+            NSURL *URL = [NSURL URLWithString:address];
+            //Some boiler plate code to make with OAuth
+            OAConsumer *consumer = [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecret];
+            //Generates the key we pass for OAuth
+            OAToken *token = [[OAToken alloc] initWithKey:kToken secret:kTokenSecret];
+            //Generates the token we pass for OAuth
+            id<OASignatureProviding, NSObject> provider = [[OAHMAC_SHA1SignatureProvider alloc] init];
+            //Encypts the key & token to send it over the Internet
+            OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:URL consumer:consumer token:token realm:nil signatureProvider:provider];
+            //Makes the URL request for our url with key, token and other info we set
+            [request prepare];
+            //OAuth boilerplate
+            
+            self.responseData = [[NSMutableData alloc] init];
+            //Allocates the NSData object that will handle our asynchronous request
+            NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; //This is the part we make (fire) url request
         }
-    ];
-    
-    
+    }];
+
     self.myMapView.delegate = self;
     self.myMapView.showsUserLocation = YES;
     [self.myMapView setMapType:MKMapTypeStandard];
     [self.myMapView setZoomEnabled:YES];
     [self.myMapView setScrollEnabled:YES];
     
-    
-    
-    
-    
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
     WebViewController *webVC = [segue destinationViewController];
     webVC.url = self.url;
-}
-
-
-- (void)requestDataFromAPI:(MKUserLocation *)userLocation {
-    //initialize your responseData here
-    self.responseData = [NSMutableData data];
-    
-    
-    
-
-    
-//    NSURL *APIRequestURL = [NSURL URLWithString:requestString];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:APIRequestURL];
-//    request.HTTPMethod = @"GET";
-//    //Fire the request you made before
-//    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: request delegate: self];
 }
 
 
@@ -107,24 +105,7 @@
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    NSLog(@"Location: %f, %f",
-          userLocation.location.coordinate.latitude,
-          userLocation.location.coordinate.longitude);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000);
-    
-    //you can set zoom to 50000 on each to make it nicely zoomed out
-    [self.myMapView setRegion:region animated:YES];
-    
-    //Place a single pin at where you are
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-    [annotation setCoordinate:userLocation.coordinate];
-    [annotation setTitle:@"You are here"];
-    annotation.subtitle = @"GPS says that you are here";
-    [self.myMapView addAnnotation:annotation];
-    [self.myMapView selectAnnotation:annotation animated:YES];
-    
-    //you make this call here, because you want the restaurant pins to change based on your location change
-    [self requestDataFromAPI:userLocation];
+
 }
 
 #pragma mark NSURLConnection Delegate Methods
@@ -155,26 +136,21 @@
     NSError *myError = nil;
     NSDictionary *responseDataInNSDictionary = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     
-    NSArray *resultsArray = [responseDataInNSDictionary objectForKey:@"results"];
-    for (int i=0; i < resultsArray.count; i++) {
-        NSDictionary *restaurantObject = resultsArray[i];
-        NSString *restaurantName = [restaurantObject objectForKey:@"name"];
-        NSDictionary *geometryObject = [restaurantObject objectForKey:@"geometry"];
-        NSDictionary *locationObject = [geometryObject objectForKey:@"location"];
-        NSLog(@"%@", restaurantName);
-        //Place the pin on these restaurants
-        RestaurantPointAnnotation *annotation = [[RestaurantPointAnnotation alloc]init];
-        CLLocationCoordinate2D restaurantCoordinate = CLLocationCoordinate2DMake([[locationObject objectForKey:@"lat"] doubleValue], [[locationObject objectForKey:@"lng"] doubleValue]);
+    if (myError)
+        NSLog(@"error: %@", myError);
+    else {
+        NSArray *resultsArray = [responseDataInNSDictionary objectForKey:@"businesses"];
+        NSLog(@"%@", resultsArray);
         
-        [annotation setCoordinate:restaurantCoordinate];
-        [annotation setTitle:restaurantName];
+        for (int i = 0; i < resultsArray.count; i++) {
+            NSDictionary *restaurantObject = resultsArray[i];
+            NSString *restaurantName = [restaurantObject objectForKey:@"name"];
+            NSLog(@"%@", restaurantName);
+        }
         
-        annotation.subtitle = [restaurantObject objectForKey:@"icon"];
-        self.url = annotation.subtitle;
-        
-        [self.myMapView addAnnotation:annotation];
     }
 }
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {

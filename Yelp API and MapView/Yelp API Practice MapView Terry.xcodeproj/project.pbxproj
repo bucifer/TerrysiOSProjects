@@ -181,16 +181,16 @@
 		AA9AA33A19D472F800621939 /* Week 5 MapView Terry */ = {
 			isa = PBXGroup;
 			children = (
+				AA9AA34319D472F800621939 /* AppDelegate.h */,
+				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AAD44F331A0D3A9100FDB656 /* OAuthConsumer */,
 				AA9AA34619D472F800621939 /* Main.storyboard */,
 				AAD44F6B1A0D3AA500FDB656 /* NSURLRequest+OAuth.h */,
 				AAD44F6C1A0D3AA500FDB656 /* NSURLRequest+OAuth.m */,
-				AAD44F6D1A0D3AA500FDB656 /* YourKeysAndTokens.h */,
-				AAD44F6E1A0D3AA500FDB656 /* YourKeysAndTokens.m */,
 				AAD44F6F1A0D3AA500FDB656 /* YPAPISample.h */,
 				AAD44F701A0D3AA500FDB656 /* YPAPISample.m */,
-				AA9AA34319D472F800621939 /* AppDelegate.h */,
-				AA9AA34419D472F800621939 /* AppDelegate.m */,
+				AAD44F6D1A0D3AA500FDB656 /* YourKeysAndTokens.h */,
+				AAD44F6E1A0D3AA500FDB656 /* YourKeysAndTokens.m */,
 				AA9AA34919D472F800621939 /* MapViewController.h */,
 				AA9AA34A19D472F800621939 /* MapViewController.m */,
 				AAD758EF1A0C3730003CF7EB /* TerryMapManager.h */,

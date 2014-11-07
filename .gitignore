@@ -7,9 +7,9 @@
 *.gif
 *.mp3
 *.wav
-
 *.json
 
+0 - hidden/
 SplitAppTests/
 Samples/
 

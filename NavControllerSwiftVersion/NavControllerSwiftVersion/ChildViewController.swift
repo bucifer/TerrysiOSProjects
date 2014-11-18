@@ -1,23 +1,17 @@
 //
-//  CompanyViewController.swift
+//  ChildViewController.swift
 //  NavControllerSwiftVersion
 //
-//  Created by Aditya Narayan on 11/17/14.
+//  Created by Aditya Narayan on 11/18/14.
 //  Copyright (c) 2014 TerryBuOrganization. All rights reserved.
 //
 
 import UIKit
 
-class CompanyViewController: UITableViewController {
+class ChildViewController: UITableViewController {
 
-    var dao = DAO()
-    var companies: [Company]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.companies = dao.createDefaultCompanies()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,27 +28,26 @@ class CompanyViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.companies!.count
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
 
-        cell.textLabel.text = self.companies![indexPath.row].name;
-        cell.imageView.image = UIImage(named: self.companies![indexPath.row].image!);
         return cell
     }
-
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,16 +84,14 @@ class CompanyViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "childViewSegue") {
-            let childVC: ChildViewController = segue.destinationViewController as ChildViewController
-            
-        }
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }

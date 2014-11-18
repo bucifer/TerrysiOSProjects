@@ -37,7 +37,7 @@
         <!--Product View Controller-->
         <scene sceneID="wC2-ul-msq">
             <objects>
-                <tableViewController title="Product View Controller" id="9jd-qz-ibn" customClass="ChildViewController" customModule="NavControllerSwiftVersion" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Product View Controller" id="9jd-qz-ibn" customClass="ProductViewController" customModule="NavControllerSwiftVersion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Z2c-fi-rXZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

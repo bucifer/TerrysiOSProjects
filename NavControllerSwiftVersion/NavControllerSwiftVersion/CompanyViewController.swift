@@ -11,13 +11,11 @@ import UIKit
 class CompanyViewController: UITableViewController {
 
     var dao = DAO()
-    var companies: [Company]?
+    var selectedCompany: Company?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.companies = dao.createDefaultCompanies()
-        
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,7 +39,7 @@ class CompanyViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.companies!.count
+        return self.dao.companies!.count
     }
 
     
@@ -50,11 +48,10 @@ class CompanyViewController: UITableViewController {
 
         // Configure the cell...
 
-        cell.textLabel.text = self.companies![indexPath.row].name;
-        cell.imageView.image = UIImage(named: self.companies![indexPath.row].image!);
+        cell.textLabel.text = self.dao.companies![indexPath.row].name;
+        cell.imageView.image = UIImage(named: self.dao.companies![indexPath.row].image!);
         return cell
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,8 +94,10 @@ class CompanyViewController: UITableViewController {
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "childViewSegue") {
-            let childVC: ChildViewController = segue.destinationViewController as ChildViewController
-            
+            let productVC: ProductViewController = segue.destinationViewController as ProductViewController
+            let indexPath = self.tableView.indexPathForSelectedRow()
+
+            productVC.company = self.dao.companies![indexPath!.row]
         }
     }
     

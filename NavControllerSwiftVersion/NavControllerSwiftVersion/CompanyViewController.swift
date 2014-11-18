@@ -10,15 +10,13 @@ import UIKit
 
 class CompanyViewController: UITableViewController {
 
+    var dao = DAO()
     var companies: [Company]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var apple: Company = Company(name: "Apple", image: "apple")
-        var samsung: Company = Company(name: "Samsung", image: "samsung")
-        
-        self.companies = [apple, samsung]
+        self.companies = dao.createDefaultCompanies()
         
 
         // Uncomment the following line to preserve selection between presentations

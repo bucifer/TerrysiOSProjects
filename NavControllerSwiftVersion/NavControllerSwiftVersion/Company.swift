@@ -12,9 +12,11 @@ class Company: NSObject {
    
     var name: String?
     var image: String?
+    var companyID: Int
     
-    init (name: String, image: String) {
+    init (name: String, image: String, companyID: Int) {
         self.name = name
         self.image = image
+        self.companyID = companyID
     }
 }

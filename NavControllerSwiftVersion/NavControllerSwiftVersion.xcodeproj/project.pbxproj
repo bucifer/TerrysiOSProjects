@@ -13,6 +13,8 @@
 		AAD7FF921A1ACA8A00CD3A7F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAD7FF901A1ACA8A00CD3A7F /* LaunchScreen.xib */; };
 		AAD7FF9E1A1ACA8A00CD3A7F /* NavControllerSwiftVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FF9D1A1ACA8A00CD3A7F /* NavControllerSwiftVersionTests.swift */; };
 		AAD7FFA81A1ACABF00CD3A7F /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FFA71A1ACABF00CD3A7F /* CompanyViewController.swift */; };
+		AAD7FFAA1A1ACB4C00CD3A7F /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FFA91A1ACB4C00CD3A7F /* Company.swift */; };
+		AAD7FFAC1A1ACC6E00CD3A7F /* motorola.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAD7FFAB1A1ACC6E00CD3A7F /* motorola.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		AAD7FF9C1A1ACA8A00CD3A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD7FF9D1A1ACA8A00CD3A7F /* NavControllerSwiftVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerSwiftVersionTests.swift; sourceTree = "<group>"; };
 		AAD7FFA71A1ACABF00CD3A7F /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
+		AAD7FFA91A1ACB4C00CD3A7F /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		AAD7FFAB1A1ACC6E00CD3A7F /* motorola.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = motorola.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 		AAD7FF841A1ACA8A00CD3A7F /* NavControllerSwiftVersion */ = {
 			isa = PBXGroup;
 			children = (
+				AAD7FFAB1A1ACC6E00CD3A7F /* motorola.gif */,
 				AAD7FF871A1ACA8A00CD3A7F /* AppDelegate.swift */,
 				AAD7FF8B1A1ACA8A00CD3A7F /* Main.storyboard */,
+				AAD7FFA91A1ACB4C00CD3A7F /* Company.swift */,
 				AAD7FFA71A1ACABF00CD3A7F /* CompanyViewController.swift */,
 				AAD7FF8E1A1ACA8A00CD3A7F /* Images.xcassets */,
 				AAD7FF901A1ACA8A00CD3A7F /* LaunchScreen.xib */,
@@ -193,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAD7FF8D1A1ACA8A00CD3A7F /* Main.storyboard in Resources */,
+				AAD7FFAC1A1ACC6E00CD3A7F /* motorola.gif in Resources */,
 				AAD7FF921A1ACA8A00CD3A7F /* LaunchScreen.xib in Resources */,
 				AAD7FF8F1A1ACA8A00CD3A7F /* Images.xcassets in Resources */,
 			);
@@ -214,6 +221,7 @@
 			files = (
 				AAD7FFA81A1ACABF00CD3A7F /* CompanyViewController.swift in Sources */,
 				AAD7FF881A1ACA8A00CD3A7F /* AppDelegate.swift in Sources */,
+				AAD7FFAA1A1ACB4C00CD3A7F /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

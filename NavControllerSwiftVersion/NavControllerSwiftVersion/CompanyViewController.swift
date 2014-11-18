@@ -10,8 +10,16 @@ import UIKit
 
 class CompanyViewController: UITableViewController {
 
+    var companies: [Company]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var apple: Company = Company(name: "Apple", image: "apple")
+        var samsung: Company = Company(name: "Samsung", image: "samsung")
+        
+        self.companies = [apple, samsung]
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,26 +36,27 @@ class CompanyViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.companies!.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
 
+        cell.textLabel.text = self.companies![indexPath.row].name;
+        cell.imageView.image = UIImage(named: self.companies![indexPath.row].image!);
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

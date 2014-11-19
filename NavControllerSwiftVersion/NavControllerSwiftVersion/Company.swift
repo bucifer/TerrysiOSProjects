@@ -13,7 +13,7 @@ class Company: NSObject {
     var name: String
     var image: String?
     var companyID: Int
-    var products: [Product]?
+    var products: [Product]
     
     init (name: String, image: String, companyID: Int) {
         self.name = name

@@ -26,7 +26,7 @@ class DAO: NSObject {
         for company in self.companies! {
             for product in self.products! {
                 if product.companyID == company.companyID {
-                    company.products!.append(product)
+                    company.products.append(product)
                 }
             }
         }

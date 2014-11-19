@@ -11,9 +11,9 @@ import UIKit
 class Product: NSObject {
    
     var name: String
-    var image: String?
-    var url: String?
-    var companyID: Int?
+    var image: String
+    var url: String
+    var companyID: Int
     
     init(name: String, image: String, url: String, companyID: Int) {
         self.name = name

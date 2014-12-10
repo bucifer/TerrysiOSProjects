@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Nimbus/AttributedLabel (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Core (1.2.0)
+  - SAMCategories (0.5.2)
+  - TheAmazingAudioEngine (1.4.5)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5)
+  - Nimbus/AttributedLabel
+  - SAMCategories
+  - TheAmazingAudioEngine (~> 1.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  Nimbus: 14fd6f034c5f53d3dccef6cfd5763959497289a9
+  SAMCategories: dc26f9dc67d371d22f391ee2173bc607a887912e
+  TheAmazingAudioEngine: 34279bc2841262eae7a24c3c7944a43fab72918e
+
+COCOAPODS: 0.35.0

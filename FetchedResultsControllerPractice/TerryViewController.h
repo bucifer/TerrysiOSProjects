@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface TerryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TerryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+- (IBAction)editButton:(id)sender;
 
 @end

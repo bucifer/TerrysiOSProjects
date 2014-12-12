@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface AddNinjaController : UIViewController <UITextFieldDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *ageTextField;
+
+@property (strong, nonatomic) IBOutlet UISwitch *rasenganSwitch;
+
+- (IBAction)switchAction:(id)sender;
+
+
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 @end
